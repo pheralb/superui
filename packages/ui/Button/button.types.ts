@@ -1,4 +1,4 @@
-import type { Variant } from "./variants";
+import type { Variant } from "../variants";
 
 export interface ButtonProps {
   children?: React.ReactNode;
