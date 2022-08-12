@@ -4,7 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "../node_modules/superui/**/*.{js,ts,jsx,tsx}",
-    "../node_modules/superui/dist/index.js",
+    "../node_modules/superui/dist/index.{js,mjs}",
   ],
   theme: {
     extend: {},
