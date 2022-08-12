@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "2.2.6",
+    "superui": "*",
+    "@emotion/react": "11.10.0",
+    "@emotion/styled": "11.10.0",
+    "framer-motion": "7.1.0",
     "gray-matter": "4.0.3",
     "next": "12.2.5",
     "next-mdx-remote": "4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-code-titles": "1.1.0",
-    "rehype-prism-plus": "1.4.2",
-    "superui": "*"
+    "rehype-prism-plus": "1.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
