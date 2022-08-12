@@ -1,8 +1,12 @@
 {
-  "name": "ui",
+  "name": "superui",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pheralb/superui.git"
+  },
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*"
