@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "nagit": "0.0.18",
     "next-transpile-modules": "9.0.0",
     "prettier": "latest",
     "turbo": "latest"
@@ -26,6 +27,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "npm@8.5.0"
 }
