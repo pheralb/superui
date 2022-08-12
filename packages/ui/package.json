@@ -1,7 +1,8 @@
 {
   "name": "superui",
   "version": "0.0.0",
-  "main": "./index.tsx",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./index.tsx",
   "repository": {
     "type": "git",
@@ -12,7 +13,8 @@
     "lint": "eslint *.ts*",
     "build": "tsup ./index.tsx --format esm,cjs --external react",
     "dev": "tsup ./index.tsx --format esm,cjs --watch --external react",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "postinstall": "node ./postinstall.mjs"
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
