@@ -8,7 +8,10 @@ export default function Docs() {
         <Button variant="primary">Primary Button</Button>
         <Button variant="secondary">Secondary Button</Button>
         <Button variant="danger">Danger Button</Button>
-        <Button variant="primary" className="bg-gray-600">
+        <Button
+          variant="primary"
+          className="bg-gray-600 hover:bg-gray-300 hover:text-black"
+        >
           Custom Button
         </Button>
       </div>
