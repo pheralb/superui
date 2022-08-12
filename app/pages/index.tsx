@@ -1,4 +1,4 @@
-import { Button } from "superui";
+import { Button, Input } from "superui";
 
 export default function Docs() {
   return (
@@ -14,6 +14,9 @@ export default function Docs() {
         >
           Custom Button
         </Button>
+        <Input variant="primary" placeholder="Input" type={"text"} />
+        <Input variant="secondary" placeholder="Input" type={"date"} />
+        <Input variant="danger" placeholder="Input" type={"number"} />
       </div>
     </div>
   );
