@@ -14,10 +14,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "pre-commit": "npm run lint && npm run format"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "husky": "^8.0.1",
     "nagit": "0.0.18",
     "next-transpile-modules": "9.0.0",
     "prettier": "latest",
