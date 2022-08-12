@@ -7,7 +7,7 @@
     "url": "https://github.com/pheralb/superui.git"
   },
   "workspaces": [
-    "apps/*",
+    "*",
     "packages/*"
   ],
   "scripts": {
