@@ -1,3 +1,4 @@
+import Group from "@/../packages/ui/ButtonGroup";
 import { Button, Input } from "superui";
 
 export default function Docs() {
@@ -18,6 +19,16 @@ export default function Docs() {
         <Input variant="secondary" placeholder="Input" type={"date"} />
         <Input variant="danger" placeholder="Input" type={"number"} />
         <Input variant="primary" placeholder="Input" type={"password"} />
+        <Group variant="outline">
+          <Group.Item>Item 1</Group.Item>
+          <Group.Item>Item 2</Group.Item>
+          <Group.Item>Item 3</Group.Item>
+        </Group>
+        <Group variant="solid">
+          <Group.Item>Item 1</Group.Item>
+          <Group.Item>Item 2</Group.Item>
+          <Group.Item>Item 3</Group.Item>
+        </Group>
       </div>
     </div>
   );
