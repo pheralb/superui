@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ButtonGroupProps, GroupItemProps } from "./buttonGroup.types";
 
-const Group = ({
+export const Group = ({
   children,
   variant = "solid",
   size = "medium",
@@ -55,8 +55,6 @@ const Item = ({
 };
 
 Group.Item = Item;
-
-export default Group;
 
 const GROUP_BASE = "flex flex-row gap-0";
 const ITEM_BASE = "px-4 py-1 border";
