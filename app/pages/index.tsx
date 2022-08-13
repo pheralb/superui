@@ -17,6 +17,7 @@ export default function Docs() {
         <Input variant="primary" placeholder="Input" type={"text"} />
         <Input variant="secondary" placeholder="Input" type={"date"} />
         <Input variant="danger" placeholder="Input" type={"number"} />
+        <Input variant="primary" placeholder="Input" type={"password"} />
       </div>
     </div>
   );
