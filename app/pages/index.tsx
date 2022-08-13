@@ -20,14 +20,14 @@ export default function Docs() {
         <Input variant="danger" placeholder="Input" type={"number"} />
         <Input variant="primary" placeholder="Input" type={"password"} />
         <Group variant="outline">
-          <Group.Item>Item 1</Group.Item>
-          <Group.Item>Item 2</Group.Item>
-          <Group.Item>Item 3</Group.Item>
+          <Group.Item name="1">Item 1</Group.Item>
+          <Group.Item name="2">Item 2</Group.Item>
+          <Group.Item name="3">Item 3</Group.Item>
         </Group>
         <Group variant="solid">
-          <Group.Item>Item 1</Group.Item>
-          <Group.Item>Item 2</Group.Item>
-          <Group.Item>Item 3</Group.Item>
+          <Group.Item name="1">Item 1</Group.Item>
+          <Group.Item name="2">Item 2</Group.Item>
+          <Group.Item name="3">Item 3</Group.Item>
         </Group>
       </div>
     </div>
