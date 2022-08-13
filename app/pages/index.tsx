@@ -1,5 +1,5 @@
 import Group from "@/../packages/ui/ButtonGroup";
-import { Button, Input, LinearProgress } from "superui";
+import { Avatar, Button, Input, LinearProgress } from "superui";
 
 export default function Docs() {
   return (
@@ -32,6 +32,80 @@ export default function Docs() {
         <LinearProgress variant="primary" type="determinate" value={50} />
         <LinearProgress variant="secondary" type="determinate" value={25} />
         <LinearProgress variant="danger" type="determinate" value={75} />
+        <div className="inline-flex items-end gap-3">
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="xs"
+            type="circle"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="sm"
+            type="circle"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="md"
+            type="circle"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="lg"
+            type="circle"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="xl"
+            type="circle"
+            bordered
+          />
+        </div>
+        <div className="inline-flex items-end gap-3">
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="xs"
+            type="square"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="sm"
+            type="square"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="md"
+            type="square"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="lg"
+            type="square"
+            bordered
+          />
+          <Avatar
+            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            alt="Prueba"
+            size="xl"
+            type="square"
+            bordered
+          />
+        </div>
       </div>
     </div>
   );
