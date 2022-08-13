@@ -19,7 +19,7 @@ export const Button = ({
 };
 
 const SHARED_STYLES =
-  "px-2 py-1 w-fit font-bold rounded transition-colors duration-200";
+  "px-4 py-3 w-fit font-bold rounded transition-colors duration-200";
 
 const BUTTON_STYLES = {
   primary: "bg-blue-600 text-white font-bold rounded hover:bg-blue-500",
