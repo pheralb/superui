@@ -5,6 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "../node_modules/superui/**/*.{js,ts,jsx,tsx}",
     "../node_modules/superui/dist/index.{js,mjs}",
+    "../packages/superui/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},

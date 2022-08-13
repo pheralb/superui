@@ -1,5 +1,5 @@
-import React from "react";
-import { ButtonGroupProps } from "./buttonGroup.types";
+import React, { useState } from "react";
+import { ButtonGroupProps, GroupItemProps } from "./buttonGroup.types";
 
 const Group = ({
   children,
@@ -8,9 +8,11 @@ const Group = ({
   className,
   ...rest
 }: ButtonGroupProps) => {
+  const [active, setActive] = useState("");
+
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { variant });
+      return React.cloneElement(child, { variant, active, setActive });
     }
     return child;
   });
@@ -24,10 +26,29 @@ const Group = ({
   );
 };
 
-const Item = ({ variant = "solid", children, ...rest }: ButtonGroupProps) => {
-  const genClassName = `${ITEM_BASE} ${VARIANTS[variant]} ${rest.className}`;
+const Item = ({
+  variant = "solid",
+  children,
+  onClick,
+  name,
+  active,
+  setActive,
+  ...rest
+}: GroupItemProps) => {
+  const genClassName = `${ITEM_BASE} ${VARIANTS[variant]} ${
+    active === name ? ACTIVE_VARIANTS[variant] : ""
+  } ${rest.className || ""}`;
+
+  // When clicked set this nav item as active
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+    }
+    setActive && setActive(name as string);
+  };
+
   return (
-    <button className={genClassName} {...rest}>
+    <button className={genClassName} onClick={handleClick}>
       {children}
     </button>
   );
@@ -50,4 +71,10 @@ const VARIANTS = {
   solid: "bg-gray-600 text-white border-transparent",
   outline: "bg-transparent text-black border-black",
   transparent: "bg-transparent text-black",
+};
+
+const ACTIVE_VARIANTS = {
+  solid: "bg-gray-800 text-white border-transparent",
+  outline: "bg-gray-300 text-black border-black",
+  transparent: "bg-white bg-opacity-30 text-black",
 };
