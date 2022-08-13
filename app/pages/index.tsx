@@ -1,5 +1,5 @@
 import Group from "@/../packages/ui/ButtonGroup";
-import { Button, Input } from "superui";
+import { Button, Input, LinearProgress } from "superui";
 
 export default function Docs() {
   return (
@@ -29,6 +29,9 @@ export default function Docs() {
           <Group.Item name="2">Item 2</Group.Item>
           <Group.Item name="3">Item 3</Group.Item>
         </Group>
+        <LinearProgress variant="primary" type="determinate" value={50} />
+        <LinearProgress variant="secondary" type="determinate" value={25} />
+        <LinearProgress variant="danger" type="determinate" value={75} />
       </div>
     </div>
   );
