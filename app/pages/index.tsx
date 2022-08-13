@@ -34,35 +34,35 @@ export default function Docs() {
         <LinearProgress variant="danger" type="determinate" value={75} />
         <div className="inline-flex items-end gap-3">
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xs"
             type="circle"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="sm"
             type="circle"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="md"
             type="circle"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="lg"
             type="circle"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xl"
             type="circle"
@@ -71,35 +71,35 @@ export default function Docs() {
         </div>
         <div className="inline-flex items-end gap-3">
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xs"
             type="square"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="sm"
             type="square"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="md"
             type="square"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="lg"
             type="square"
             bordered
           />
           <Avatar
-            src="https://avatars0.githubusercontent.com/u/17098?s=460&v=4"
+            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xl"
             type="square"
