@@ -8,9 +8,9 @@ export interface ButtonGroupProps {
 export interface GroupItemProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  name: string;
   variant?: "solid" | "outline" | "transparent";
   size?: "small" | "medium" | "large";
-  name?: string;
   active?: string;
   setActive?: (index: string) => void;
 }
