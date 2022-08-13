@@ -103,6 +103,7 @@ export default function Docs() {
             alt="Prueba"
             size="xl"
             type="square"
+            className="border-blue-700"
             bordered
           />
         </div>

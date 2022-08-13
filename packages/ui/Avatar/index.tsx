@@ -21,7 +21,7 @@ export const Avatar = ({
 };
 
 const SHARED_STYLES = "flex items-center justify-center";
-const BORDERED = "border-2 border-gray-300 p-1";
+const BORDERED = "border-[2.5px] border-gray-300 p-[0.17rem]";
 
 const SIZES = {
   xs: "w-8 h-8",
