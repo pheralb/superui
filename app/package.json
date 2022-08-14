@@ -23,15 +23,15 @@
     "rehype-prism-plus": "1.4.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@types/node": "^17.0.12",
+    "@babel/core": "7.0.0",
+    "@types/node": "17.0.12",
     "@types/react": "17.0.48",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "10.4.8",
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
     "postcss": "8.4.16",
     "tailwindcss": "3.1.8",
     "tsconfig": "*",
-    "typescript": "^4.5.3"
+    "typescript": "4.5.3"
   }
 }
