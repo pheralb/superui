@@ -1,5 +1,4 @@
-import Group from "@/../packages/ui/ButtonGroup";
-import { Avatar, Button, Input, LinearProgress } from "superui";
+import { Avatar, Button, Input, LinearProgress, Group } from "superui";
 
 export default function Docs() {
   return (
@@ -37,51 +36,13 @@ export default function Docs() {
             src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xs"
-            type="circle"
-            bordered
+            type="square"
           />
           <Avatar
             src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="sm"
             type="circle"
-            bordered
-          />
-          <Avatar
-            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
-            alt="Prueba"
-            size="md"
-            type="circle"
-            bordered
-          />
-          <Avatar
-            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
-            alt="Prueba"
-            size="lg"
-            type="circle"
-            bordered
-          />
-          <Avatar
-            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
-            alt="Prueba"
-            size="xl"
-            type="circle"
-            bordered
-          />
-        </div>
-        <div className="inline-flex items-end gap-3">
-          <Avatar
-            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
-            alt="Prueba"
-            size="xs"
-            type="square"
-            bordered
-          />
-          <Avatar
-            src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
-            alt="Prueba"
-            size="sm"
-            type="square"
             bordered
           />
           <Avatar
@@ -95,15 +56,13 @@ export default function Docs() {
             src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="lg"
-            type="square"
-            bordered
+            type="circle"
           />
           <Avatar
             src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
             alt="Prueba"
             size="xl"
             type="square"
-            className="border-blue-700"
             bordered
           />
         </div>
