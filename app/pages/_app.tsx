@@ -11,17 +11,20 @@ import docsTheme from "@/styles/docsTheme";
 // Prism syntax highlighting ->
 import "@/styles/prism.css";
 import Head from "next/head";
+import { SuperUIProvider } from "superui";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={docsTheme}>
-      <Head>
-        {process.env.NODE_ENV === "development" && (
-          <script src="https://cdn.tailwindcss.com" defer />
-        )}
-      </Head>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <SuperUIProvider>
+      <ChakraProvider theme={docsTheme}>
+        <Head>
+          {process.env.NODE_ENV === "development" && (
+            <script src="https://cdn.tailwindcss.com" defer />
+          )}
+        </Head>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </SuperUIProvider>
   );
 }
 
