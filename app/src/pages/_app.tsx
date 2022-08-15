@@ -20,13 +20,13 @@ import Layout from "@/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SuperUIProvider>
-      <ChakraProvider theme={docsTheme}>
-        <Layout>
+    <ChakraProvider theme={docsTheme}>
+      <Layout>
+        <SuperUIProvider>
           <Component {...pageProps} />
-        </Layout>
-      </ChakraProvider>
-    </SuperUIProvider>
+        </SuperUIProvider>
+      </Layout>
+    </ChakraProvider>
   );
 }
 
