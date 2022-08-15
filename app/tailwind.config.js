@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ["Inter-Regular", "sans-serif"],
+      heading: ["Inter-Medium", "sans-serif"],
+    },
   },
   plugins: [],
 };

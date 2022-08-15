@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import Head from "next/head";
 import type { GetStaticProps, GetStaticPaths } from "next";
-import { docsFilePaths, docsPath } from "@/src/services/mdx";
+import { docsFilePaths, docsPath } from "@/services/mdx";
 import { MDXMeta } from "@/interfaces/mdxMeta";
 
 interface DocsPageProps {
@@ -22,15 +22,16 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import Sidebar from "@/components/documents/sidebar";
 
 const Doc = ({ source, frontMatter }: DocsPageProps) => {
   return (
-    <>
+    <Sidebar>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
       <MDXRemote {...source} components={MDXComponents} />
-    </>
+    </Sidebar>
   );
 };
 

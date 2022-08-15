@@ -10,9 +10,7 @@ const Layout = (props: LayoutProps) => {
   return (
     <>
       <Header />
-      <Box mx={10} my={4}>
-        {props.children}
-      </Box>
+      <Box mx={10}>{props.children}</Box>
     </>
   );
 };
