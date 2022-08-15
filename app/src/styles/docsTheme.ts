@@ -8,13 +8,17 @@ const docsTheme = extendTheme({
   },
   colors: {
     bg: {
-      light: "#F2F2F2",
-      dark: "#1F2023",
+      light: "#FBFCFC",
+      dark: "#131314",
+    },
+    focused: {
+      light: "#f1f0f0",
+      dark: "#1f1e1e",
     },
   },
   fonts: {
-    body: "Inter, sans-serif",
-    heading: "Inter, sans-serif",
+    body: "Inter-Regular, sans-serif",
+    heading: "Inter-Medium, sans-serif",
   },
   styles: {
     global: (props: ChakraProps) => ({
