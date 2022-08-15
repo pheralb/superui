@@ -9,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { IoArrowDownOutline } from "react-icons/io5";
-import { HeaderLinks } from "./links";
+import { HeaderLinks } from "../../data/headerLinks";
 import CustomLink from "@/components/link";
 
 const HeaderMobile = () => {

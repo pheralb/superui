@@ -6,12 +6,11 @@ import {
   HStack,
   Container,
   Heading,
-  Badge,
   Text,
 } from "@chakra-ui/react";
 
 import HeaderMobile from "./mobile";
-import { HeaderLinks } from "./links";
+import { HeaderLinks } from "@/data/headerLinks";
 import CustomLink from "@/components/link";
 import Theme from "@/components/theme";
 
