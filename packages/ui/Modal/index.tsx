@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useOverlay,
   usePreventScroll,
@@ -17,7 +17,6 @@ export function Modal(props: ModalProps) {
   const { children, onClose, confirmLabel } = props;
   let ref = React.useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(props, ref);
-  usePreventScroll();
   const { modalProps } = useModal();
   const { dialogProps, titleProps } = useDialog(
     {
@@ -43,6 +42,7 @@ export function Modal(props: ModalProps) {
       >
         <div
           className="fixed inset-0 flex justify-center z-100 bg-slate-400/20"
+          onClick={onClose}
           {...underlayProps}
         >
           <FocusScope contain restoreFocus autoFocus>
@@ -66,7 +66,7 @@ export function Modal(props: ModalProps) {
                 {props.variant === "danger" && (
                   <ExclamationIcon className="w-6 h-6 text-red-500 absolute right-8 top-8" />
                 )}
-                <h3 {...titleProps} className="text-lg font-medium pb-2">
+                <h3 {...titleProps} className="text-lg font-bold pb-2">
                   {props.title}
                 </h3>
                 <p className="text-sm text-gray-600">{children}</p>
