@@ -12,7 +12,7 @@ const SidebarItem = (props: SidebarItemProps) => {
   const router = useRouter();
   const { slug } = router.query;
   const isActive = `/docs/${slug}` === props.slug;
-  const focused = useColorModeValue("1px", "focused.dark");
+  const focused = useColorModeValue("focused.light", "focused.dark");
 
   return (
     <CustomLink key={props.slug} href={props.slug}>
