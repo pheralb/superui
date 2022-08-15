@@ -29,7 +29,7 @@ const SidebarContent = (props: SidebarContentProps) => {
       overflowX="hidden"
       overflowY="auto"
       borderRightWidth="1px"
-      w="60"
+      w="240px"
       {...props}
     >
       <Flex direction="column" as="nav" aria-label="Main Navigation">
