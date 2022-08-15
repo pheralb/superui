@@ -11,10 +11,7 @@ interface DocsPageProps {
 }
 
 // Custom Components =>
-import Image from "next/image";
-const MDXComponents = {
-  Image,
-};
+import { MDXComponents } from "@/components/documents/mdx";
 
 // Plugins =>
 import matter from "gray-matter";
@@ -23,6 +20,7 @@ import rehypePrism from "rehype-prism-plus";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Sidebar from "@/components/documents/sidebar";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 const Doc = ({ source, frontMatter }: DocsPageProps) => {
   return (
@@ -30,6 +28,12 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
+      <Box mb="16" mt="5">
+        <Heading mb={2} fontSize="6xl">
+          {frontMatter.title}
+        </Heading>
+        <Text mb={5}>{frontMatter.description}</Text>
+      </Box>
       <MDXRemote {...source} components={MDXComponents} />
     </Sidebar>
   );
