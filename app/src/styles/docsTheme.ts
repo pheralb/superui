@@ -17,8 +17,9 @@ const docsTheme = extendTheme({
     },
   },
   fonts: {
-    body: "Inter-Regular, sans-serif",
-    heading: "Inter-Medium, sans-serif",
+    body: "Inter, sans-serif",
+    heading: "Inter, sans-serif",
+    mono: "Cascadia, monospace",
   },
   styles: {
     global: (props: ChakraProps) => ({

@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Inter-Regular";
+  font-family: "Inter";
   font-style: normal;
   font-display: optional;
-  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  src: url("/fonts/inter-var-latin.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Inter-Medium";
+  font-family: "Cascadia";
   font-style: normal;
   font-display: optional;
-  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+  src: url("/fonts/CascadiaCode.woff2") format("woff2");
 }
