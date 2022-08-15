@@ -1,8 +1,12 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
+import Script from "next/script";
 import type { AppProps } from "next/app";
 
 // Custom styles ->
 import "@/styles/globals.css";
+
+// SuperUI Provider ->
+import { SuperUIProvider } from "superui";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -10,19 +14,17 @@ import docsTheme from "@/styles/docsTheme";
 
 // Prism syntax highlighting ->
 import "@/styles/prism.css";
-import Head from "next/head";
-import { SuperUIProvider } from "superui";
+
+// Layout ->
+import Layout from "@/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SuperUIProvider>
       <ChakraProvider theme={docsTheme}>
-        <Head>
-          {process.env.NODE_ENV === "development" && (
-            <script src="https://cdn.tailwindcss.com" defer />
-          )}
-        </Head>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </SuperUIProvider>
   );
