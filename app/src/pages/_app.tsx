@@ -30,13 +30,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         showOnShallow={true}
         options={{ showSpinner: false }}
       />
-      <ChakraProvider theme={docsTheme}>
-        <Layout>
-          <SuperUIProvider>
+      <SuperUIProvider>
+        <ChakraProvider theme={docsTheme}>
+          <Layout>
             <Component {...pageProps} />
-          </SuperUIProvider>
-        </Layout>
-      </ChakraProvider>
+          </Layout>
+        </ChakraProvider>
+      </SuperUIProvider>
     </>
   );
 }
