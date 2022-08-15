@@ -6,24 +6,26 @@ export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
   const [current, setCurrent] = useState(0);
   const [values, setValues] = useState(new Array(length).fill(""));
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const value = e.target.value;
+    if (value.length > 0) {
+      if (current !== length - 1) refs[current + 1].focus();
+      setValues((prev) => {
+        const newValues = [...prev];
+        newValues[index] = value;
+        return newValues;
+      });
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-
-    if (
-      (e.which <= 90 && e.which >= 48) ||
-      (e.which >= 96 && e.which <= 105) ||
-      e.key === "Backspace"
-    ) {
-      if (e.key === "Backspace") {
-        if (current === length) {
-          refs[length].value = "";
-        }
-
-        if (refs.length > 0 && current > 0) {
-          refs[current - 1].focus();
-        }
-      } else {
-        if (current !== length - 1) refs[current + 1].focus();
+    if (e.key === "Backspace") {
+      if (refs.length > 0 && current > 0) {
+        refs[current - 1].focus();
       }
     }
   };
@@ -53,16 +55,7 @@ export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
             onKeyUp={handleKeyDown}
             onFocus={() => setCurrent(index)}
             onPaste={handlePaste}
-            onChange={(e) => {
-              const value = e.target.value;
-              if (value.length > 0) {
-                setValues((prev) => {
-                  const newValues = [...prev];
-                  newValues[index] = value;
-                  return newValues;
-                });
-              }
-            }}
+            onChange={(e) => handleChange(e, index)}
             className="w-12 h-14 rounded-lg border-2 text-2xl font-bold text-center border-gray-300 focus:border-[3px] focus:border-blue-500 ring-0 outline-none"
           />
         );
