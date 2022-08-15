@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "tslib": "2.4.0",
     "husky": "8.0.1",
     "nagit": "0.0.18",
     "next-transpile-modules": "9.0.0",
