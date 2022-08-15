@@ -1,6 +1,16 @@
-import { Avatar, Button, Input, LinearProgress, Group } from "superui";
+import { useState } from "react";
+import {
+  Avatar,
+  Button,
+  Input,
+  LinearProgress,
+  Group,
+  SuperUIOverlay,
+  Modal,
+} from "superui";
 
 export default function Docs() {
+  const [isOpen, setOpen] = useState(false);
   return (
     <div className="mx-10 my-4">
       <h1>Docs</h1>
@@ -66,6 +76,20 @@ export default function Docs() {
             bordered
           />
         </div>
+        <Button variant="primary" onClick={() => setOpen(true)}>
+          Open Modal
+        </Button>
+        <Modal
+          isOpen={isOpen}
+          title="Delete folder"
+          confirmLabel="Delete"
+          variant="danger"
+          onClose={() => setOpen(false)}
+          blur
+        >
+          Are you sure you want to delete "Documents"? All contents will be
+          perminately destroyed.
+        </Modal>
       </div>
     </div>
   );
