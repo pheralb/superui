@@ -18,7 +18,7 @@ export const LinearProgress = ({
   );
 
   return (
-    <div className="h-1.5 w-full bg-gray-300 rounded" {...rest}>
+    <div className="h-2 w-full bg-gray-300 rounded" {...rest}>
       <div
         className={genClassName}
         style={{ width: `${((value - min) / (max - min)) * 100}%` }}
@@ -30,7 +30,7 @@ export const LinearProgress = ({
 const LINEAR_PROGRESS_BASE = "h-full rounded";
 
 const VARIANTS = {
-  primary: "bg-blue-500",
-  secondary: "bg-green-500",
-  danger: "bg-red-500",
+  primary: "bg-gradient-to-r from-cyan-500 to-blue-800",
+  secondary: "bg-gradient-to-r from-emerald-400 to-green-800",
+  danger: "bg-gradient-to-r from-pink-500 to-red-800",
 };
