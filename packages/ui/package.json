@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./index.tsx",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/pheralb/superui.git"
@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",
-    "build": "tsup ./index.tsx --format esm,cjs --external react",
+    "build": "tsup ./index.tsx --format esm,cjs --external react --sourcemap --dts",
     "dev": "tsup ./index.tsx --format esm,cjs --watch --external react",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "postinstall": "node ./postinstall.mjs"
@@ -31,6 +31,7 @@
     "@heroicons/react": "1.0.6",
     "@react-aria/overlays": "3.10.0",
     "react-aria": "3.18.0",
-    "react-transition-group": "4.4.5"
+    "react-transition-group": "4.4.5",
+    "tailwind-merge": "1.5.1"
   }
 }

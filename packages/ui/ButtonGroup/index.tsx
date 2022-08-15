@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ButtonGroupProps, GroupItemProps } from "./buttonGroup.types";
+import { twMerge } from "tailwind-merge";
 
 export const Group = ({
   children,
@@ -17,7 +18,7 @@ export const Group = ({
     return child;
   });
 
-  const genClassName = `${GROUP_BASE} ${SIZES[size]} ${className}`;
+  const genClassName = twMerge(GROUP_BASE, SIZES[size], className);
 
   return (
     <div className={genClassName} {...rest}>

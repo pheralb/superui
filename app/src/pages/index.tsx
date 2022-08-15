@@ -14,7 +14,7 @@ import {
 import "superui/dist/index.css";
 
 export default function Docs() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
   return (
     <>
       <h1>Docs</h1>

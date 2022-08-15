@@ -42,9 +42,9 @@ export function Modal(props: ModalProps) {
       >
         <div
           className="fixed inset-0 flex justify-center z-100 bg-slate-400/20"
-          onClick={onClose}
           {...underlayProps}
         >
+          <span className="absolute inset-0 w-full h-full" onClick={onClose} />
           <FocusScope contain restoreFocus autoFocus>
             {/* Animate dialog slightly upward when entering, and downward when exiting. */}
             <CSSTransition

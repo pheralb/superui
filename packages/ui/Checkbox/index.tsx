@@ -1,5 +1,6 @@
 import React from "react";
 import { CheckboxProps } from "./checkbox.types";
+import { twMerge } from "tailwind-merge";
 
 export const Checkbox = ({
   children,
@@ -8,7 +9,7 @@ export const Checkbox = ({
   id,
   ...props
 }: CheckboxProps) => {
-  const genClassName = `${BASE_STYLES} ${VARIANTS[variant]} ${className}`;
+  const genClassName = twMerge(BASE_STYLES, VARIANTS[variant], className);
 
   return (
     <>

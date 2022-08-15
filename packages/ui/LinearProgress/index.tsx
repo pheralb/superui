@@ -1,5 +1,6 @@
 import React from "react";
 import { LinearProgressProps } from "./linearProgress.types";
+import { twMerge } from "tailwind-merge";
 
 export const LinearProgress = ({
   variant = "primary",
@@ -10,9 +11,11 @@ export const LinearProgress = ({
   className,
   ...rest
 }: LinearProgressProps) => {
-  const genClassName = `${LINEAR_PROGRESS_BASE} ${VARIANTS[variant]} ${
-    className || ""
-  }`;
+  const genClassName = twMerge(
+    LINEAR_PROGRESS_BASE,
+    VARIANTS[variant],
+    className
+  );
 
   return (
     <div className="h-1.5 w-full bg-gray-300 rounded" {...rest}>
