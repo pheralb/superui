@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import Head from "next/head";
 import type { GetStaticProps, GetStaticPaths } from "next";
-import { docsFilePaths, docsPath } from "@/services/mdx";
+import { docsFilePaths, docsPath } from "@/src/services/mdx";
 import { MDXMeta } from "@/interfaces/mdxMeta";
 
 interface DocsPageProps {
