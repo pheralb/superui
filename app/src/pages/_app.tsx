@@ -2,8 +2,9 @@
 import Script from "next/script";
 import type { AppProps } from "next/app";
 
-// Custom styles ->
+// Custom styles & Prism syntax highlighting ->
 import "@/styles/globals.css";
+import "@/styles/prism.css";
 
 // SuperUI Provider ->
 import { SuperUIProvider } from "superui";
@@ -12,21 +13,31 @@ import { SuperUIProvider } from "superui";
 import { ChakraProvider } from "@chakra-ui/react";
 import docsTheme from "@/styles/docsTheme";
 
-// Prism syntax highlighting ->
-import "@/styles/prism.css";
+// NextProgress ->
+import NextNProgress from "nextjs-progressbar";
 
 // Layout ->
 import Layout from "@/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={docsTheme}>
-      <Layout>
-        <SuperUIProvider>
-          <Component {...pageProps} />
-        </SuperUIProvider>
-      </Layout>
-    </ChakraProvider>
+    <>
+      <NextNProgress
+        color="#4343E5"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={2}
+        showOnShallow={true}
+        options={{ showSpinner: false }}
+      />
+      <ChakraProvider theme={docsTheme}>
+        <Layout>
+          <SuperUIProvider>
+            <Component {...pageProps} />
+          </SuperUIProvider>
+        </Layout>
+      </ChakraProvider>
+    </>
   );
 }
 
