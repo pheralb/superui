@@ -6,4 +6,5 @@ export interface AvatarProps {
   className?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
+  key?: string;
 }
