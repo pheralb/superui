@@ -7,7 +7,11 @@ import {
   Group,
   SuperUIOverlay,
   Modal,
+  Checkbox,
+  PinCode,
 } from "superui";
+
+import "superui/dist/index.css";
 
 export default function Docs() {
   const [isOpen, setOpen] = useState(false);
@@ -28,6 +32,16 @@ export default function Docs() {
         <Input variant="secondary" placeholder="Input" type={"date"} />
         <Input variant="danger" placeholder="Input" type={"number"} />
         <Input variant="primary" placeholder="Input" type={"password"} />
+        <PinCode />
+        <Checkbox label="Checkbox" variant="primary">
+          <span className="text-gray-600">Primary checkbox</span>
+        </Checkbox>
+        <Checkbox label="Checkbox" variant="secondary">
+          <span className="text-gray-600">Secondary checkbox</span>
+        </Checkbox>
+        <Checkbox label="Checkbox" variant="danger">
+          <span className="text-gray-600">Danger checkbox</span>
+        </Checkbox>
         <Group variant="outline">
           <Group.Item name="1">Item 1</Group.Item>
           <Group.Item name="2">Item 2</Group.Item>
