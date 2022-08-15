@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { AvatarProps } from "./avatar.types";
+import { twMerge } from "tailwind-merge";
 
 export const Avatar = ({
   size = "sm",
@@ -9,9 +10,13 @@ export const Avatar = ({
   bordered,
   ...props
 }: AvatarProps) => {
-  const generateClassName = `${SHARED_STYLES} ${VARIANTS[type]} ${
-    SIZES[size]
-  } ${bordered && BORDERED} ${className || ""}`;
+  const generateClassName = twMerge(
+    SHARED_STYLES,
+    VARIANTS[type],
+    SIZES[size],
+    bordered && BORDERED,
+    className
+  );
 
   return (
     <div className={generateClassName}>
