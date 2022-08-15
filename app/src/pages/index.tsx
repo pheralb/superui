@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
   Avatar,
+  AvatarGroup,
   Button,
   Input,
   LinearProgress,
   Group,
-  SuperUIOverlay,
   Modal,
   Checkbox,
   PinCode,
@@ -14,40 +14,17 @@ import {
 import "superui/dist/index.css";
 
 export default function Docs() {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   return (
     <>
       <h1>Docs</h1>
       <div className="flex flex-col gap-3">
         <Button variant="primary">Primary Button</Button>
-        <Button variant="secondary">Secondary Button</Button>
-        <Button variant="danger">Danger Button</Button>
-        <Button
-          variant="primary"
-          className="bg-gray-600 hover:bg-gray-300 hover:text-black"
-        >
-          Custom Button
-        </Button>
-        <Input variant="primary" placeholder="Input" type={"text"} />
-        <Input variant="secondary" placeholder="Input" type={"date"} />
-        <Input variant="danger" placeholder="Input" type={"number"} />
-        <Input variant="primary" placeholder="Input" type={"password"} />
         <PinCode />
         <Checkbox label="Checkbox" variant="primary">
           <span className="text-gray-600">Primary checkbox</span>
         </Checkbox>
-        <Checkbox label="Checkbox" variant="secondary">
-          <span className="text-gray-600">Secondary checkbox</span>
-        </Checkbox>
-        <Checkbox label="Checkbox" variant="danger">
-          <span className="text-gray-600">Danger checkbox</span>
-        </Checkbox>
         <Group variant="outline">
-          <Group.Item name="1">Item 1</Group.Item>
-          <Group.Item name="2">Item 2</Group.Item>
-          <Group.Item name="3">Item 3</Group.Item>
-        </Group>
-        <Group variant="solid">
           <Group.Item name="1">Item 1</Group.Item>
           <Group.Item name="2">Item 2</Group.Item>
           <Group.Item name="3">Item 3</Group.Item>
@@ -90,6 +67,15 @@ export default function Docs() {
             bordered
           />
         </div>
+        <AvatarGroup
+          max={4}
+          data={Array.from(Array(10).keys()).map((i) => ({
+            name: `${i}`,
+            alt: `${i}`,
+            src: `https://source.boringavatars.com/beam/120/${i}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`,
+          }))}
+          size="lg"
+        />
         <Button variant="primary" onClick={() => setOpen(true)}>
           Open Modal
         </Button>

@@ -2,10 +2,11 @@
 import React from "react";
 import { AvatarProps } from "./avatar.types";
 import { twMerge } from "tailwind-merge";
+import { SIZES } from "../sizes";
 
 export const Avatar = ({
   size = "sm",
-  type = "circle",
+  type = "square",
   className,
   bordered,
   ...props
@@ -26,15 +27,7 @@ export const Avatar = ({
 };
 
 const SHARED_STYLES = "flex items-center justify-center";
-const BORDERED = "border-[2.5px] border-gray-300 p-[0.17rem]";
-
-const SIZES = {
-  xs: "w-8 h-8",
-  sm: "w-12 h-12",
-  md: "w-16 h-16",
-  lg: "w-24 h-24",
-  xl: "w-32 h-32",
-};
+const BORDERED = "p-0.5 ring-2 ring-gray-300 dark:ring-gray-500";
 
 const VARIANTS = {
   circle: "rounded-full",
