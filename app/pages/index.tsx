@@ -16,7 +16,7 @@ import "superui/dist/index.css";
 export default function Docs() {
   const [isOpen, setOpen] = useState(false);
   return (
-    <div className="mx-10 my-4">
+    <>
       <h1>Docs</h1>
       <div className="flex flex-col gap-3">
         <Button variant="primary">Primary Button</Button>
@@ -105,6 +105,6 @@ export default function Docs() {
           perminately destroyed.
         </Modal>
       </div>
-    </div>
+    </>
   );
 }
