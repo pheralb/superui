@@ -11,7 +11,7 @@ import { SuperUIProvider, CommandMenu } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
-import docsTheme from "@/styles/docsTheme";
+import appTheme from "@/styles/appTheme";
 
 // NextProgress ->
 import NextNProgress from "nextjs-progressbar";
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         options={{ showSpinner: false }}
       />
       <SuperUIProvider>
-        <ChakraProvider theme={docsTheme}>
+        <ChakraProvider theme={appTheme}>
           <Layout>
             <CommandMenu />
             <Component {...pageProps} />

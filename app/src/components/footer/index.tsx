@@ -4,6 +4,7 @@ import {
   Flex,
   useColorModeValue,
   HStack,
+  VStack,
   Container,
   Heading,
   Text,
@@ -18,16 +19,14 @@ import Theme from "@/components/theme";
 const Header = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   return (
-    <Box
-      pos="sticky"
-      top="0"
-      w="full"
-      bg={bg}
-      borderBottomWidth="1px"
-      zIndex={10}
-    >
-      <Container maxW="98%" py={5}>
-        <Flex alignItems="center" justifyContent="space-around">
+    <Box pos="sticky" top="0" w="full" bg={bg} borderTopWidth="1px">
+      <Container maxW="98%" py={10}>
+        <Flex
+          alignItems="center"
+          gap={10}
+          flexDirection="column"
+          justifyContent="space-around"
+        >
           <CustomLink href="/" external={false}>
             <HStack spacing={3}>
               <Heading fontSize="18px">SuperUI</Heading>
@@ -51,12 +50,6 @@ const Header = () => {
                 </CustomLink>
               ))}
             </HStack>
-          </HStack>
-          <HStack spacing={5}>
-            <span>
-              <Kbd>⌘</Kbd> + <Kbd>K</Kbd>
-            </span>
-            <Theme />
           </HStack>
           <HeaderMobile />
         </Flex>
