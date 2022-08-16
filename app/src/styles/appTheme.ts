@@ -11,6 +11,10 @@ const appTheme = extendTheme({
       light: "#FBFCFC",
       dark: "#252525",
     },
+    card: {
+      light: "#f2f2f2",
+      dark: "#2e2e2e",
+    },
     focused: {
       light: "#f1f0f0",
       dark: "#1f1e1e",

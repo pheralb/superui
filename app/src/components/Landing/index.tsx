@@ -5,6 +5,7 @@ import {
   Heading,
   HStack,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
@@ -13,8 +14,10 @@ type Props = {
   children?: React.ReactNode;
 };
 export function Card(props: Props) {
+const cardBg = useColorModeValue("card.light", "card.dark")
+
   return (
-    <Center w="100%" maxH={350} bgColor="#2e2e2e" rounded={20}>
+    <Center w="100%" maxH={350} bg={cardBg} rounded={20}>
       <VStack p={8}>{props.children}</VStack>
     </Center>
   );
@@ -28,7 +31,7 @@ export function CTA({}: Props) {
           as="h1"
           size={{ base: "2xl", md: "3xl", lg: "4xl" }}
           textAlign="center"
-          fontWeight={700}
+          fontWeight={900}
         >
           Develop super ⚡️ websites <br />
           with customizable React
@@ -49,9 +52,11 @@ export function CTA({}: Props) {
 }
 
 export function ComponentSection() {
+const cardBg = useColorModeValue("card.light", "card.dark")
+
   return (
     <Center h={350}>
-      <Center maxW={500} h={300} bgColor="#2e2e2e" rounded={20}>
+      <Center maxW={500} h={300} bg={cardBg} rounded={20}>
         <VStack p={8}>
           <Heading
             as="h2"
@@ -73,9 +78,11 @@ export function ComponentSection() {
 }
 
 export function ComponentGrid({}: Props) {
+const cardBg = useColorModeValue("card.light", "card.dark")
+
   return (
     <VStack h={1550} pt={150} w="80%">
-      <Center maxW={1000} bgColor="#2e2e2e" rounded={20} mb={10}>
+      <Center maxW={1000} bg={cardBg} rounded={20} mb={10}>
         <VStack p={5}>
           <Heading
             as="h2"
@@ -94,9 +101,8 @@ export function ComponentGrid({}: Props) {
         <Card />
         <Card />
         <Card />
-        <Center maxW={1000} maxH={350} w="100%" bgColor="#2e2e2e" rounded={20}>
-          <VStack p={8}></VStack>
-        </Center>
+        <Card />
+
       </div>
     </VStack>
   );
