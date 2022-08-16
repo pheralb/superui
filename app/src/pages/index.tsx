@@ -1,7 +1,13 @@
-import { useState } from "react";
-
+import { VStack } from "@chakra-ui/react";
+import { CTA, ComponentSection, ComponentGrid } from "@/components/Landing";
 import "superui/dist/index.css";
 
 export default function Docs() {
-  return <h1>Index</h1>;
+  return (
+    <VStack bgImage="url(../img/bgpattern.png)" bgSize="auto" bgRepeat="repeat">
+      <CTA />
+      <ComponentSection />
+      <ComponentGrid />
+    </VStack>
+  );
 }
