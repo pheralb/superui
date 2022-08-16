@@ -7,7 +7,7 @@ import "@/styles/globals.css";
 import "@/styles/prism.css";
 
 // SuperUI Provider ->
-import { SuperUIProvider, CommandMenu } from "superui";
+import { SuperUIProvider, CommandMenu } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";

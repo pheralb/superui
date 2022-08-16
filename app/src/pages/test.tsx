@@ -11,7 +11,7 @@ import {
   Modal,
   Checkbox,
   PinCode,
-} from "superui";
+} from "@superui/styles";
 export default function Test({}: Props) {
   const [isOpen, setOpen] = useState(false);
 
