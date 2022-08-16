@@ -1,5 +1,10 @@
 export const HeaderLinks = [
   {
+    title: "About",
+    slug: "/about",
+    external: false,
+  },
+  {
     title: "Community",
     slug: "/community",
     external: false,
@@ -11,6 +16,11 @@ export const HeaderLinks = [
   },
   {
     title: "Github",
+    slug: "https://github.com/pheralb/superui",
+    external: true,
+  },
+  {
+    title: "Contribute",
     slug: "https://github.com/pheralb/superui",
     external: true,
   },
