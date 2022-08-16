@@ -1,13 +1,22 @@
 {
-  "name": "superui",
-  "version": "0.0.0",
+  "name": "@superui/styles",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "contributors": [
+    {
+      "name": "naldamav",
+      "url": "https://github.com/nachoaldamav"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/pheralb/superui.git"
   },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",

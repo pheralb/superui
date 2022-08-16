@@ -12,14 +12,14 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:ui": "turbo run build --filter=superui",
+    "build:ui": "turbo run build --filter=@superui/styles",
     "dev": "turbo run dev --parallel",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
     "pre-commit": "npm run lint && npm run format",
-    "publish": "cd packages/ui && npm publish"
+    "publish": "cd packages/ui && npm publish --access=public"
   },
   "devDependencies": {
     "eslint-config-custom": "*",

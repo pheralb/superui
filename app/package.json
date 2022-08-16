@@ -22,7 +22,7 @@
     "react-icons": "4.4.0",
     "rehype-code-titles": "1.1.0",
     "rehype-prism-plus": "1.4.2",
-    "superui": "*"
+    "@superui/styles": "*"
   },
   "devDependencies": {
     "@babel/core": "7.0.0",
