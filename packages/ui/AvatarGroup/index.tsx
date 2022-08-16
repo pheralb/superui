@@ -27,7 +27,7 @@ export const AvatarGroup = ({
               }?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`
             }
             alt={alt || `${index}`}
-            className="hover:-translate-x-2 transition-transform duration-150 ease-in-out"
+            className="hover:-translate-x-2 transition-transform duration-200 ease-in"
             type={props.type || "circle"}
             size={size}
             bordered={props.bordered}
