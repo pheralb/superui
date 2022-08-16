@@ -19,7 +19,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
     "pre-commit": "npm run lint && npm run format",
-    "publish": "cd packages/ui && npm publish"
+    "publish": "cd packages/ui && npm publish --access=public"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
