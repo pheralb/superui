@@ -7,6 +7,7 @@ import {
   Container,
   Heading,
   Text,
+  Kbd,
 } from "@chakra-ui/react";
 
 import HeaderMobile from "./mobile";
@@ -19,7 +20,7 @@ const Header = () => {
   return (
     <Box pos="sticky" top="0" w="full" bg={bg} borderBottomWidth="1px">
       <Container maxW="98%" py={5}>
-        <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center" justifyContent="space-around">
           <CustomLink href="/" external={false}>
             <HStack spacing={3}>
               <Heading fontSize="18px">SuperUI</Heading>
@@ -43,6 +44,11 @@ const Header = () => {
                 </CustomLink>
               ))}
             </HStack>
+          </HStack>
+          <HStack spacing={5}>
+            <span>
+              <Kbd>⌘</Kbd> + <Kbd>K</Kbd>
+            </span>
             <Theme />
           </HStack>
           <HeaderMobile />
