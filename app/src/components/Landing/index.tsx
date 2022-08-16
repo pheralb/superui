@@ -14,7 +14,7 @@ type Props = {
   children?: React.ReactNode;
 };
 export function Card(props: Props) {
-const cardBg = useColorModeValue("card.light", "card.dark")
+  const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
     <Center w="100%" maxH={350} bg={cardBg} rounded={20}>
@@ -52,7 +52,7 @@ export function CTA({}: Props) {
 }
 
 export function ComponentSection() {
-const cardBg = useColorModeValue("card.light", "card.dark")
+  const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
     <Center h={350}>
@@ -78,7 +78,7 @@ const cardBg = useColorModeValue("card.light", "card.dark")
 }
 
 export function ComponentGrid({}: Props) {
-const cardBg = useColorModeValue("card.light", "card.dark")
+  const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
     <VStack h={1550} pt={150} w="80%">
@@ -102,7 +102,6 @@ const cardBg = useColorModeValue("card.light", "card.dark")
         <Card />
         <Card />
         <Card />
-
       </div>
     </VStack>
   );
