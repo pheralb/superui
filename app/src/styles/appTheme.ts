@@ -1,7 +1,7 @@
 import { ChakraProps, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
-const docsTheme = extendTheme({
+const appTheme = extendTheme({
   config: {
     initialColorMode: "light",
     useSystemColorMode: false,
@@ -9,7 +9,7 @@ const docsTheme = extendTheme({
   colors: {
     bg: {
       light: "#FBFCFC",
-      dark: "#131314",
+      dark: "#252525",
     },
     focused: {
       light: "#f1f0f0",
@@ -33,4 +33,4 @@ const docsTheme = extendTheme({
   },
 });
 
-export default docsTheme;
+export default appTheme;
