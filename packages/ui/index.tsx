@@ -9,3 +9,4 @@ export * from "./Overlay";
 export * from "./Modal";
 export * from "./Checkbox";
 export * from "./AvatarGroup";
+export * from "./CommandMenu";
