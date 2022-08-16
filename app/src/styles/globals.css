@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: optional;
+  src: url("/fonts/inter-var-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cascadia";
+  font-style: normal;
+  font-display: optional;
+  src: url("/fonts/CascadiaCode.woff2") format("woff2");
+}

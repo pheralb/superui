@@ -1,14 +1,17 @@
 import React from "react";
 import { InputProps } from "./input.types";
+import { twMerge } from "tailwind-merge";
 
 export const Input = ({
   variant = "primary",
   className,
   ...props
 }: InputProps) => {
-  const generateClassName = `${SHARED_STYLES} ${INPUT_STYLES[variant]} ${
-    className || ""
-  }`;
+  const generateClassName = twMerge(
+    SHARED_STYLES,
+    INPUT_STYLES[variant],
+    className
+  );
 
   return <input className={generateClassName} {...props} />;
 };
