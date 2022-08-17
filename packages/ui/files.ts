@@ -7,7 +7,11 @@ export const getFiles = () => {
     fs.statSync(`${__dirname}/${dir}`).isDirectory()
   );
   // Return only dirs that have index.tsx inside
-  return directories
+  const result = directories
     .filter((dir) => fs.existsSync(`${__dirname}/${dir}/index.tsx`))
     .map((dir) => `${dir}/index.tsx`);
+
+  console.log("Building files:", result);
+
+  return result;
 };
