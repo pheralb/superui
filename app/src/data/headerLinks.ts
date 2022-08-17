@@ -14,14 +14,4 @@ export const HeaderLinks = [
     slug: "/docs",
     external: false,
   },
-  {
-    title: "Github",
-    slug: "https://github.com/pheralb/superui",
-    external: true,
-  },
-  {
-    title: "Contribute",
-    slug: "https://github.com/pheralb/superui",
-    external: true,
-  },
 ];

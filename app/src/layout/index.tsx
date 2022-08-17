@@ -9,11 +9,11 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   return (
-    <VStack>
+    <>
       <Header />
-      <Box mx={10}>{props.children}</Box>
-      <Footer />
-    </VStack>
+      <Box>{props.children}</Box>
+      {/* <Footer /> */}
+    </>
   );
 };
 

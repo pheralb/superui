@@ -4,6 +4,7 @@ import Head from "next/head";
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { docsFilePaths, docsPath } from "@/services/mdx";
 import { MDXMeta } from "@/interfaces/mdxMeta";
+import { motion } from "framer-motion";
 
 interface DocsPageProps {
   source: MDXRemoteSerializeResult;
@@ -34,7 +35,16 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
         </Heading>
         <Text mb={5}>{frontMatter.description}</Text>
       </Box>
-      <MDXRemote {...source} components={MDXComponents} />
+      <motion.div
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.2,
+        }}
+      >
+        <MDXRemote {...source} components={MDXComponents} />
+      </motion.div>
     </Sidebar>
   );
 };

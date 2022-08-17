@@ -8,38 +8,37 @@ import {
   Heading,
   Text,
   Kbd,
+  Image,
+  Badge,
+  Icon,
 } from "@chakra-ui/react";
 
 import HeaderMobile from "./mobile";
 import { HeaderLinks } from "@/data/headerLinks";
 import CustomLink from "@/components/link";
-import Theme from "@/components/theme";
+import ChangeTheme from "@/components/theme";
+import { IoLogoGithub } from "react-icons/io5";
 
 const Header = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   return (
-    <Box
-      pos="sticky"
-      top="0"
-      w="full"
-      bg={bg}
-      borderBottomWidth="1px"
-      zIndex={10}
-    >
-      <Container maxW="98%" py={5}>
-        <Flex alignItems="center" justifyContent="space-around">
+    <Box bg={bg} pos="sticky" top="0" w="full" px={{ base: 2, sm: 4 }} py={6}>
+      <Container maxW="76%">
+        <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <CustomLink href="/" external={false}>
             <HStack spacing={3}>
-              <Heading fontSize="18px">SuperUI</Heading>
-              <Text color="gray.400">beta</Text>
+              <Image src="/img/superui.png" height="25px" />
+              <Text fontSize="16px" fontWeight="semibold" ml="2">
+                SuperUI
+              </Text>
             </HStack>
           </CustomLink>
-          <HStack
-            display={{ base: "none", md: "inline-flex" }}
-            alignItems="center"
-            spacing={5}
-          >
-            <HStack spacing={8} mr={1}>
+          <HStack display="flex" alignItems="center" spacing={1}>
+            <HStack
+              spacing={8}
+              mr={5}
+              display={{ base: "none", md: "inline-flex" }}
+            >
               {HeaderLinks.map((link) => (
                 <CustomLink
                   key={link.slug}
@@ -51,15 +50,19 @@ const Header = () => {
                 </CustomLink>
               ))}
             </HStack>
+            <HStack spacing={4}>
+              <CustomLink
+                href="https://github.com/pheralb/superui"
+                underline={true}
+              >
+                <Icon as={IoLogoGithub} boxSize={25} />
+              </CustomLink>
+              <ChangeTheme />
+            </HStack>
+            <HeaderMobile />
           </HStack>
-          <HStack spacing={5}>
-            <span>
-              <Kbd>⌘</Kbd> + <Kbd>K</Kbd>
-            </span>
-            <Theme />
-          </HStack>
-          <HeaderMobile />
         </Flex>
+        {/* <ChangeTheme /> */}
       </Container>
     </Box>
   );
