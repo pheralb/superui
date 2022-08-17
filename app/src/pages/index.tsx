@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import { CTA, ComponentSection, ComponentGrid } from "@/components/Landing";
-import "superui/dist/index.css";
+import "@superui/styles/dist/index.css";
 
 export default function Docs() {
   return (

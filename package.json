@@ -18,8 +18,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "pre-commit": "npm run lint && npm run format",
-    "publish": "npm run build:ui && cd packages/ui && npm publish --access=public"
+    "pre-commit": "npm run lint && npm run format && git add ."
   },
   "devDependencies": {
     "eslint-config-custom": "*",

@@ -11,6 +11,7 @@ import {
   Modal,
   Checkbox,
   PinCode,
+  CircularProgress,
 } from "@superui/styles";
 export default function Test({}: Props) {
   const [isOpen, setOpen] = useState(false);
@@ -90,6 +91,9 @@ export default function Test({}: Props) {
           Are you sure you want to delete "Documents"? All contents will be
           perminately destroyed.
         </Modal>
+        <CircularProgress variant="primary" size="md" value={75} />
+        <CircularProgress variant="secondary" size="xl" value={25} />
+        <CircularProgress variant="danger" size="lg" value={5} />
       </div>
     </>
   );
