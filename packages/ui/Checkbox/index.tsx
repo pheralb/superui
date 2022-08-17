@@ -1,4 +1,3 @@
-import React from "react";
 import { CheckboxProps } from "./checkbox.types";
 import { twMerge } from "tailwind-merge";
 

@@ -1,0 +1,13 @@
+import fs from "fs";
+
+export const getFiles = () => {
+  const dirs = fs.readdirSync(__dirname);
+  // Get all directories
+  const directories = dirs.filter((dir) =>
+    fs.statSync(`${__dirname}/${dir}`).isDirectory()
+  );
+  // Return only dirs that have index.tsx inside
+  return directories
+    .filter((dir) => fs.existsSync(`${__dirname}/${dir}/index.tsx`))
+    .map((dir) => `${dir}/index.tsx`);
+};

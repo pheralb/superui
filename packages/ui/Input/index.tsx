@@ -1,4 +1,3 @@
-import React from "react";
 import { InputProps } from "./input.types";
 import { twMerge } from "tailwind-merge";
 
