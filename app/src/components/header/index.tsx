@@ -16,30 +16,18 @@ import CustomLink from "@/components/link";
 import Theme from "@/components/theme";
 
 const Header = () => {
-  const bg = useColorModeValue("bg.light", "bg.dark");
   return (
-    <Box
-      pos="sticky"
-      top="0"
-      w="full"
-      bg={bg}
-      borderBottomWidth="1px"
-      zIndex={10}
-    >
-      <Container maxW="98%" py={5}>
-        <Flex alignItems="center" justifyContent="space-around">
+    <div className="sticky top-0 w-full bg-[#FBFCFC] dark:bg-[#252525] border-b z-10">
+      <div className="flex w-full py-5 justify-evenly">
+        <div className="flex items-center justify-around w-full">
           <CustomLink href="/" external={false}>
-            <HStack spacing={3}>
-              <Heading fontSize="18px">SuperUI</Heading>
-              <Text color="gray.400">beta</Text>
-            </HStack>
+            <div className="flex gap-3">
+              <span className="text-xl">SuperUI</span>
+              <span className="text-gray-400">beta</span>
+            </div>
           </CustomLink>
-          <HStack
-            display={{ base: "none", md: "inline-flex" }}
-            alignItems="center"
-            spacing={5}
-          >
-            <HStack spacing={8} mr={1}>
+          <div className="hidden gap-5 md:inline-flex item-center">
+            <div className="flex gap-8 mr-1">
               {HeaderLinks.map((link) => (
                 <CustomLink
                   key={link.slug}
@@ -50,18 +38,18 @@ const Header = () => {
                   {link.title}
                 </CustomLink>
               ))}
-            </HStack>
-          </HStack>
-          <HStack spacing={5}>
+            </div>
+          </div>
+          <div className="hidden gap-5 md:inline-flex">
             <span>
               <Kbd>⌘</Kbd> + <Kbd>K</Kbd>
             </span>
             <Theme />
-          </HStack>
+          </div>
           <HeaderMobile />
-        </Flex>
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 };
 
