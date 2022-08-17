@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import * as React from "react";
 import { LinearProgressProps } from "./linearProgress.types";
 import { twMerge } from "tailwind-merge";
 

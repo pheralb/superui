@@ -1,12 +1,12 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import { CommandMenuProps } from "./cmdk.types";
 import { Command } from "cmdk";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export const CommandMenu = (props: CommandMenuProps) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
