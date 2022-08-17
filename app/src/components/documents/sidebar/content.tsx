@@ -22,7 +22,6 @@ const SidebarContent = (props: SidebarContentProps) => {
     <Box
       as="nav"
       pos="fixed"
-      left="0"
       zIndex="sticky"
       h="full"
       pb="10"
@@ -33,7 +32,7 @@ const SidebarContent = (props: SidebarContentProps) => {
       {...props}
     >
       <Flex direction="column" as="nav" aria-label="Main Navigation">
-        <Box p={5} pt="7">
+        <Box p={5} pt="10">
           <Heading fontSize="18px" mb="3">
             Overview
           </Heading>
