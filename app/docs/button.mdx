@@ -1,0 +1,41 @@
+---
+title: Button
+date: "2022-08-17"
+description: Simple button component
+---
+
+# SuperUI Button
+
+### Simple button component
+
+<hr className="pb-4" />
+
+The button component is probably the most widely used element in any user interface or website as it can be used to launch an action but also to link to other pages.
+
+Flowbite provides a large variety of styles and sizes for the button component including outlined buttons, multiple colors, sizes, buttons with icons, and more.
+
+## Default Button
+
+Simple button with different styles and sizes.
+
+<Button />
+
+```tsx {1,6-8} showLineNumbers
+import { Button } from "@superui/styles";
+
+export default function ButtonDemo() {
+  return (
+    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+      <Button variant="primary" onClick={() => alert("Hello World!")}>
+        Primary Button
+      </Button>
+      <Button variant="secondary" onClick={() => alert("Hello World!")}>
+        Secondary Button
+      </Button>
+      <Button variant="danger" onClick={() => alert("Hello World!")}>
+        Danger Button
+      </Button>
+    </div>
+  );
+}
+```

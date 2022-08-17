@@ -1,3 +1,4 @@
+import ButtonDemo from "@/demo/button";
 import {
   Divider,
   Heading,
@@ -22,6 +23,8 @@ import {
   LinkProps,
   ListItemProps,
 } from "@chakra-ui/react";
+
+import Pre from "./pre";
 
 export const MDXComponents = {
   a: (props: LinkProps) => (
@@ -65,4 +68,6 @@ export const MDXComponents = {
   ul: (props: ListProps) => <UnorderedList styleType="none" {...props} />,
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
+  Button: () => <ButtonDemo />,
+  pre: Pre,
 };
