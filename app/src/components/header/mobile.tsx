@@ -16,7 +16,7 @@ const HeaderMobile = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   const headerNav = useDisclosure();
   return (
-    <Box display={{ base: "inline-flex", md: "none" }}>
+    <div className="inline-flex md:hidden">
       <IconButton
         display={{ base: "flex", md: "none" }}
         aria-label="Open header menu"
@@ -25,19 +25,10 @@ const HeaderMobile = () => {
         icon={<IoArrowDownOutline />}
         onClick={headerNav.onOpen}
       />
-      <HStack
-        pos="absolute"
-        justifyContent="center"
-        zIndex={1000}
-        top={0}
-        left={0}
-        right={0}
-        display={headerNav.isOpen ? "flex" : "none"}
-        p={2}
-        py={5}
-        bg={bg}
-        borderWidth="1px"
-        spacing={5}
+      <div
+        className={`flex flex-col absolute items-center z-[1000] top-0 left-0 right-0 ${
+          headerNav?.isOpen ? "flex" : "hidden"
+        } p-2 py-5 bg-[#FBFCFC] dark:bg-[#252525] border-b gap-5`}
       >
         {HeaderLinks.map((link) => (
           <CustomLink key={link.slug} href={link.slug} external={link.external}>
@@ -49,8 +40,8 @@ const HeaderMobile = () => {
           borderWidth="1px"
           onClick={headerNav.onClose}
         />
-      </HStack>
-    </Box>
+      </div>
+    </div>
   );
 };
 
