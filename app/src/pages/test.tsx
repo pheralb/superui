@@ -4,13 +4,14 @@ import {
   Avatar,
   AvatarGroup,
   Button,
-  Input,
   LinearProgress,
   Group,
   Modal,
   Checkbox,
   PinCode,
+  Input,
 } from "@superui/styles";
+
 export default function Test() {
   const [isOpen, setOpen] = useState(false);
 

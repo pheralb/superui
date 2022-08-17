@@ -6,7 +6,7 @@ import {
   FocusScope,
   mergeProps,
 } from "react-aria";
-import { ExclamationIcon } from "@heroicons/react/outline";
+import { ExclamationIcon } from "@heroicons/react/outline/";
 import { CSSTransition } from "react-transition-group";
 import { Button } from "../Button";
 import { ModalProps } from "./modal.types";
