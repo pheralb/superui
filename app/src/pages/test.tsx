@@ -4,16 +4,19 @@ import {
   Avatar,
   AvatarGroup,
   Button,
-  LinearProgress,
   Group,
   Modal,
   Checkbox,
   PinCode,
-  Input,
+  Toast,
 } from "@superui/styles";
+
+import { LinearProgress } from "@superui/styles";
+import { Input } from "@superui/styles";
 
 export default function Test() {
   const [isOpen, setOpen] = useState(false);
+  const [isOpen2, setOpen2] = useState(false);
 
   return (
     <>
@@ -29,7 +32,7 @@ export default function Test() {
           <Group.Item name="2">Item 2</Group.Item>
           <Group.Item name="3">Item 3</Group.Item>
         </Group>
-        <LinearProgress variant="primary" type="determinate" value={50} />
+        <LinearProgress variant="primary" type="determinate" value={60} />
         <LinearProgress variant="secondary" type="determinate" value={25} />
         <LinearProgress variant="danger" type="determinate" value={75} />
         <div className="inline-flex items-end gap-3">
@@ -90,6 +93,19 @@ export default function Test() {
           Are you sure you want to delete "Documents"? All contents will be
           perminately destroyed.
         </Modal>
+
+        <Button variant="primary" onClick={() => setOpen2(!isOpen2)}>
+          Open Toast
+        </Button>
+        <Toast
+          isOpen={isOpen2}
+          title="Delete folder"
+          description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
+          duration={Infinity}
+          onClose={() => {
+            alert("closed");
+          }}
+        />
       </div>
     </>
   );

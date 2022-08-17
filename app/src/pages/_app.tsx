@@ -8,7 +8,7 @@ import "@/styles/prism.css";
 import "@superui/styles/dist/styles/main.css";
 
 // SuperUI Provider ->
-import { CommandMenu, SuperUIProvider } from "@superui/styles";
+import { CommandMenu, SuperUIProvider, ToastProvider } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -34,8 +34,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <SuperUIProvider>
         <ChakraProvider theme={appTheme}>
           <Layout>
-            <CommandMenu />
-            <Component {...pageProps} />
+            <ToastProvider>
+              <CommandMenu />
+              <Component {...pageProps} />
+            </ToastProvider>
           </Layout>
         </ChakraProvider>
       </SuperUIProvider>
