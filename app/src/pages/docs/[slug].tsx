@@ -46,7 +46,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [rehypeCodeTitles, rehypePrism],
+      rehypePlugins: [
+        rehypeCodeTitles,
+        [rehypePrism, { showLineNumbers: true }],
+      ],
     },
     scope: data,
   });

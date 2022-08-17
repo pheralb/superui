@@ -3,7 +3,6 @@ code[class*="language-"] {
   color: #d4d4d4;
   font-size: 16px;
   text-shadow: none;
-  font-family: "Cascadia";
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -35,8 +34,6 @@ code[class*="language-"] *::selection {
 }
 
 pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
   overflow: auto;
   background: #131314;
   border: 1px solid #323236;
@@ -49,9 +46,41 @@ pre[class*="language-"] {
   color: #db4c69;
   background: #1e1e1e;
 }
-/*********************************************************
-* Tokens
-*/
+
+/* Code block styles */
+.code-highlight {
+  @apply float-left min-w-full;
+}
+
+.code-line {
+  @apply -mx-4 block border-l-4 border-transparent pl-4 pr-4;
+}
+
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
+
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
+
+.highlight-line {
+  @apply -mx-4 border-l-4 border-white bg-gray-700 bg-opacity-50;
+}
+
+.line-number::before {
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
+
+/* Token styles */
+/**
+ * MIT License
+ * Copyright (c) 2018 Sarah Drasner
+ * Sarah Drasner's[@sdras] Night Owl
+ * Ported by Sara vieria [@SaraVieira]
+ * Added by Souvik Mandal [@SimpleIndian]
+ */
 .namespace {
   opacity: 0.7;
 }
@@ -230,6 +259,7 @@ pre[class*="language-"] {
 .token.namespace {
   color: #4ec9b0;
 }
+
 /*********************************************************
 * Language Specific
 */
@@ -262,6 +292,7 @@ code[class*="language-html"] {
 .language-html .token.punctuation {
   color: #808080;
 }
+
 /*********************************************************
 * Line highlighting
 */
