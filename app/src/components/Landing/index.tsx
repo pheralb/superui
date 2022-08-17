@@ -23,7 +23,7 @@ export function Card(props: Props) {
   );
 }
 
-export function CTA({}: Props) {
+export function CTA() {
   return (
     <Center height="90vh" w="100vw">
       <VStack spacing={8}>
@@ -77,7 +77,7 @@ export function ComponentSection() {
   );
 }
 
-export function ComponentGrid({}: Props) {
+export function ComponentGrid() {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (

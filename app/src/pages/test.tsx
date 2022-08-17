@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-type Props = {};
-
 import {
   Avatar,
   AvatarGroup,
@@ -14,7 +12,7 @@ import {
   Input,
 } from "@superui/styles";
 
-export default function Test({}: Props) {
+export default function Test() {
   const [isOpen, setOpen] = useState(false);
 
   return (
