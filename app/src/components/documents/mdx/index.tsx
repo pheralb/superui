@@ -24,6 +24,8 @@ import {
   ListItemProps,
 } from "@chakra-ui/react";
 
+import Pre from "./pre";
+
 export const MDXComponents = {
   a: (props: LinkProps) => (
     <Link textDecoration="underline" isExternal={true} {...props} />
@@ -67,4 +69,5 @@ export const MDXComponents = {
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
   Button: () => <ButtonDemo />,
+  pre: Pre,
 };
