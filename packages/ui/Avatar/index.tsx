@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import * as React from "react";
 import { AvatarProps } from "./avatar.types";
 import { twMerge } from "tailwind-merge";
 import { SIZES } from "../sizes";

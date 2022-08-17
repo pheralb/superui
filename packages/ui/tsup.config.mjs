@@ -1,17 +1,28 @@
 import { defineConfig } from "tsup";
-import { files } from "./files";
+import { getFiles } from "./files";
+import { spawn } from "child_process";
 
 export default defineConfig({
-  entry: files
-    .map((f) => `./${f}/index.tsx`)
-    .concat("./styles/main.css")
-    .concat("./index.ts"),
+  entry: getFiles().concat("./styles/main.css").concat("./index.ts"),
   splitting: true,
   sourcemap: true,
   clean: true,
+  treeshake: true,
+  dts: false,
   outExtension({ format }) {
     return {
       js: `.${format}.js`,
     };
+  },
+  async onSuccess() {
+    await new Promise((resolve) => {
+      const child = spawn("tsc", [
+        "--emitDeclarationOnly",
+        "--declaration",
+        "--outDir",
+        "dist/types",
+      ]);
+      child.on("close", resolve);
+    });
   },
 });
