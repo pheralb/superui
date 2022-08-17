@@ -48,7 +48,7 @@ export function CTA() {
 
 export function ComponentSection() {
   return (
-    <div className="h-80">
+    <div className="flex justify-center w-full h-80">
       <div className="grid place-content-center max-w-md w-full h-80 bg-[#FBFCFC] p-10 dark:bg-[#2e2e2e] rounded-xl">
         <div className="p-8">
           <h2 className="text-4xl font-bold text-left">
@@ -68,7 +68,7 @@ export function ComponentGrid() {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
-    <div className="flex flex-col items-center h-fit py-36 w-[80%]">
+    <div className="flex flex-col items-center w-full h-fit py-36">
       <div className="max-w-[1000px] bg-[#f2f2f2] dark:bg-[#2e2e2e] rounded-lg mb-2 p-5">
         <h2 className="text-5xl font-bold text-center">
           XX production-ready components
