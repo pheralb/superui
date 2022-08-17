@@ -23,6 +23,9 @@ export default defineConfig({
         "dist/types",
       ]);
       child.on("close", resolve);
+    }).catch((e) => {
+      console.error(e);
+      process.exit(0);
     });
   },
 });
