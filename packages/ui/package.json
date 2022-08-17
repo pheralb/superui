@@ -44,8 +44,6 @@
     "@react-aria/overlays": "3.10.0",
     "cmdk": "^0.1.18",
     "framer-motion": "^7.2.0",
-    "install": "^0.13.0",
-    "npm": "^8.17.0",
     "react-aria": "3.18.0",
     "react-transition-group": "4.4.5",
     "tailwind-merge": "1.5.1"
