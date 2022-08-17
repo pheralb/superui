@@ -17,63 +17,50 @@ export function Card(props: Props) {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
-    <Center w="100%" maxH={350} bg={cardBg} rounded={20}>
-      <VStack p={8}>{props.children}</VStack>
-    </Center>
+    <div className="grid place-content-center w-full max-w-xs bg-[#FBFCFC] dark:bg-[#2e2e2e] rounded-xl">
+      <div className="flex flex-col p-8">{props.children}</div>
+    </div>
   );
 }
 
 export function CTA() {
   return (
-    <Center height="90vh" w="100vw">
-      <VStack spacing={8}>
-        <Heading
-          as="h1"
-          size={{ base: "2xl", md: "3xl", lg: "4xl" }}
-          textAlign="center"
-          fontWeight={900}
-        >
+    <div className="grid w-screen h-screen place-content-center">
+      <div className="flex flex-col items-center gap-8">
+        <h1 className="font-bold text-center text-7xl">
           Develop super ⚡️ websites <br />
           with customizable React
           <br />
           components
-        </Heading>
-        <HStack spacing={5} mt={8}>
-          <Button colorScheme="green" size="lg">
+        </h1>
+        <div className="flex gap-5 mt-8">
+          <button className="p-3 px-5 font-bold transition-colors bg-green-500 rounded-full hover:bg-green-600">
             Get Started 🚀
-          </Button>
-          <Button size="lg" rightIcon={<AiFillGithub />}>
-            View on Github
-          </Button>
-        </HStack>
-      </VStack>
-    </Center>
+          </button>
+          <button className="flex items-center gap-2 p-3 px-5 font-bold transition-colors rounded-full bg-neutral-500">
+            View on Github <AiFillGithub className="w-8 h-8" />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export function ComponentSection() {
-  const cardBg = useColorModeValue("card.light", "card.dark");
-
   return (
-    <Center h={350}>
-      <Center maxW={500} h={300} bg={cardBg} rounded={20}>
-        <VStack p={8}>
-          <Heading
-            as="h2"
-            size={{ base: "2xl" }}
-            fontWeight={900}
-            noOfLines={3}
-            lineHeight={1.2}
-          >
+    <div className="h-80">
+      <div className="grid place-content-center max-w-md w-full h-80 bg-[#FBFCFC] p-10 dark:bg-[#2e2e2e] rounded-xl">
+        <div className="p-8">
+          <h2 className="text-4xl font-bold text-left">
             Customizable components built with Tailwind CSS
-          </Heading>
-          <Text as="p" fontSize="xl" fontWeight={500} noOfLines={3}>
+          </h2>
+          <p className="text-xl">
             Select your desired components and include them in your projects in
             just a click
-          </Text>
-        </VStack>
-      </Center>
-    </Center>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -81,28 +68,20 @@ export function ComponentGrid() {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
-    <VStack h={1550} pt={150} w="80%">
-      <Center maxW={1000} bg={cardBg} rounded={20} mb={10}>
-        <VStack p={5}>
-          <Heading
-            as="h2"
-            size={{ base: "2xl" }}
-            fontWeight={900}
-            noOfLines={3}
-            lineHeight={1.2}
-          >
-            XX production-ready components
-          </Heading>
-        </VStack>
-      </Center>
-      <div className="grid maxW-[100vw] w-full h-full grid-cols-2 grid-rows-3 gap-8 mt-10">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+    <div className="flex flex-col items-center h-fit py-36 w-[80%]">
+      <div className="max-w-[1000px] bg-[#f2f2f2] dark:bg-[#2e2e2e] rounded-lg mb-2 p-5">
+        <h2 className="text-5xl font-bold text-center">
+          XX production-ready components
+        </h2>
       </div>
-    </VStack>
+      <div className="grid place-items-center max-w-[100vw] w-full h-screen grid-cols-2 grid-rows-3 gap-8 mt-10">
+        <Card>Component 1</Card>
+        <Card>Component 2</Card>
+        <Card>Component 3</Card>
+        <Card>Component 4</Card>
+        <Card>Component 5</Card>
+        <Card>Component 6</Card>
+      </div>
+    </div>
   );
 }
