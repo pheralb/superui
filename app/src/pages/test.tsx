@@ -12,6 +12,7 @@ import {
 } from "@superui/styles";
 
 import { LinearProgress } from "@superui/styles";
+import { Input } from "@superui/styles";
 
 export default function Test() {
   const [isOpen, setOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Test() {
           <Group.Item name="2">Item 2</Group.Item>
           <Group.Item name="3">Item 3</Group.Item>
         </Group>
-        <LinearProgress variant="primary" type="determinate" value={50} />
+        <LinearProgress variant="primary" type="determinate" value={60} />
         <LinearProgress variant="secondary" type="determinate" value={25} />
         <LinearProgress variant="danger" type="determinate" value={75} />
         <div className="inline-flex items-end gap-3">

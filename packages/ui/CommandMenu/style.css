@@ -12,7 +12,7 @@
 }
 
 .vercel [cmdk-root] {
-  background: hsla(0, 0%, 9%, 0.8);
+  background: hsla(0, 0%, 9%, 0.95);
 }
 
 .vercel [cmdk-input] {
@@ -125,8 +125,8 @@
   padding: 4px;
   height: 20px;
   border-radius: 4px;
-  color: var(--gray11);
-  background: var(--gray4);
+  color: white;
+  background: hsl(0, 4%, 29%);
   display: inline-flex;
   align-items: center;
   justify-content: center;

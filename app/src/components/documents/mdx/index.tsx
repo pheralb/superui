@@ -22,6 +22,8 @@ import {
   LinkProps,
   ListItemProps,
 } from "@chakra-ui/react";
+import { Button } from "@superui/styles";
+import { ButtonProps } from "@superui/styles/dist/types/Button/button.types";
 
 export const MDXComponents = {
   a: (props: LinkProps) => (
@@ -65,4 +67,5 @@ export const MDXComponents = {
   ul: (props: ListProps) => <UnorderedList styleType="none" {...props} />,
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
+  Button: (props: ButtonProps) => <Button {...props} />,
 };
