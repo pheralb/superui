@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 // Custom styles & Prism syntax highlighting ->
 import "@/styles/globals.css";
 import "@/styles/prism.css";
+import "@superui/styles/dist/index.css";
 
 // SuperUI Provider ->
 import { SuperUIProvider, CommandMenu } from "@superui/styles";
