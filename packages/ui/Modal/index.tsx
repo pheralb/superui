@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import { useRef } from "react";
 import {
   useOverlay,
-  usePreventScroll,
   useModal,
   useDialog,
   FocusScope,
@@ -15,7 +14,7 @@ import { SuperUIOverlay } from "../Overlay";
 
 export function Modal(props: ModalProps) {
   const { children, onClose, confirmLabel } = props;
-  let ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { overlayProps, underlayProps } = useOverlay(props, ref);
   const { modalProps } = useModal();
   const { dialogProps, titleProps } = useDialog(
@@ -64,13 +63,13 @@ export function Modal(props: ModalProps) {
                 className="p-8 max-w-sm bg-white/90 border border-gray-300 shadow-2xl rounded-lg z-1 top-[10%] h-fit max-h-[80vh] relative focus:outline-none"
               >
                 {props.variant === "danger" && (
-                  <ExclamationIcon className="w-6 h-6 text-red-500 absolute right-8 top-8" />
+                  <ExclamationIcon className="absolute w-6 h-6 text-red-500 right-8 top-8" />
                 )}
-                <h3 {...titleProps} className="text-lg font-bold pb-2">
+                <h3 {...titleProps} className="pb-2 text-lg font-bold">
                   {props.title}
                 </h3>
                 <p className="text-sm text-gray-600">{children}</p>
-                <div className="pt-8 flex space-x-3 justify-end">
+                <div className="flex justify-end pt-8 space-x-3">
                   <Button onClick={onClose}>Cancel</Button>
                   <Button variant={"danger"} onClick={onClose}>
                     {confirmLabel}

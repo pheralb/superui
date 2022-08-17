@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
 import { LinearProgressProps } from "./linearProgress.types";
 import { twMerge } from "tailwind-merge";
 
@@ -18,7 +18,7 @@ export const LinearProgress = ({
   );
 
   return (
-    <div className="h-2 w-full bg-gray-300 rounded" {...rest}>
+    <div className="w-full h-2 bg-gray-300 rounded" {...rest}>
       <div
         className={genClassName}
         style={{ width: `${((value - min) / (max - min)) * 100}%` }}

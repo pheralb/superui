@@ -4,20 +4,20 @@
 
 @layer base {
   @font-face {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-display: optional;
-    src: url('/fonts/inter-var-latin.woff2') format('woff2');
+    src: url("/fonts/inter-var-latin.woff2") format("woff2");
   }
 
   @font-face {
-    font-family: 'Cascadia';
+    font-family: "Cascadia";
     font-style: normal;
     font-display: optional;
-    src: url('/fonts/CascadiaCode.woff2') format('woff2');
+    src: url("/fonts/CascadiaCode.woff2") format("woff2");
   }
 
   h1 h2 h3 h4 h5 h6 {
-    font-family: 'Inter';
+    font-family: "Inter";
   }
 }

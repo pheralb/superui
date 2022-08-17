@@ -1,5 +1,5 @@
 const withTM = require("next-transpile-modules")(["@superui/styles"]);
 
-module.exports = withTM({
+export default withTM({
   reactStrictMode: true,
 });

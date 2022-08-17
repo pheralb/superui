@@ -16,17 +16,28 @@
     "dev": "turbo run dev --parallel",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"./**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "pre-commit": "npm run lint && npm run format && git add ."
+    "pre-commit": "npm run lint && npm run format && git add .",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint . --fix --config ./packages/eslint-config-custom/index.js",
+      "prettier --write ."
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "tslib": "2.4.0",
     "husky": "8.0.1",
+    "lint-staged": "^13.0.3",
     "nagit": "0.0.18",
     "next-transpile-modules": "9.0.0",
     "prettier": "latest",
+    "tslib": "2.4.0",
     "turbo": "latest"
   },
   "engines": {
