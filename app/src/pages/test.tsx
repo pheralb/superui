@@ -8,7 +8,6 @@ import {
   Modal,
   Checkbox,
   PinCode,
-  Toast,
 } from "@superui/styles";
 
 import { LinearProgress } from "@superui/styles";
@@ -93,19 +92,6 @@ export default function Test() {
           Are you sure you want to delete "Documents"? All contents will be
           perminately destroyed.
         </Modal>
-
-        <Button variant="primary" onClick={() => setOpen2(!isOpen2)}>
-          Open Toast
-        </Button>
-        <Toast
-          isOpen={isOpen2}
-          title="Delete folder"
-          description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
-          duration={Infinity}
-          onClose={() => {
-            alert("closed");
-          }}
-        />
       </div>
     </>
   );

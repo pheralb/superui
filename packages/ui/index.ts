@@ -10,4 +10,5 @@ export * from "./Modal";
 export * from "./Checkbox";
 export * from "./AvatarGroup";
 export * from "./CommandMenu";
+export * from "./CircularProgress";
 export * from "./Toast";
