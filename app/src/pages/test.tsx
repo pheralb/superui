@@ -97,16 +97,7 @@ export default function Test() {
           perminately destroyed.
         </Modal>
 
-        <Button
-          variant="primary"
-          onClick={() => {
-            setOpen2(false);
-            window.clearTimeout(timerRef.current);
-            timerRef.current = window.setTimeout(() => {
-              setOpen2(true);
-            }, 100);
-          }}
-        >
+        <Button variant="primary" onClick={() => setOpen2(!isOpen2)}>
           Open Toast
         </Button>
         <Toast
@@ -114,7 +105,9 @@ export default function Test() {
           title="Delete folder"
           description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
           duration={Infinity}
-          onClose={setOpen2}
+          onClose={() => {
+            alert("closed");
+          }}
         />
       </div>
     </>
