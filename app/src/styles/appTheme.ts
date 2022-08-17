@@ -11,6 +11,10 @@ const appTheme = extendTheme({
       light: "#FBFCFC",
       dark: "#252525",
     },
+    circle: {
+      light: "#F5F5F5",
+      dark: "#3B3A3A",
+    },
     card: {
       light: "#f2f2f2",
       dark: "#2e2e2e",
@@ -30,7 +34,11 @@ const appTheme = extendTheme({
       "html, body": {
         height: "100%",
         maxHeight: "100vh",
-        bg: mode("bg.light", "bg.dark")(props),
+        bgGradient: mode(
+          "radial-gradient(circle at 1px 1px, circle.light 1px, bg.light 0)",
+          "radial-gradient(circle at 1px 1px, circle.dark 1px, bg.dark 0)"
+        )(props),
+        backgroundSize: "50px 50px",
         fontSize: "14px",
       },
     }),

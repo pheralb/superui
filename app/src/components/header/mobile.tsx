@@ -16,32 +16,41 @@ const HeaderMobile = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   const headerNav = useDisclosure();
   return (
-    <div className="inline-flex md:hidden">
+    <Box display={{ base: "inline-flex", md: "none" }}>
       <IconButton
         display={{ base: "flex", md: "none" }}
-        aria-label="Open header menu"
+        aria-label="Open menu"
         variant="ghost"
-        borderWidth="1px"
         icon={<IoArrowDownOutline />}
         onClick={headerNav.onOpen}
       />
-      <div
-        className={`flex flex-col absolute items-center z-[1000] top-0 left-0 right-0 ${
-          headerNav?.isOpen ? "flex" : "hidden"
-        } p-2 py-5 bg-[#FBFCFC] dark:bg-[#252525] border-b gap-5`}
+      <VStack
+        pos="absolute"
+        zIndex={1}
+        top={0}
+        left={0}
+        right={0}
+        display={headerNav.isOpen ? "flex" : "none"}
+        flexDirection="column"
+        p={2}
+        pb={4}
+        m={2}
+        bg={bg}
+        spacing={3}
       >
+        <CloseButton aria-label="Close menu" onClick={headerNav.onClose} />
         {HeaderLinks.map((link) => (
-          <CustomLink key={link.slug} href={link.slug} external={link.external}>
+          <CustomLink
+            key={link.slug}
+            href={link.slug}
+            external={link.external}
+            underline={true}
+          >
             {link.title}
           </CustomLink>
         ))}
-        <CloseButton
-          aria-label="Close Header Menu"
-          borderWidth="1px"
-          onClick={headerNav.onClose}
-        />
-      </div>
-    </div>
+      </VStack>
+    </Box>
   );
 };
 
