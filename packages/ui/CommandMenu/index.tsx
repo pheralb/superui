@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { CommandMenuProps } from "./cmdk.types";
 import { Command } from "cmdk";
 import * as Dialog from "@radix-ui/react-dialog";

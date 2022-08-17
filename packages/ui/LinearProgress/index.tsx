@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { LinearProgressProps } from "./linearProgress.types";
 import { twMerge } from "tailwind-merge";
 

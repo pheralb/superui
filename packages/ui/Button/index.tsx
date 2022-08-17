@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { ButtonProps } from "./button.types";
 import { twMerge } from "tailwind-merge";
 
