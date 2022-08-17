@@ -1,17 +1,19 @@
 import { useState } from "react";
 
 type Props = {};
+
 import {
   Avatar,
   AvatarGroup,
   Button,
-  Input,
   LinearProgress,
   Group,
   Modal,
   Checkbox,
   PinCode,
+  Input,
 } from "@superui/styles";
+
 export default function Test({}: Props) {
   const [isOpen, setOpen] = useState(false);
 

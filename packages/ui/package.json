@@ -1,8 +1,8 @@
 {
   "name": "@superui/styles",
   "version": "0.0.1",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "contributors": [
     {
@@ -20,8 +20,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",
-    "build": "tsup ./index.tsx --format esm,cjs --external react --sourcemap --dts",
-    "dev": "tsup ./index.tsx --format esm,cjs --watch --external react",
+    "build": "tsup --config tsup.config.mjs --format esm,cjs --external react",
+    "dev": "tsup --config tsup.config.mjs --format esm,cjs --external react",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "postinstall": "node ./postinstall.mjs"
   },

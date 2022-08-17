@@ -5,10 +5,10 @@ import type { AppProps } from "next/app";
 // Custom styles & Prism syntax highlighting ->
 import "@/styles/globals.css";
 import "@/styles/prism.css";
-import "@superui/styles/dist/index.css";
+import "@superui/styles/dist/styles/main.css";
 
 // SuperUI Provider ->
-import { SuperUIProvider, CommandMenu } from "@superui/styles";
+import { CommandMenu, SuperUIProvider } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
