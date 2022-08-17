@@ -4,13 +4,14 @@ import {
   Avatar,
   AvatarGroup,
   Button,
-  LinearProgress,
   Group,
   Modal,
   Checkbox,
   PinCode,
   Toast,
 } from "@superui/styles";
+
+import { LinearProgress } from "@superui/styles";
 
 export default function Test() {
   const [isOpen, setOpen] = useState(false);
