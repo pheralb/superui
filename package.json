@@ -32,6 +32,8 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "8.0.1",
     "lint-staged": "^13.0.3",
     "nagit": "0.0.18",

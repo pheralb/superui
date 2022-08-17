@@ -11,5 +11,6 @@ export interface ToastProps {
     | "bottomleft";
   duration?: number;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose?: any;
+  onOpenChange?: () => void;
 }

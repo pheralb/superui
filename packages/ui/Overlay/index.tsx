@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { OverlayContainer, OverlayProvider, SSRProvider } from "react-aria";
+import { ToastProvider } from "../Toast";
 
 export const SuperUIOverlay = ({ children }: { children: React.ReactNode }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -18,7 +19,9 @@ export const SuperUIProvider = ({
 }) => {
   return (
     <OverlayProvider>
-      <SSRProvider>{children}</SSRProvider>
+      <ToastProvider>
+        <SSRProvider>{children}</SSRProvider>
+      </ToastProvider>
     </OverlayProvider>
   );
 };
