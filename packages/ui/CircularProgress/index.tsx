@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { CircularProgressProps } from "./circularProgress.types";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 import { SIZES } from "../sizes";
 
 export const CircularProgress = ({
@@ -26,7 +27,7 @@ export const CircularProgress = ({
 
   return (
     <div ref={ref} className={genClassName} {...rest}>
-      <svg className="w-full h-full">
+      <svg className="w-full h-full rotate-90">
         <circle
           className="text-gray-300 w-full h-full"
           strokeWidth="5"
@@ -36,14 +37,15 @@ export const CircularProgress = ({
           cx={elementRadius && elementRadius / 2}
           cy={ref.current?.offsetHeight && ref.current?.offsetHeight / 2}
         />
-        <circle
+        <motion.circle
           className={VARIANTS[variant]}
           strokeWidth="5"
           strokeDasharray={circunference}
-          strokeDashoffset={
-            circunference &&
-            `${circunference - (counter / 100) * circunference}`
-          }
+          animate={{
+            strokeDashoffset:
+              circunference && circunference - (counter / 100) * circunference,
+          }}
+          transition={{ duration: 1.65 }}
           strokeLinecap="round"
           stroke="currentColor"
           fill="transparent"
