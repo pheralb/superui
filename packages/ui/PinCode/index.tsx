@@ -37,6 +37,7 @@ export const PinCode = ({ length = 4 }: PinCodeProps) => {
       refs.forEach((ref, index) => {
         if (index < value.length) {
           ref.value = value[index];
+          refs[length - 1].focus();
         }
       });
     }
