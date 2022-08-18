@@ -9,6 +9,16 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        popIn: {
+          "0%": {
+            opacity: 0,
+            transform: "scale(0.5)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        },
         slideIn: {
           from: {
             transform: "translateX(100%)",
@@ -31,6 +41,7 @@ module.exports = {
       animation: {
         "waving-hand": "wave 2s linear 1s",
         "slide-in": "slideIn 0.15s linear",
+        "pop-in": "popIn 0.05s linear",
       },
     },
     fontFamily: {

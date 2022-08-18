@@ -104,8 +104,10 @@ export default function Test() {
         <Toast
           isOpen={isOpen2}
           title="Delete folder"
+          position="bottomcenter"
+          variant="warning"
           description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
-          duration={Infinity}
+          duration={2000}
           onClose={() => {
             alert("closed");
           }}

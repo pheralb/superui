@@ -1,5 +1,9 @@
+import { ToastVariant } from "../variants";
+
 export interface ToastProps {
-  variant?: "success" | "error" | "warning" | "info";
+  className?: string;
+  children?: React.ReactNode;
+  variant?: ToastVariant;
   title?: string;
   description?: string;
   position?:
