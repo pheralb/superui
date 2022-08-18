@@ -5,6 +5,8 @@ export const Button = ({
   children,
   variant = "primary",
   className,
+  icon,
+  iconPosition = "left",
   ...props
 }: ButtonProps) => {
   const generateClassName = twMerge(
@@ -15,13 +17,15 @@ export const Button = ({
 
   return (
     <button className={generateClassName} {...props}>
+      {icon && iconPosition === "left" && icon}
       {children}
+      {icon && iconPosition === "right" && icon}
     </button>
   );
 };
 
 const SHARED_STYLES =
-  "px-4 py-2 w-fit text-base font-medium inline-flex items-center justify-center rounded-md border border-transparent shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
+  "px-4 py-2 w-fit text-base font-medium gap-2 inline-flex items-center justify-center rounded-md border border-transparent shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
 
 const BUTTON_STYLES = {
   primary:

@@ -20,22 +20,51 @@ Simple button with different styles and sizes.
 
 <Button />
 
-```tsx {1,6-8} showLineNumbers
+```tsx
 import { Button } from "@superui/styles";
 
-export default function ButtonDemo() {
-  return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
-      <Button variant="primary" onClick={() => alert("Hello World!")}>
-        Primary Button
-      </Button>
-      <Button variant="secondary" onClick={() => alert("Hello World!")}>
-        Secondary Button
-      </Button>
-      <Button variant="danger" onClick={() => alert("Hello World!")}>
-        Danger Button
-      </Button>
-    </div>
-  );
-}
+<Button variant="primary" onClick={() => alert("Hello World!")}>
+  Primary Button
+</Button>;
+```
+
+---
+
+## Button with Icon
+
+Button with an icon.
+
+<ButtonWithIcon />
+
+```tsx
+import { Button } from "@superui/styles";
+
+<Button
+  variant="primary"
+  onClick={() => alert("Hello World!")}
+  icon={<ArrowIcon />}
+  iconPosition="left"
+>
+  Primary Button
+</Button>;
+```
+
+---
+
+## Custom Tailwind Button
+
+You can add custom classes to the button and it will override the default styles.
+
+<CustomButton />
+
+```tsx
+import { Button } from "@superui/styles";
+
+<Button
+  variant="primary"
+  onClick={() => alert("Hello World!")}
+  className="bg-transparent border border-white hover:bg-white text-white hover:text-black"
+>
+  Custom Button
+</Button>;
 ```

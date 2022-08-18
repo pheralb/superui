@@ -1,4 +1,4 @@
-import ButtonDemo from "@/demo/button";
+import ButtonDemo, { ButtonWithIcon, CustomButton } from "@/demo/button";
 import {
   Divider,
   Heading,
@@ -35,7 +35,15 @@ export const MDXComponents = {
     <Heading as="h1" mt={8} mb={3} size="3xl" fontWeight="light" {...props} />
   ),
   h2: (props: HeadingProps) => (
-    <Heading as="h2" mt={6} mb={16} size="2xl" fontWeight="bold" {...props} />
+    <Heading
+      as="h2"
+      mt={10}
+      pt={10}
+      mb={10}
+      size="2xl"
+      fontWeight="bold"
+      {...props}
+    />
   ),
   h3: (props: HeadingProps) => (
     <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
@@ -69,5 +77,7 @@ export const MDXComponents = {
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
   Button: () => <ButtonDemo />,
+  ButtonWithIcon: () => <ButtonWithIcon />,
+  CustomButton: () => <CustomButton />,
   pre: Pre,
 };
