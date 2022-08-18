@@ -43,7 +43,7 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
           delay: 0.2,
         }}
       >
-        <MDXRemote {...source} components={MDXComponents} />
+        <MDXRemote {...source} components={MDXComponents as any} />
       </motion.div>
     </Sidebar>
   );

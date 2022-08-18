@@ -36,8 +36,15 @@ type Props = {
   children: React.ReactNode;
 };
 
+type InputProps = {
+  current: {
+    textContent?: string;
+  };
+};
+
 const Pre = (props: Props) => {
-  const textInput = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const textInput: any = useRef(null);
   const [hovered, setHovered] = useState(false);
   const [copied, setCopied] = useState(false);
 
