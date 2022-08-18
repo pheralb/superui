@@ -10,6 +10,7 @@ import {
   PinCode,
   Toast,
   ToastProvider,
+  CircularProgress,
 } from "@superui/styles";
 
 import { LinearProgress } from "@superui/styles";
@@ -109,6 +110,9 @@ export default function Test() {
             alert("closed");
           }}
         />
+        <CircularProgress value={50} size="md" variant="primary" />
+        <CircularProgress value={15} size="xl" variant="secondary" />
+        <CircularProgress value={40} size="lg" variant="danger" />
       </div>
     </>
   );
