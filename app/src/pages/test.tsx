@@ -115,6 +115,7 @@ export default function Test() {
         <CircularProgress value={50} size="md" variant="primary" />
         <CircularProgress value={15} size="xl" variant="secondary" />
         <CircularProgress value={40} size="lg" variant="danger" />
+        <article className="border-2 border-black w-96 h-48"></article>
       </div>
     </>
   );

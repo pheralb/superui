@@ -12,3 +12,4 @@ export * from "./AvatarGroup";
 export * from "./CommandMenu";
 export * from "./CircularProgress";
 export * from "./Toast";
+export * from "./NavigationBar";
