@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@chakra-ui/react": "2.2.6",
+    "@codemirror/autocomplete": "^6.1.0",
+    "@codesandbox/sandpack-react": "^1.5.1",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
+    "@monaco-editor/react": "^4.4.5",
     "@superui/styles": "*",
     "framer-motion": "7.1.0",
     "gray-matter": "4.0.3",

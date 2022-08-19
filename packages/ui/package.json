@@ -1,6 +1,6 @@
 {
   "name": "@superui/styles",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
@@ -31,7 +31,6 @@
     "@types/react-transition-group": "4.4.5",
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
-    "react": "18.2.0",
     "tsconfig": "*",
     "tsup": "6.2.2",
     "typescript": "4.5.2"
@@ -42,6 +41,7 @@
     "@radix-ui/react-popover": "^1.0.0",
     "@radix-ui/react-toast": "^1.0.0",
     "@react-aria/overlays": "3.10.0",
+    "react": "18.2.0",
     "cmdk": "^0.1.18",
     "framer-motion": "^7.2.0",
     "react-aria": "3.18.0",
