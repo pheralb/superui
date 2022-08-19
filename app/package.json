@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@chakra-ui/react": "2.2.6",
+    "@codemirror/autocomplete": "^6.1.0",
+    "@codesandbox/sandpack-react": "^1.5.1",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
     "@supabase/auth-helpers-nextjs": "0.2.7",
     "@supabase/auth-helpers-react": "0.2.3",
     "@supabase/supabase-js": "1.35.6",
+    "@monaco-editor/react": "^4.4.5",
     "@superui/styles": "*",
     "boring-avatars": "1.7.0",
     "framer-motion": "7.1.0",
@@ -28,6 +31,8 @@
     "rehype-code-titles": "1.1.0",
     "rehype-prism-plus": "1.4.2",
     "rehype-slug": "^5.0.1",
+    "rehype-toc": "^3.0.2",
+    "remark-autolink-headings": "^7.0.1",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {

@@ -7,6 +7,7 @@ import { MDXMeta } from "@/interfaces/mdxMeta";
 import { motion } from "framer-motion";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+import rehypeToc from "rehype-toc";
 
 interface DocsPageProps {
   source: MDXRemoteSerializeResult;
@@ -62,6 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         rehypeCodeTitles,
         [rehypePrism, { showLineNumbers: true }],
         rehypeSlug,
+        rehypeToc,
       ],
     },
     scope: data,
