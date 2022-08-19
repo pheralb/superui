@@ -10,6 +10,7 @@ import {
   PinCode,
   Toast,
   ToastProvider,
+  CircularProgress,
 } from "@superui/styles";
 
 import { LinearProgress } from "@superui/styles";
@@ -94,7 +95,7 @@ export default function Test() {
           blur
         >
           Are you sure you want to delete "Documents"? All contents will be
-          perminately destroyed.
+          deleted permanently.
         </Modal>
 
         <Button variant="primary" onClick={() => setOpen2(!isOpen2)}>
@@ -103,12 +104,17 @@ export default function Test() {
         <Toast
           isOpen={isOpen2}
           title="Delete folder"
-          description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
-          duration={Infinity}
+          position="bottomcenter"
+          variant="warning"
+          description="Are you sure you want to delete 'Documents'? All contents will be deleted permanently."
+          duration={2000}
           onClose={() => {
             alert("closed");
           }}
         />
+        <CircularProgress value={50} size="md" variant="primary" />
+        <CircularProgress value={15} size="xl" variant="secondary" />
+        <CircularProgress value={40} size="lg" variant="danger" />
       </div>
     </>
   );
