@@ -1,5 +1,4 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
-import Script from "next/script";
 import type { AppProps } from "next/app";
 
 // Custom styles & Prism syntax highlighting ->
@@ -8,7 +7,7 @@ import "@/styles/prism.css";
 import "@superui/styles/dist/styles/main.css";
 
 // SuperUI Provider ->
-import { CommandMenu, SuperUIProvider, ToastProvider } from "@superui/styles";
+import { SuperUIProvider, ToastProvider } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -19,19 +18,17 @@ import NextNProgress from "nextjs-progressbar";
 
 // Layout ->
 import Layout from "@/layout";
-import { Components } from "@/data/sidebarLinks";
-import { CubeIcon } from "@/components/icons/cubeIcon";
 
-const COMPONENTS_LIST = Components.map((item, index) => ({
-  name: item.title,
-  onSelect: () => {
-    window.location.href = item.slug;
-  },
-}));
+// Command Palette ->
+import Commands from "@/commands";
+
+// Supabase Config ->
+import { UserProvider } from "@supabase/auth-helpers-react";
+import { supabaseClient } from "@supabase/auth-helpers-nextjs";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <UserProvider supabaseClient={supabaseClient}>
       <NextNProgress
         color="#4343E5"
         startPosition={0.3}
@@ -44,29 +41,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ChakraProvider theme={appTheme}>
           <Layout>
             <ToastProvider>
-              <CommandMenu
-                data={[
-                  {
-                    heading: "Components",
-                    items: [
-                      {
-                        name: "All Components",
-                        onSelect: () => {
-                          window.location.href = "/docs";
-                        },
-                        icon: <CubeIcon />,
-                      },
-                      ...COMPONENTS_LIST,
-                    ],
-                  },
-                ]}
-              />
+              <Commands />
               <Component {...pageProps} />
             </ToastProvider>
           </Layout>
         </ChakraProvider>
       </SuperUIProvider>
-    </>
+    </UserProvider>
   );
 }
 
