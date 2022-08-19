@@ -5,13 +5,13 @@ export const HeaderLinks = [
     external: false,
   },
   {
-    title: "Community",
-    slug: "/community",
+    title: "Docs",
+    slug: "/docs",
     external: false,
   },
   {
-    title: "Docs",
-    slug: "/docs",
+    title: "Community",
+    slug: "/community",
     external: false,
   },
 ];
