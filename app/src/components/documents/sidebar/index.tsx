@@ -18,7 +18,7 @@ interface SidebarProps {
 const Sidebar = (props: SidebarProps) => {
   const sidebar = useDisclosure();
   return (
-    <Box borderTopWidth="1px">
+    <Box>
       <Container maxW="77%" as="section">
         <SidebarContent display={{ base: "none", md: "unset" }} />
         <Drawer
