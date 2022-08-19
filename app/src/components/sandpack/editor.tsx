@@ -75,22 +75,79 @@ export default function MySandpack() {
       justifyContent="space-between"
     >
       <SandpackProvider
-        template="react"
-        theme={"dark"}
-        files={DEFAULT_FILES}
+        customSetup={{
+          entry: "/src/index.tsx",
+          dependencies: {
+            react: "latest",
+            "react-dom": "latest",
+            "react-scripts": "4.0.0",
+            "@superui/styles": "0.0.4",
+          },
+        }}
+        files={{
+          "./tsconfig.json": {
+            code: `{
+"include": [
+  "./src/**/*"
+],
+"compilerOptions": {
+  "strict": true,
+  "esModuleInterop": true,
+  "lib": [
+    "dom",
+    "es2015"
+  ],
+  "jsx": "react"
+}
+}`,
+            hidden: true,
+          },
+          "/public/index.html": {
+            code: `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>`,
+            hidden: true,
+          },
+
+          "/src/index.tsx": {
+            code: `import * as React from "react";
+import { render } from "react-dom";
+import { Main } from "./main";
+const rootElement = document.getElementById("root");
+render(<Main test="World"/>, rootElement);
+        `,
+            hidden: true,
+          },
+
+          "/src/main.tsx": {
+            code: `import * as React from "react";
+import { Button } from "@superui/styles";
+
+export const Main: React.FC<{test: string}> = ({test}) => {
+  return (
+    <>
+      <h1>Hello {test}</h1>
+      <Button>Hello</Button>
+    </>
+  )
+}`,
+          },
+        }}
         options={{
+          activeFile: "/src/main.tsx",
           externalResources: [
             "https://unpkg.com/@tailwindcss/ui/dist/tailwind-ui.min.css",
           ],
         }}
-        customSetup={{
-          dependencies: {
-            react: "^18",
-            "react-dom": "^18",
-            "@superui/styles": "latest",
-          },
-          environment: "parcel",
-        }}
+        theme="dark"
       >
         <SandpackLayout>
           <MonacoEditor />
