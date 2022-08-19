@@ -28,17 +28,16 @@ import {
 
 import Pre from "./pre";
 
-const CustomHeading = ({ as, id, ...props }: any) => {
+const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
     return (
-      <Link href={`#${id}`}>
-        <NextLink href={`#${id}`}>
+      <NextLink href={`#${id}`}>
+        <Link my={5}>
           <Heading
             as={as}
             display="inline"
             id={id}
-            my={5}
-            lineHeight={"1em"}
+            lineHeight={"2em"}
             {...props}
             _hover={{
               underline: "none",
@@ -51,8 +50,8 @@ const CustomHeading = ({ as, id, ...props }: any) => {
               },
             }}
           />
-        </NextLink>
-      </Link>
+        </Link>
+      </NextLink>
     );
   }
   return <Heading as={as} {...props} />;
@@ -62,13 +61,17 @@ const H2 = (props: HeadingProps) => <CustomHeading as="h2" {...props} />;
 
 export const MDXComponents = {
   a: (props: LinkProps) => (
-    <Link textDecoration="underline" isExternal={true} {...props} />
+    <Link
+      textDecoration="underline"
+      isExternal={props.href?.startsWith("#") ? false : true}
+      {...props}
+    />
   ),
   hr: (props: TextProps) => <Divider {...props} />,
   h1: (props: HeadingProps) => (
     <Heading as="h1" mt={8} mb={3} size="3xl" fontWeight="light" {...props} />
   ),
-  h2: H2,
+  h2: (props: HeadingProps) => <CustomHeading as="h2" {...props} />,
   h3: (props: HeadingProps) => (
     <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
   ),

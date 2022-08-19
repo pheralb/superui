@@ -24,6 +24,8 @@
     "rehype-code-titles": "1.1.0",
     "rehype-prism-plus": "1.4.2",
     "rehype-slug": "^5.0.1",
+    "rehype-toc": "^3.0.2",
+    "remark-autolink-headings": "^7.0.1",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
