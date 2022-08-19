@@ -20,6 +20,7 @@ import NextNProgress from "nextjs-progressbar";
 // Layout ->
 import Layout from "@/layout";
 import { Components } from "@/data/sidebarLinks";
+import { CubeIcon } from "@/components/icons/cubeIcon";
 
 const COMPONENTS_LIST = Components.map((item, index) => ({
   name: item.title,
@@ -47,7 +48,16 @@ function MyApp({ Component, pageProps }: AppProps) {
                 data={[
                   {
                     heading: "Components",
-                    items: COMPONENTS_LIST,
+                    items: [
+                      {
+                        name: "All Components",
+                        onSelect: () => {
+                          window.location.href = "/docs";
+                        },
+                        icon: <CubeIcon />,
+                      },
+                      ...COMPONENTS_LIST,
+                    ],
                   },
                 ]}
               />

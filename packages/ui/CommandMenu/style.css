@@ -72,14 +72,14 @@
   display: flex;
   gap: 8px;
   padding: 0 16px;
-  color: white;
+  color: #a0a0a0;
   will-change: background, color;
   transition: all 0.15s ease;
   transition-property: none;
 }
 
 .vercel [cmdk-item][aria-selected="true"] {
-  background: var(--grayA3);
+  background: hsla(0, 0%, 100%, 0.056);
   color: white;
 }
 
