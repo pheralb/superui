@@ -95,7 +95,7 @@ export default function Test() {
           blur
         >
           Are you sure you want to delete "Documents"? All contents will be
-          perminately destroyed.
+          deleted permanently.
         </Modal>
 
         <Button variant="primary" onClick={() => setOpen2(!isOpen2)}>
@@ -106,7 +106,7 @@ export default function Test() {
           title="Delete folder"
           position="bottomcenter"
           variant="warning"
-          description="Are you sure you want to delete 'Documents'? All contents will be perminately destroyed."
+          description="Are you sure you want to delete 'Documents'? All contents will be deleted permanently."
           duration={2000}
           onClose={() => {
             alert("closed");
