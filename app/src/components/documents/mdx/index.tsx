@@ -35,15 +35,7 @@ export const MDXComponents = {
     <Heading as="h1" mt={8} mb={3} size="3xl" fontWeight="light" {...props} />
   ),
   h2: (props: HeadingProps) => (
-    <Heading
-      as="h2"
-      mt={10}
-      pt={10}
-      mb={10}
-      size="2xl"
-      fontWeight="bold"
-      {...props}
-    />
+    <Heading as="h2" mt={10} mb={10} size="2xl" fontWeight="bold" {...props} />
   ),
   h3: (props: HeadingProps) => (
     <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
