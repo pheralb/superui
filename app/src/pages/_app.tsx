@@ -19,6 +19,14 @@ import NextNProgress from "nextjs-progressbar";
 
 // Layout ->
 import Layout from "@/layout";
+import { Components } from "@/data/sidebarLinks";
+
+const COMPONENTS_LIST = Components.map((item, index) => ({
+  name: item.title,
+  onSelect: () => {
+    window.location.href = item.slug;
+  },
+}));
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -35,7 +43,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ChakraProvider theme={appTheme}>
           <Layout>
             <ToastProvider>
-              <CommandMenu />
+              <CommandMenu
+                data={[
+                  {
+                    heading: "Components",
+                    items: COMPONENTS_LIST,
+                  },
+                ]}
+              />
               <Component {...pageProps} />
             </ToastProvider>
           </Layout>

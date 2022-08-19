@@ -52,7 +52,17 @@ export const CommandMenu = (props: CommandMenuProps) => {
               <Command.Input autoFocus placeholder="Type command" />
               <Command.List>
                 <Command.Empty>No results found.</Command.Empty>
-                <Components searchComponents={() => alert("hello world!")} />
+                <>
+                  {props.data.map((group, index) => (
+                    <Command.Group key={index} heading={group.heading}>
+                      {group.items.map((item, index) => (
+                        <Command.Item key={index} onSelect={item.onSelect}>
+                          {item.name}
+                        </Command.Item>
+                      ))}
+                    </Command.Group>
+                  ))}
+                </>
               </Command.List>
             </Command>
           </div>
