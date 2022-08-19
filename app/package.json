@@ -22,7 +22,9 @@
     "react-dom": "18.2.0",
     "react-icons": "4.4.0",
     "rehype-code-titles": "1.1.0",
-    "rehype-prism-plus": "1.4.2"
+    "rehype-prism-plus": "1.4.2",
+    "rehype-slug": "^5.0.1",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.0.0",

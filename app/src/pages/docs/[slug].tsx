@@ -5,6 +5,8 @@ import type { GetStaticProps, GetStaticPaths } from "next";
 import { docsFilePaths, docsPath } from "@/services/mdx";
 import { MDXMeta } from "@/interfaces/mdxMeta";
 import { motion } from "framer-motion";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 interface DocsPageProps {
   source: MDXRemoteSerializeResult;
@@ -55,10 +57,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [
         rehypeCodeTitles,
         [rehypePrism, { showLineNumbers: true }],
+        rehypeSlug,
       ],
     },
     scope: data,

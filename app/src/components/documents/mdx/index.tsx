@@ -1,4 +1,6 @@
 import ButtonDemo, { ButtonWithIcon, CustomButton } from "@/demo/button";
+import { BasicInput, InForm, InputWithLabel } from "@/demo/input";
+import NextLink from "next/link";
 import {
   Divider,
   Heading,
@@ -26,6 +28,38 @@ import {
 
 import Pre from "./pre";
 
+const CustomHeading = ({ as, id, ...props }: any) => {
+  if (id) {
+    return (
+      <Link href={`#${id}`}>
+        <NextLink href={`#${id}`}>
+          <Heading
+            as={as}
+            display="inline"
+            id={id}
+            my={5}
+            lineHeight={"1em"}
+            {...props}
+            _hover={{
+              underline: "none",
+              _before: {
+                content: '"#"',
+                position: "relative",
+                marginLeft: "-1.2ch",
+                paddingRight: "0.2ch",
+                color: "gray.500",
+              },
+            }}
+          />
+        </NextLink>
+      </Link>
+    );
+  }
+  return <Heading as={as} {...props} />;
+};
+
+const H2 = (props: HeadingProps) => <CustomHeading as="h2" {...props} />;
+
 export const MDXComponents = {
   a: (props: LinkProps) => (
     <Link textDecoration="underline" isExternal={true} {...props} />
@@ -34,9 +68,7 @@ export const MDXComponents = {
   h1: (props: HeadingProps) => (
     <Heading as="h1" mt={8} mb={3} size="3xl" fontWeight="light" {...props} />
   ),
-  h2: (props: HeadingProps) => (
-    <Heading as="h2" mt={10} mb={10} size="2xl" fontWeight="bold" {...props} />
-  ),
+  h2: H2,
   h3: (props: HeadingProps) => (
     <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
   ),
@@ -57,9 +89,7 @@ export const MDXComponents = {
     <Heading as="h6" mt={8} mb={3} size="sm" fontWeight="light" {...props} />
   ),
   p: (props: TextProps) => <Text fontSize="lg" mb={3} {...props} />,
-  table: (props: TableProps) => (
-    <Table variant="striped" colorScheme="orange" {...props} />
-  ),
+  table: (props: TableProps) => <Table variant="simple" {...props} />,
   thead: (props: TableBodyProps) => <Thead {...props} />,
   tbody: (props: TableBodyProps) => <Tbody {...props} />,
   th: (props: TableColumnHeaderProps) => <Th {...props} />,
@@ -71,5 +101,8 @@ export const MDXComponents = {
   Button: () => <ButtonDemo />,
   ButtonWithIcon: () => <ButtonWithIcon />,
   CustomButton: () => <CustomButton />,
+  BasicInput: () => <BasicInput />,
+  InputWithLabel: () => <InputWithLabel />,
+  InForm: () => <InForm />,
   pre: Pre,
 };
