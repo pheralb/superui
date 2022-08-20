@@ -9,5 +9,6 @@ type Data = {
     shortcut?: string;
     onSelect: () => void;
     icon?: JSX.Element;
+    type?: string;
   }[];
 }[];

@@ -9,6 +9,7 @@ const COMPONENTS_LIST = Components.map((item, index) => ({
   onSelect: () => {
     window.location.href = item.slug;
   },
+  type: "Component",
 }));
 
 const Commands = () => {
