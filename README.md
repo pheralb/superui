@@ -1,5 +1,8 @@
 <div align="center">
-<h2><strong>SuperUI</strong></h2>
+<h1>
+<strong>SuperUI</strong>
+</h1>
+
 <p>⚡ A Tailwindcss components library.</p>
 
 ![GitHub releases](https://img.shields.io/github/release/pheralb/superui)
@@ -10,14 +13,10 @@
 
 </div>
 
-<hr>
-
 ## 💚 [Supabase Launch Week 5](https://supabase.com/launch-week) Hackathon:
 
-|     |                   | Docs                                               |
-| --- | ----------------- | -------------------------------------------------- |
-| ✅  | Supabase Auth     | [Guide](https://supabase.com/docs/guides/auth)     |
-| ✅  | Supabase Database | [Guide](https://supabase.com/docs/guides/database) |
+- ✅ [Supabase Auth](https://supabase.com/docs/guides/auth).
+- ✅ [Supabase Database](https://supabase.com/docs/guides/database).
 
 ## 📦 Packages:
 
@@ -86,4 +85,3 @@ And ready 🥳, go to [localhost:3001](http://localhost:3001/).
 ### 🔑 License
 
 - [MIT License](https://github.com/pheralb/superui).
-
