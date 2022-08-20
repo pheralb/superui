@@ -82,6 +82,6 @@ And ready 🥳, go to [localhost:3001](http://localhost:3001/).
 | David Huertas | [GitHub](https://github.com/ikurotime) - [Twitter](https://twitter.com/ikurotime)       |
 | Juan Rojas    | [GitHub](https://github.com/Davidr2998) - [Twitter](https://twitter.com/tmchein)        |
 
-### 🔑 License
+## 🔑 License
 
 - [MIT License](https://github.com/pheralb/superui).
