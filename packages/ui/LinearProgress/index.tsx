@@ -1,6 +1,7 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
 import { LinearProgressProps } from "./linearProgress.types";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 export const LinearProgress = ({
   variant = "primary",
@@ -18,11 +19,13 @@ export const LinearProgress = ({
   );
 
   return (
-    <div className="h-2 w-full bg-gray-300 rounded" {...rest}>
-      <div
+    <div className="w-full h-2 bg-gray-300 rounded" {...rest}>
+      <motion.div
         className={genClassName}
-        style={{ width: `${((value - min) / (max - min)) * 100}%` }}
-      ></div>
+        animate={{ width: `${((value - min) / (max - min)) * 100}%` }}
+        initial={{ width: 0 }}
+        transition={{ duration: 0.6 }}
+      ></motion.div>
     </div>
   );
 };

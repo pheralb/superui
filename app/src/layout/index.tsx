@@ -1,5 +1,6 @@
 import Header from "@/components/header";
-import { Box } from "@chakra-ui/react";
+import Footer from "@/components/footer";
+import { Box, Container, VStack } from "@chakra-ui/react";
 import React from "react";
 
 interface LayoutProps {
@@ -10,7 +11,8 @@ const Layout = (props: LayoutProps) => {
   return (
     <>
       <Header />
-      <Box mx={10}>{props.children}</Box>
+      <div>{props.children}</div>
+      {/* <Footer /> */}
     </>
   );
 };

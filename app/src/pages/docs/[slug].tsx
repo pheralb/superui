@@ -4,6 +4,10 @@ import Head from "next/head";
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { docsFilePaths, docsPath } from "@/services/mdx";
 import { MDXMeta } from "@/interfaces/mdxMeta";
+import { motion } from "framer-motion";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeToc from "rehype-toc";
 
 interface DocsPageProps {
   source: MDXRemoteSerializeResult;
@@ -34,7 +38,16 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
         </Heading>
         <Text mb={5}>{frontMatter.description}</Text>
       </Box>
-      <MDXRemote {...source} components={MDXComponents} />
+      <motion.div
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.2,
+        }}
+      >
+        <MDXRemote {...source} components={MDXComponents as any} />
+      </motion.div>
     </Sidebar>
   );
 };
@@ -45,8 +58,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [rehypeCodeTitles, rehypePrism],
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+        rehypeCodeTitles,
+        [rehypePrism, { showLineNumbers: true }],
+        rehypeSlug,
+        rehypeToc,
+      ],
     },
     scope: data,
   });

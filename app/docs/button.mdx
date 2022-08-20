@@ -1,0 +1,71 @@
+---
+title: Button
+date: "2022-08-17"
+description: The button component is probably the most widely used element in any user interface or website as it can be used to launch an action but also to link to other pages.
+---
+
+## Default Button
+
+Simple button with different styles and sizes.
+
+<Button />
+
+```tsx
+import { Button } from "@superui/styles";
+
+<Button variant="primary" onClick={() => alert("Hello World!")}>
+  Primary Button
+</Button>;
+```
+
+---
+
+## Button with Icon
+
+Button with an icon.
+
+<ButtonWithIcon />
+
+```tsx
+import { Button } from "@superui/styles";
+
+<Button
+  variant="primary"
+  onClick={() => alert("Hello World!")}
+  icon={<ArrowIcon />}
+  iconPosition="left"
+>
+  Primary Button
+</Button>;
+```
+
+---
+
+## Custom Tailwind Button
+
+You can add custom classes to the button and it will override the default styles.
+
+<CustomButton />
+
+```tsx
+import { Button } from "@superui/styles";
+
+<Button
+  variant="primary"
+  onClick={() => alert("Hello World!")}
+  className="bg-transparent border border-white hover:bg-white text-white hover:text-black"
+>
+  Custom Button
+</Button>;
+```
+
+## Props
+
+This component has all the props infered from the HTML Button element, you can check all the props here [MDN](https://developer.mozilla.org/en/docs/Web/HTML/Element/button).
+
+It also has the following props:
+
+| Name      | Type   | Default | Description                                                    |
+| --------- | ------ | ------- | -------------------------------------------------------------- |
+| variant   | String | primary | Select variant colors of the input.                            |
+| className | String | -       | Extra class names for the input. Overwrites colliding classes. |

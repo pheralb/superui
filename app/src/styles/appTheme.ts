@@ -1,7 +1,7 @@
 import { ChakraProps, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
-const docsTheme = extendTheme({
+const appTheme = extendTheme({
   config: {
     initialColorMode: "light",
     useSystemColorMode: false,
@@ -9,7 +9,15 @@ const docsTheme = extendTheme({
   colors: {
     bg: {
       light: "#FBFCFC",
-      dark: "#131314",
+      dark: "#252525",
+    },
+    circle: {
+      light: "#F5F5F5",
+      dark: "#3B3A3A",
+    },
+    card: {
+      light: "#f2f2f2",
+      dark: "#2e2e2e",
     },
     focused: {
       light: "#f1f0f0",
@@ -26,11 +34,15 @@ const docsTheme = extendTheme({
       "html, body": {
         height: "100%",
         maxHeight: "100vh",
-        bg: mode("bg.light", "bg.dark")(props),
+        bgGradient: mode(
+          "radial-gradient(circle at 1px 1px, circle.light 1px, bg.light 0)",
+          "radial-gradient(circle at 1px 1px, circle.dark 1px, bg.dark 0)"
+        )(props),
+        backgroundSize: "50px 50px",
         fontSize: "14px",
       },
     }),
   },
 });
 
-export default docsTheme;
+export default appTheme;

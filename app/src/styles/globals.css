@@ -2,16 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-display: optional;
-  src: url("/fonts/inter-var-latin.woff2") format("woff2");
+@layer base {
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-display: optional;
+    src: url("/fonts/inter-var-latin.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Cascadia";
+    font-style: normal;
+    font-display: optional;
+    src: url("/fonts/CascadiaCode.woff2") format("woff2");
+  }
+
+  h1 h2 h3 h4 h5 h6 {
+    font-family: "Inter";
+  }
+
+  pre {
+    font-family: "Cascadia";
+  }
 }
 
-@font-face {
-  font-family: "Cascadia";
-  font-style: normal;
-  font-display: optional;
-  src: url("/fonts/CascadiaCode.woff2") format("woff2");
+.toc {
+  @apply bg-gray-500 rounded-lg py-2 bg-opacity-25 max-w-sm w-full;
+}
+
+.toc-item {
+  @apply before:content-['-'] before:pr-2 font-semibold text-lg text-gray-400 hover:text-white;
+}
+
+.toc-link {
+  @apply no-underline !important;
 }

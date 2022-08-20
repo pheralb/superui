@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { PinCodeProps } from "./pinCode.types";
 
-export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
+export const PinCode = ({ length = 4 }: PinCodeProps) => {
   const refs: HTMLInputElement[] = [];
   const [current, setCurrent] = useState(0);
-  const [values, setValues] = useState(new Array(length).fill(""));
+  const [, setValues] = useState(new Array(length).fill(""));
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -37,6 +37,7 @@ export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
       refs.forEach((ref, index) => {
         if (index < value.length) {
           ref.value = value[index];
+          refs[length - 1].focus();
         }
       });
     }

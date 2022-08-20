@@ -1,6 +1,6 @@
 {
   "name": "superui-mono",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
@@ -16,23 +16,36 @@
     "dev": "turbo run dev --parallel",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"./**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "pre-commit": "npm run lint && npm run format",
-    "publish": "npm run build:ui && cd packages/ui && npm publish --access=public"
+    "lint-staged": "lint-staged",
+    "reinstall": "npx npkill && npm install"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint . --fix --config ./packages/eslint-config-custom/index.js",
+      "prettier --write ."
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "tslib": "2.4.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "8.0.1",
+    "lint-staged": "^13.0.3",
     "nagit": "0.0.18",
     "next-transpile-modules": "9.0.0",
     "prettier": "latest",
+    "tslib": "2.4.0",
     "turbo": "latest"
   },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.5.0"
+  "packageManager": "npm@8.5.0",
+  "dependencies": {}
 }
