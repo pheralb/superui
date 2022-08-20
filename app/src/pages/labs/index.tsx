@@ -1,5 +1,9 @@
-import MySandpack from "@/components/sandpack/editor";
 import { Box, Heading, Link, Text } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
+
+const Editor = dynamic(() => import("@/components/sandpack/editor"), {
+  ssr: false,
+});
 
 export default function Labs() {
   return (
@@ -21,7 +25,7 @@ export default function Labs() {
         database.
       </Text>
 
-      <MySandpack />
+      <Editor />
     </Box>
   );
 }

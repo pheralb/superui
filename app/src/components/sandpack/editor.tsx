@@ -1,62 +1,135 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Box } from "@chakra-ui/react";
 import {
   SandpackProvider,
-  ClasserProvider,
   SandpackPreview,
   useActiveCode,
   SandpackLayout,
   SandpackStack,
-  FileTabs,
   useSandpack,
 } from "@codesandbox/sandpack-react";
+import MonacoEditor, { OnMount, Monaco } from "@monaco-editor/react";
+import {
+  configureMonacoTailwindcss,
+  tailwindcssData,
+} from "monaco-tailwindcss";
+import { AutoTypings, LocalStorageCache } from "monaco-editor-auto-typings";
 
-import Editor from "@monaco-editor/react";
-import { useEffect, useState } from "react";
-
-const BASE_CODE = `import React from "react";
-import Component from "./Component";
-
-export default function App() {
-    return (
-        <div className="h-screen w-screen max-h-screen max-w-screen flex flex-col items-center justify-center">
-            <Component />
-        </div>
-    );
-}`;
-
-function MonacoEditor() {
+function Editor() {
   const { code, updateCode } = useActiveCode();
   const { sandpack } = useSandpack();
 
-  const language = "javascript";
+  const handleEditorDidMount: OnMount = async (editor, monaco) => {
+    const compilerOptions = {
+      allowJs: true,
+      allowSyntheticDefaultImports: true,
+      alwaysStrict: true,
+      jsx: "React",
+      jsxFactory: "React.createElement",
+      typeRoots: ["node_modules/@types"],
+      moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
+      module: monaco.languages.typescript.ModuleKind.CommonJS,
+      noEmit: true,
+    };
+
+    monaco.languages.typescript.typescriptDefaults.setCompilerOptions(
+      // @ts-ignore-next-line
+      compilerOptions
+    );
+    monaco.languages.typescript.javascriptDefaults.setCompilerOptions(
+      // @ts-ignore-next-line
+      compilerOptions
+    );
+
+    monaco.languages.css.cssDefaults.setOptions({
+      data: {
+        dataProviders: {
+          tailwindcssData,
+        },
+      },
+    });
+
+    configureMonacoTailwindcss(monaco);
+
+    const autoTypings = await AutoTypings.create(editor, {
+      sourceCache: new LocalStorageCache(), // Cache loaded sources in localStorage. May be omitted
+      monaco: monaco,
+    });
+  };
 
   return (
-    <SandpackStack
-      customStyle={{
-        height: "100vh",
-        margin: 0,
-        borderRadius: "10px",
-      }}
-    >
+    <SandpackStack style={{ height: "75vh", margin: 0 }}>
       <div
         style={{
           flex: 1,
           paddingTop: 8,
           background: "#1e1e1e",
-          borderRadius: "10px",
+          maxHeight: "100vh",
         }}
       >
-        <Editor
+        <MonacoEditor
           width="100%"
-          height="100%"
-          language={language}
+          language="typescript"
           theme="vs-dark"
-          options={{
-            minimap: { enabled: false },
-          }}
-          key={sandpack.activePath}
+          onMount={handleEditorDidMount}
+          key={sandpack.activeFile}
           defaultValue={code}
           onChange={(value) => updateCode(value || "")}
+          options={{
+            acceptSuggestionOnCommitCharacter: true,
+            acceptSuggestionOnEnter: "on",
+            accessibilitySupport: "auto",
+            autoIndent: "full",
+            automaticLayout: true,
+            codeLens: true,
+            colorDecorators: true,
+            contextmenu: true,
+            cursorBlinking: "blink",
+            cursorSmoothCaretAnimation: false,
+            cursorStyle: "line",
+            disableLayerHinting: false,
+            disableMonospaceOptimizations: false,
+            dragAndDrop: false,
+            fixedOverflowWidgets: false,
+            folding: true,
+            foldingStrategy: "auto",
+            fontLigatures: false,
+            formatOnPaste: false,
+            formatOnType: false,
+            hideCursorInOverviewRuler: false,
+            links: true,
+            mouseWheelZoom: false,
+            multiCursorMergeOverlapping: true,
+            multiCursorModifier: "alt",
+            overviewRulerBorder: true,
+            overviewRulerLanes: 2,
+            quickSuggestions: true,
+            quickSuggestionsDelay: 100,
+            readOnly: false,
+            renderControlCharacters: false,
+            renderFinalNewline: true,
+            renderLineHighlight: "all",
+            renderWhitespace: "none",
+            revealHorizontalRightPadding: 30,
+            roundedSelection: true,
+            rulers: [],
+            scrollBeyondLastColumn: 5,
+            scrollBeyondLastLine: true,
+            selectOnLineNumbers: true,
+            selectionClipboard: true,
+            selectionHighlight: true,
+            showFoldingControls: "mouseover",
+            smoothScrolling: false,
+            suggestOnTriggerCharacters: true,
+            wordBasedSuggestions: true,
+            wordSeparators: "~!@#$%^&*()-=+[{]}|;:'\",.<>/?",
+            wordWrap: "off",
+            wordWrapBreakAfterCharacters: "\t})]?|&,;",
+            wordWrapBreakBeforeCharacters: "{([+",
+            wordWrapColumn: 80,
+            wrappingIndent: "none",
+            minimap: { enabled: false },
+          }}
         />
       </div>
     </SandpackStack>
@@ -64,8 +137,6 @@ function MonacoEditor() {
 }
 
 export default function MySandpack() {
-  const [code, setCode] = useState(BASE_CODE);
-
   return (
     <Box
       display="flex"
@@ -82,6 +153,11 @@ export default function MySandpack() {
             "react-dom": "latest",
             "react-scripts": "4.0.0",
             "@superui/styles": "0.0.4",
+          },
+          devDependencies: {
+            "@types/react": "latest",
+            "@types/react-dom": "latest",
+            "@types/react-scripts": "latest",
           },
         }}
         files={{
@@ -116,67 +192,138 @@ export default function MySandpack() {
 </html>`,
             hidden: true,
           },
-
           "/src/index.tsx": {
             code: `import * as React from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Main } from "./main";
-const rootElement = document.getElementById("root");
-render(<Main test="World"/>, rootElement);
+const rootElement = createRoot(document.getElementById("root"));
+rootElement.render(<Main />);
         `,
             hidden: true,
           },
-
           "/src/main.tsx": {
+            code: `import * as React from "react";
+import Component from "./Component";
+
+export const Main: React.FC = () => {
+  return (
+    <div className="w-screen h-screen flex flex-col items-center gap-2 justify-center">
+      <Component />
+    </div>
+  )
+}`,
+            hidden: true,
+            active: false,
+          },
+          "/src/Component.tsx": {
             code: `import * as React from "react";
 import { Button } from "@superui/styles";
 
-export const Main: React.FC<{test: string}> = ({test}) => {
+/**
+* This is a template for a custom SuperUI component.
+* The only rule is to export the component as "default" (as the export in the bottom of this code)
+* You can use classNames from TailwindCSS to style your component, but not custom CSS.
+* Workaround for custom CSS is to use Arbitrary properties https://tailwindcss.com/docs/adding-custom-styles#arbitrary-properties.
+*/
+
+const Main: React.FC = () => {
   return (
     <>
-      <h1>Hello {test}</h1>
-      <Button>Hello</Button>
+      <h1 className="text-3xl font-bold">Start editing!</h1>
+      <p className="text-xl">
+        Edit the code in the left panel and see your changes in the preview.
+      </p>
+      <p className="inline-flex">
+      You can use
+        <kbd key="COMMAND" className="mx-1 px-0.5 border rounded bg-gray-500 bg-opacity-25">CMD</kbd>
+        {" + "}
+        <kbd key="K" className="mx-1 px-0.5 border rounded bg-gray-500 bg-opacity-25">K</kbd>
+        to copy the imports snippets.
+      </p>
+      <Button
+        variant="primary"
+        className="w-full max-w-sm"
+        onClick={() => alert("Hello World!")}
+      >
+        Hello
+      </Button>
     </>
   )
-}`,
+}
+export default Main;`,
+            active: true,
           },
         }}
         options={{
-          activeFile: "/src/main.tsx",
+          activeFile: "/src/Component.tsx",
           externalResources: [
             "https://unpkg.com/@tailwindcss/ui/dist/tailwind-ui.min.css",
           ],
+          classes: {
+            "sp-wrapper":
+              "!w-full !h-3/4 !flex flex-col items-center justify-center",
+            "sp-layout": "w-full",
+            "sp-tab-button": "custom-tab",
+            "sp-stack": "!h-[68vh]",
+          },
         }}
         theme="dark"
       >
         <SandpackLayout>
-          <MonacoEditor />
-          <SandpackPreview customStyle={{ height: "100vh" }} />
+          <Editor />
+          <SandpackPreview />
         </SandpackLayout>
       </SandpackProvider>
     </Box>
   );
 }
 
-const COMPONENT_CODE = `import React from "react";
-import { Button } from "@superui/styles";
-
-export default function Component() {
-  return (
-    <div className="w-2/4 bg-white rounded">
-      <h1>Hello World</h1>
-    </div>
-  )
-}`;
-
-const DEFAULT_FILES = {
-  "/App.js": {
-    code: BASE_CODE,
-    hidden: true,
-  },
-  "/Component.js": {
-    code: COMPONENT_CODE,
-    hidden: false,
-    active: true,
+window.MonacoEnvironment = {
+  getWorker(moduleId, label) {
+    switch (label) {
+      case "editorWorkerService":
+        return new Worker(
+          new URL("monaco-editor/esm/vs/editor/editor.worker", import.meta.url)
+        );
+      case "css":
+      case "less":
+      case "scss":
+        return new Worker(
+          new URL(
+            "monaco-editor/esm/vs/language/css/css.worker",
+            import.meta.url
+          )
+        );
+      case "handlebars":
+      case "html":
+      case "razor":
+        return new Worker(
+          new URL(
+            "monaco-editor/esm/vs/language/html/html.worker",
+            import.meta.url
+          )
+        );
+      case "json":
+        return new Worker(
+          new URL(
+            "monaco-editor/esm/vs/language/json/json.worker",
+            import.meta.url
+          )
+        );
+      case "javascript":
+      case "typescript":
+        return new Worker(
+          new URL(
+            "monaco-editor/esm/vs/language/typescript/ts.worker",
+            import.meta.url
+          )
+        );
+      case "tailwindcss":
+        return new Worker(
+          new URL("monaco-tailwindcss/tailwindcss.worker", import.meta.url)
+        );
+      default:
+        throw new Error(`Unknown label ${label}`);
+    }
   },
 };
