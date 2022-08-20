@@ -48,7 +48,13 @@ export const CommandMenu = (props: CommandMenuProps) => {
                   {props.data.map((group, index) => (
                     <Command.Group key={index} heading={group.heading}>
                       {group.items.map((item, index) => (
-                        <Item key={index} onSelect={item.onSelect}>
+                        <Item
+                          key={index}
+                          onSelect={async () => {
+                            await item.onSelect();
+                            setOpen(false);
+                          }}
+                        >
                           {item.icon && item.icon}
                           {item.name}
                         </Item>
