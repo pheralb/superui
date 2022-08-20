@@ -56,7 +56,10 @@ export const CommandMenu = (props: CommandMenuProps) => {
                           }}
                         >
                           {item.icon && item.icon}
-                          {item.name}
+                          <section className="w-full inline-flex items-center justify-between">
+                            <span>{item.name}</span>
+                            {item.type && <span>{item.type}</span>}
+                          </section>
                         </Item>
                       ))}
                     </Command.Group>

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@chakra-ui/react": "2.2.6",
-    "@codemirror/autocomplete": "^6.1.0",
     "@codesandbox/sandpack-react": "^1.5.1",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
@@ -23,7 +22,6 @@
     "framer-motion": "7.1.0",
     "gray-matter": "4.0.3",
     "monaco-editor-auto-typings": "^0.4.3",
-    "monaco-editor-webpack-plugin": "^7.0.1",
     "monaco-tailwindcss": "^0.4.0",
     "next": "12.2.5",
     "next-mdx-remote": "4.1.0",
