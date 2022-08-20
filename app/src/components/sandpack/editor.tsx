@@ -13,7 +13,10 @@ import {
   configureMonacoTailwindcss,
   tailwindcssData,
 } from "monaco-tailwindcss";
-import { AutoTypings, LocalStorageCache } from "monaco-editor-auto-typings";
+import {
+  AutoTypings,
+  LocalStorageCache,
+} from "monaco-editor-auto-typings/custom-editor";
 
 function Editor() {
   const { code, updateCode } = useActiveCode();
@@ -26,7 +29,7 @@ function Editor() {
       alwaysStrict: true,
       jsx: "React",
       jsxFactory: "React.createElement",
-      typeRoots: ["node_modules/@types"],
+      typeRoots: ["node_modules/@superui/styles"],
       moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
       module: monaco.languages.typescript.ModuleKind.CommonJS,
       noEmit: true,
@@ -51,7 +54,7 @@ function Editor() {
 
     configureMonacoTailwindcss(monaco);
 
-    const autoTypings = await AutoTypings.create(editor, {
+    await AutoTypings.create(editor, {
       sourceCache: new LocalStorageCache(), // Cache loaded sources in localStorage. May be omitted
       monaco: monaco,
     });
