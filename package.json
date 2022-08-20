@@ -13,6 +13,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:ui": "turbo run build --filter=@superui/styles",
+    "build:app": "turbo run build --filter=app",
     "dev": "turbo run dev --parallel",
     "start": "turbo run start",
     "lint": "turbo run lint",
@@ -31,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
     "eslint-config-custom": "*",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -46,6 +49,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.5.0",
-  "dependencies": {}
+  "packageManager": "npm@8.5.0"
 }

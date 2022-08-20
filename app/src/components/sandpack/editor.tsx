@@ -268,6 +268,7 @@ export default Main;`,
 }
 
 window.MonacoEnvironment = {
+  // @ts-ignore-next-line
   getWorker(moduleId, label) {
     switch (label) {
       case "editorWorkerService":

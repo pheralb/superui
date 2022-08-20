@@ -1,0 +1,35 @@
+---
+title: Avatar
+date: "2022-08-21"
+description: Reusable avatar component for React.
+---
+
+```jsx
+import { Avatar } from "@superui/styles";
+```
+
+## Simple Avatar
+
+```jsx
+import { Avatar } from "@superui/styles";
+
+<Avatar
+  src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
+  alt="Superui Avatar"
+  size="md"
+  type="square"
+  bordered
+/>;
+```
+
+## Props
+
+| Name      | Type    | Default | Description                          |
+| --------- | ------- | ------- | ------------------------------------ |
+| src       | String  | -       | Source of the image                  |
+| alt       | String  | -       | Alt text for the image               |
+| type      | String  | circle  | Square or circle                     |
+| size      | String  | sm      | Size of the image                    |
+| bordered  | Boolean | false   | Whether the image is bordered or not |
+| className | String  | -       | Custom class names                   |
+| key       | String  | -       | Key for the image (Group)            |
