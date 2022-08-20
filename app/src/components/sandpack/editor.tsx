@@ -18,32 +18,13 @@ import {
   LocalStorageCache,
 } from "monaco-editor-auto-typings/custom-editor";
 
-function Editor() {
+function Editor({ onChange }: { onChange: (code: string) => void }) {
   const { code, updateCode } = useActiveCode();
   const { sandpack } = useSandpack();
 
+  onChange(code);
+
   const handleEditorDidMount: OnMount = async (editor, monaco) => {
-    const compilerOptions = {
-      allowJs: true,
-      allowSyntheticDefaultImports: true,
-      alwaysStrict: true,
-      jsx: "React",
-      jsxFactory: "React.createElement",
-      typeRoots: ["node_modules/@superui/styles"],
-      moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
-      module: monaco.languages.typescript.ModuleKind.CommonJS,
-      noEmit: true,
-    };
-
-    monaco.languages.typescript.typescriptDefaults.setCompilerOptions(
-      // @ts-ignore-next-line
-      compilerOptions
-    );
-    monaco.languages.typescript.javascriptDefaults.setCompilerOptions(
-      // @ts-ignore-next-line
-      compilerOptions
-    );
-
     monaco.languages.css.cssDefaults.setOptions({
       data: {
         dataProviders: {
@@ -72,13 +53,14 @@ function Editor() {
       >
         <MonacoEditor
           width="100%"
-          language="typescript"
+          language="javascript"
           theme="vs-dark"
           onMount={handleEditorDidMount}
           key={sandpack.activeFile}
           defaultValue={code}
           onChange={(value) => updateCode(value || "")}
           options={{
+            useShadowDOM: false,
             acceptSuggestionOnCommitCharacter: true,
             acceptSuggestionOnEnter: "on",
             accessibilitySupport: "auto",
@@ -139,7 +121,11 @@ function Editor() {
   );
 }
 
-export default function MySandpack() {
+export default function MySandpack({
+  setCode,
+}: {
+  setCode: (code: string) => void;
+}) {
   return (
     <Box
       display="flex"
@@ -229,7 +215,7 @@ import { Button } from "@superui/styles";
 * Workaround for custom CSS is to use Arbitrary properties https://tailwindcss.com/docs/adding-custom-styles#arbitrary-properties.
 */
 
-const Main: React.FC = () => {
+const Main = () => {
   return (
     <>
       <h1 className="text-3xl font-bold">Start editing!</h1>
@@ -273,7 +259,7 @@ export default Main;`,
         theme="dark"
       >
         <SandpackLayout>
-          <Editor />
+          <Editor onChange={setCode} />
           <SandpackPreview />
         </SandpackLayout>
       </SandpackProvider>

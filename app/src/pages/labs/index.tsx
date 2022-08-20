@@ -1,11 +1,15 @@
 import { Box, Heading, Link, Text } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
+import { DispatchWithoutAction, useState } from "react";
 
 const Editor = dynamic(() => import("@/components/sandpack/editor"), {
   ssr: false,
 });
 
 export default function Labs() {
+  const [code, setCode] = useState();
+  // Do something with the code on submit
+
   return (
     <Box
       as="main"
@@ -25,7 +29,7 @@ export default function Labs() {
         database.
       </Text>
 
-      <Editor />
+      <Editor setCode={setCode as DispatchWithoutAction} />
     </Box>
   );
 }
