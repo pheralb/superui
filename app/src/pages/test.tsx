@@ -9,18 +9,14 @@ import {
   Checkbox,
   PinCode,
   Toast,
-  ToastProvider,
   CircularProgress,
 } from "@superui/styles";
 
 import { LinearProgress } from "@superui/styles";
-import { Input } from "@superui/styles";
 
 export default function Test() {
   const [isOpen, setOpen] = useState(false);
   const [isOpen2, setOpen2] = useState(false);
-
-  const timerRef = useRef(0);
 
   return (
     <>
