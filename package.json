@@ -13,6 +13,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:ui": "turbo run build --filter=@superui/styles",
+    "build:app": "turbo run build --filter=app",
     "dev": "turbo run dev --parallel",
     "start": "turbo run start",
     "lint": "turbo run lint",
