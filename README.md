@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://superui.vercel.app/" target="_blank">
-  <img src="https://i.ibb.co/CVyrh8b/super-UIBanner8.jpg" width="85%">
+  <img src="https://i.ibb.co/CVyrh8b/super-UIBanner8.jpg" width="55%">
 </a>
 
 ![GitHub releases](https://img.shields.io/github/release/pheralb/superui)
@@ -27,6 +27,10 @@
 | David Huertas | [GitHub](https://github.com/ikurotime) - [Twitter](https://twitter.com/ikurotime)       |
 | Juan Rojas    | [GitHub](https://github.com/Davidr2998) - [Twitter](https://twitter.com/tmchein)        |
 
+## 📹 Video:
+
+- [https://streamable.com/j3lxtb](https://streamable.com/j3lxtb).
+
 
 ## 📦 Packages:
 
@@ -39,6 +43,7 @@
 - 💅 [Chakra UI for docs](https://chakra-ui.com/) - Create accessible React apps with speed.
 - 💨 [TailwindCSS for library](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML.
 - 💖 [React-Icons](https://react-icons.github.io/react-icons/) - A flexible icon family for everyone.
+- ⬛ [CodeSandbox Sandpack](https://sandpack.codesandbox.io/) - A component toolkit for creating live-running code editing experiences, using the power of CodeSandbox.
 
 ## 🚀 Getting Started
 
