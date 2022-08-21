@@ -2,7 +2,7 @@ import { Avatar, AvatarGroup } from "@superui/styles";
 
 export function AvatarDemo() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <Avatar
         src="https://avatars0.githubusercontent.com/u/22749943?s=460&v=4"
         alt="Superui Avatar"
@@ -22,7 +22,7 @@ export function AvatarDemo() {
 
 export function AvatarGroupDemo() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <AvatarGroup
         max={4}
         data={Array.from(Array(10).keys()).map((i) => ({
