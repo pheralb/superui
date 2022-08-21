@@ -1,17 +1,12 @@
 export const Overview = [
   {
-    title: "Introduction",
-    slug: "/docs/introduction",
-    external: false,
-  },
-  {
     title: "Getting Started",
     slug: "/docs/getting-started",
     external: false,
   },
   {
     title: "Releases",
-    slug: "/docs/releases",
+    slug: "https://github.com/pheralb/superui/releases",
     external: false,
   },
 ];
@@ -21,46 +16,55 @@ export const Components = [
     title: "Button",
     slug: "/docs/button",
     external: false,
+    disabled: false,
   },
   {
     title: "Input",
     slug: "/docs/input",
     external: false,
+    disabled: false,
   },
   {
     title: "Checkbox",
     slug: "/docs/checkbox",
     external: false,
+    disabled: false,
   },
   {
     title: "PinCode",
     slug: "/docs/pincode",
     external: false,
-  },
-  {
-    title: "Button Group",
-    slug: "/docs/buttongroup",
-    external: false,
-  },
-  {
-    title: "Progress",
-    slug: "/docs/progress",
-    external: false,
+    disabled: false,
   },
   {
     title: "Avatar",
     slug: "/docs/avatar",
     external: false,
+    disabled: false,
   },
   {
-    title: "Overlay",
+    title: "Button Group",
+    slug: "/docs/buttongroup",
+    external: false,
+    disabled: false,
+  },
+  {
+    title: "Progress (soon)",
+    slug: "/docs/progress",
+    external: false,
+    disabled: true,
+  },
+  {
+    title: "Overlay (soon)",
     slug: "/docs/overlay",
     external: false,
+    disabled: true,
   },
   {
-    title: "Modal",
+    title: "Modal (soon)",
     slug: "/docs/modal",
     external: false,
+    disabled: true,
   },
   {
     title: "Command Menu",
@@ -68,8 +72,9 @@ export const Components = [
     external: false,
   },
   {
-    title: "Toast",
+    title: "Toast (soon)",
     slug: "/docs/toast",
     external: false,
+    disabled: true,
   },
 ];

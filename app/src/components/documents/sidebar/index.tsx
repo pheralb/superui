@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   IconButton,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import SidebarContent from "./content";
@@ -17,6 +18,7 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   const sidebar = useDisclosure();
+  const bg = useColorModeValue("bg.light", "bg.dark");
   return (
     <Box>
       <Container maxW="77%" as="section">
@@ -27,13 +29,14 @@ const Sidebar = (props: SidebarProps) => {
           placement="left"
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg={bg}>
             <SidebarContent width="full" borderRight="none" />
           </DrawerContent>
         </Drawer>
         <Box ml={{ base: 0, md: "300px" }} transition=".3s ease">
           <Button
             variant="ghost"
+            fontWeight="light"
             borderWidth="1px"
             display={{ base: "inline-flex", md: "none" }}
             onClick={sidebar.onOpen}

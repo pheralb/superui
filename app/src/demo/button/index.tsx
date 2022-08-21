@@ -1,9 +1,8 @@
 import { Button } from "@superui/styles";
-import { BiArrowFromLeft } from "react-icons/bi";
 
 export default function ButtonDemo() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <Button variant="primary" onClick={() => alert("Hello World!")}>
         Primary Button
       </Button>
@@ -38,7 +37,7 @@ function ArrowIcon({ className }: { className?: string }) {
 
 export function ButtonWithIcon() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <Button
         variant="primary"
         onClick={() => alert("Hello World!")}
@@ -61,7 +60,7 @@ export function ButtonWithIcon() {
 
 export function CustomButton() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <Button
         variant="primary"
         onClick={() => alert("Hello World!")}

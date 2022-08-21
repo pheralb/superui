@@ -37,13 +37,23 @@ const SidebarContent = (props: SidebarContentProps) => {
             Overview
           </Heading>
           {Overview.map((link) => (
-            <SidebarItem key={link.slug} title={link.title} slug={link.slug} />
+            <SidebarItem
+              key={link.slug}
+              title={link.title}
+              slug={link.slug}
+              external={link.external}
+            />
           ))}
           <Heading fontSize="18px" mb="3" mt="7">
             Components
           </Heading>
           {Components.map((link) => (
-            <SidebarItem key={link.slug} title={link.title} slug={link.slug} />
+            <SidebarItem
+              key={link.slug}
+              title={link.title}
+              slug={link.slug}
+              external={link.external}
+            />
           ))}
         </Box>
       </Flex>

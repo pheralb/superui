@@ -52,7 +52,7 @@ pre[class*="language-"] {
 }
 
 .code-line {
-  @apply -mx-4 block border-l-4 border-transparent pl-4 pr-4;
+  @apply -mx-4 border-l-4 border-transparent pl-4 pr-4;
 }
 
 .code-line.inserted {

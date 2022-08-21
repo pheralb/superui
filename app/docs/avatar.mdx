@@ -1,14 +1,16 @@
 ---
 title: Avatar
-date: "2022-08-17"
-description: Avatar component
+date: "2022-08-21"
+description: Reusable avatar component for React.
 ---
 
 ```jsx
 import { Avatar } from "@superui/styles";
 ```
 
-## Simple Avatar
+### Simple Avatar
+
+<AvatarDemo />
 
 ```jsx
 import { Avatar } from "@superui/styles";
@@ -22,7 +24,7 @@ import { Avatar } from "@superui/styles";
 />;
 ```
 
-## Props
+### Props Avatar
 
 | Name      | Type    | Default | Description                          |
 | --------- | ------- | ------- | ------------------------------------ |
@@ -32,4 +34,30 @@ import { Avatar } from "@superui/styles";
 | size      | String  | sm      | Size of the image                    |
 | bordered  | Boolean | false   | Whether the image is bordered or not |
 | className | String  | -       | Custom class names                   |
-| key       | String  | -       | Key for the image (Group)            |
+
+### Avatar Group
+
+<AvatarGroupDemo />
+
+```jsx
+import { AvatarGroup } from "@superui/styles";
+
+<AvatarGroup
+  max={4}
+  data={Array.from(Array(10).keys()).map((i) => ({
+    name: `${i}`,
+    alt: `${i}`,
+    src: `https://source.boringavatars.com/beam/120/${i}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`,
+  }))}
+  size="md"
+/>;
+```
+
+### Props AvatarGroup
+
+| Name | Type   | Default | Description                                  |
+| ---- | ------ | ------- | -------------------------------------------- |
+| size | String | sm      | Size of the image                            |
+| max  | Number | -       | Maximum number of avatars to display         |
+| key  | String | -       | Key for the image (Group)                    |
+| data | Array  | -       | Array of data for the group (name, alt, src) |

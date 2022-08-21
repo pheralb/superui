@@ -18,7 +18,13 @@ import {
   LocalStorageCache,
 } from "monaco-editor-auto-typings/custom-editor";
 
-function Editor({ onChange }: { onChange: (code: string) => void }) {
+function Editor({
+  onChange,
+  isPreview,
+}: {
+  onChange: (code: string) => void;
+  isPreview?: boolean;
+}) {
   const { code, updateCode } = useActiveCode();
   const { sandpack } = useSandpack();
 
@@ -35,10 +41,11 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
 
     configureMonacoTailwindcss(monaco);
 
-    await AutoTypings.create(editor, {
+    // Disable the auto-completion until package is uploaded to @types
+    /* await AutoTypings.create(editor, {
       sourceCache: new LocalStorageCache(), // Cache loaded sources in localStorage. May be omitted
       monaco: monaco,
-    });
+    }); */
   };
 
   return (
@@ -90,7 +97,7 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
             overviewRulerLanes: 2,
             quickSuggestions: true,
             quickSuggestionsDelay: 100,
-            readOnly: false,
+            readOnly: isPreview || false,
             renderControlCharacters: false,
             renderFinalNewline: true,
             renderLineHighlight: "all",
@@ -123,8 +130,12 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
 
 export default function MySandpack({
   setCode,
+  defaultCode,
+  isPreview,
 }: {
   setCode: (code: string) => void;
+  defaultCode?: string;
+  isPreview?: boolean;
 }) {
   return (
     <Box
@@ -141,7 +152,7 @@ export default function MySandpack({
             react: "latest",
             "react-dom": "latest",
             "react-scripts": "4.0.0",
-            "@superui/styles": "0.0.4",
+            "@superui/styles": "0.0.5",
           },
           devDependencies: {
             "@types/react": "latest",
@@ -192,20 +203,28 @@ rootElement.render(<Main />);
           },
           "/src/main.tsx": {
             code: `import * as React from "react";
+import { SuperUIProvider, ToastProvider } from "@superui/styles";
+import "@superui/styles/dist/styles/main.css";
 import Component from "./Component";
 
 export const Main: React.FC = () => {
   return (
-    <div className="w-screen h-screen flex flex-col items-center gap-2 justify-center">
-      <Component />
-    </div>
+    <SuperUIProvider>
+      <ToastProvider>
+        <div className="w-screen h-screen flex flex-col items-center gap-2 justify-center">
+          <Component />
+        </div>
+      </ToastProvider>
+    </SuperUIProvider>
   )
 }`,
             hidden: true,
             active: false,
           },
           "/src/Component.tsx": {
-            code: `import * as React from "react";
+            code:
+              defaultCode ||
+              `import * as React from "react";
 import { Button } from "@superui/styles";
 
 /**
@@ -259,7 +278,7 @@ export default Main;`,
         theme="dark"
       >
         <SandpackLayout>
-          <Editor onChange={setCode} />
+          <Editor onChange={setCode} isPreview={isPreview} />
           <SandpackPreview />
         </SandpackLayout>
       </SandpackProvider>

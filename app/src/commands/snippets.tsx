@@ -26,6 +26,16 @@ export const snippets = [
     },
     icon: <CopyIcon />,
   },
+  {
+    name: "Checkbox Snippet",
+    onSelect: () => {
+      navigator.clipboard.writeText(
+        `import { Checkbox } from '@superui/styles';
+import "@superui/styles/dist/styles/main.css";`
+      );
+    },
+    icon: <CopyIcon />,
+  },
 ].map((item, index) => ({
   ...item,
   type: "Snippet",

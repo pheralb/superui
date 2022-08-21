@@ -1,9 +1,8 @@
 <div align="center">
-<h1>
-<strong>SuperUI</strong>
-</h1>
 
-<p>⚡ A Tailwindcss components library.</p>
+<a href="https://superui.vercel.app/" target="_blank">
+  <img src="https://i.ibb.co/CVyrh8b/super-UIBanner8.jpg" width="85%">
+</a>
 
 ![GitHub releases](https://img.shields.io/github/release/pheralb/superui)
 ![GitHub stars](https://img.shields.io/github/stars/pheralb/superui)

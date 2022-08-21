@@ -23,6 +23,7 @@ const CustomLink = (props: CustomLinksProps) => {
         isExternal={props.external}
         fontWeight={isActive ? "bold" : "normal"}
         _hover={{ textDecoration: "none", transform: "translateY(-1px)" }}
+        _disabled={{ opacity: 0.5 }}
       >
         {props.children}
         {props.external && <Icon as={HiOutlineExternalLink} ml={1} />}

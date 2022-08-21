@@ -1,0 +1,39 @@
+---
+title: Button Group 🚧
+date: "2022-08-17"
+description: Button Group component for React (WIP)
+---
+
+```jsx
+import { Group } from "@superui/styles";
+```
+
+### Basic Usage
+
+Right now this component doesn't work.
+
+<ButtonGroupDemo />
+
+```jsx
+import { Group } from "@superui/styles";
+
+<Group variant="outline">
+  <Group.Item name="1">Item 1</Group.Item>
+  <Group.Item name="2">Item 2</Group.Item>
+  <Group.Item name="3">Item 3</Group.Item>
+</Group>;
+```
+
+### Group Props
+
+| Name      | Type   | Default | Description                                                      |
+| --------- | ------ | ------- | ---------------------------------------------------------------- |
+| variant   | String | solid   | Select variant of the buttons (solid, outline, transparent)      |
+| size      | String | medium  | Select size of the buttons                                       |
+| className | String | -       | Extra class names for the buttons. Overwrites colliding classes. |
+
+### Group Item Props
+
+| Name | Type   | Default | Description        |
+| ---- | ------ | ------- | ------------------ |
+| name | String | -       | Name of the button |

@@ -27,17 +27,21 @@ import {
 } from "@chakra-ui/react";
 
 import Pre from "./pre";
+import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
+import CheckboxDemo from "@/demo/checkbox";
+import { PinCodeDemo } from "@/demo/pinCode";
+import ButtonGroup from "@/demo/buttonGroup";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
     return (
       <NextLink href={`#${id}`}>
-        <Link my={5}>
+        <Link>
           <Heading
             as={as}
             display="inline"
+            mb={4}
             id={id}
-            lineHeight={"2em"}
             {...props}
             _hover={{
               underline: "none",
@@ -73,12 +77,19 @@ export const MDXComponents = {
   ),
   h2: (props: HeadingProps) => <CustomHeading as="h2" {...props} />,
   h3: (props: HeadingProps) => (
-    <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
+    <Heading
+      as="h3"
+      mt={12}
+      mb={2}
+      fontSize="24px"
+      fontWeight="bold"
+      {...props}
+    />
   ),
   h4: (props: HeadingProps) => (
     <Heading
       as="h4"
-      mt={8}
+      mt={3}
       mb={3}
       fontSize="24px"
       fontWeight="light"
@@ -92,7 +103,17 @@ export const MDXComponents = {
     <Heading as="h6" mt={8} mb={3} size="sm" fontWeight="light" {...props} />
   ),
   p: (props: TextProps) => <Text fontSize="lg" mb={3} {...props} />,
-  table: (props: TableProps) => <Table variant="simple" {...props} />,
+  table: (props: TableProps) => (
+    <div className="flex flex-col w-full max-w-screen-sm overflow-x-auto md:max-w-screen-lg my-5">
+      <Table
+        variant="simple"
+        width={"100%"}
+        overflowX={"auto"}
+        maxW={"100%"}
+        {...props}
+      />
+    </div>
+  ),
   thead: (props: TableBodyProps) => <Thead {...props} />,
   tbody: (props: TableBodyProps) => <Tbody {...props} />,
   th: (props: TableColumnHeaderProps) => <Th {...props} />,
@@ -101,11 +122,17 @@ export const MDXComponents = {
   ul: (props: ListProps) => <UnorderedList styleType="none" {...props} />,
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
+  sub: (props: TextProps) => <Text as="sub" {...props} />,
   Button: () => <ButtonDemo />,
   ButtonWithIcon: () => <ButtonWithIcon />,
   CustomButton: () => <CustomButton />,
   BasicInput: () => <BasicInput />,
   InputWithLabel: () => <InputWithLabel />,
   InForm: () => <InForm />,
+  AvatarDemo: () => <AvatarDemo />,
+  AvatarGroupDemo: () => <AvatarGroupDemo />,
+  CheckboxDemo: () => <CheckboxDemo />,
+  PinCodeDemo: () => <PinCodeDemo />,
+  ButtonGroupDemo: () => <ButtonGroup />,
   pre: Pre,
 };

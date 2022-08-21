@@ -34,7 +34,8 @@
     "rehype-slug": "^5.0.1",
     "rehype-toc": "^3.0.2",
     "remark-autolink-headings": "^7.0.1",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "next-seo": "5.5.0"
   },
   "devDependencies": {
     "@babel/core": "7.0.0",

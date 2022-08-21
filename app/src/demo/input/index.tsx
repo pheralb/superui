@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function BasicInput() {
   return (
-    <div className="inline-flex gap-4 w-full p-4 bg-slate-500 bg-opacity-25 rounded-lg">
+    <div className="component-preview">
       <Input
         placeholder="Placeholder"
         className="text-black dark:text-white"
@@ -63,7 +63,7 @@ export function InForm() {
         onSubmit={handleSubmit}
         className="flex flex-col gap-2 justify-center items-center"
       >
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           <div className="flex flex-col gap-2">
             <label htmlFor="firstName" className="text-black dark:text-white">
               First Name
@@ -93,7 +93,7 @@ export function InForm() {
             />
           </div>
         </div>
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="text-black dark:text-white">
               Email

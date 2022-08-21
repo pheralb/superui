@@ -7,14 +7,46 @@ date: "2022-08-05"
 description: SuperUI is a amazing UI library for React.
 ---
 
-#### Design goals
+### Welcome to SuperUI!
 
-Install SuperUI
+SuperUI is an amazing web UI library for React, it is built on top of React and TailwindCSS.
+We, the SuperUI team think it is important to delivery quality and easy to use UI components, allowing users to deliver features faster this is why it is a great starting point for your next project.
+If you have any question related to SuperUI, please feel free to ask in the [Github Issues](https://github.com/pheralb/superui/issues).
+
+### How to install
+
+Before installing SuperUI you need to have the following requirements:
+
+- 💚 Node.js version 12.22.0 or higher.
+- 💙 TailwindCSS installed in your project.
+
+### Install SuperUI:
 
 ```bash
-npm install
+npm install @superui/styles
+# or
+yarn add @superui/styles
 ```
 
-#### Accessibility
+### Add to Tailwind configuration
+
+You should add the package path to the content array.
+
+```js {6}
+module.exports = {
+  darkMode: "class",
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@superui/styles/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {},
+  plugins: [],
+};
+```
+
+After running the command you are ready to use SuperUI in your project!
+
+### Accessibility
 
 The design system follow WCAG standards as best it can (continuely improved!) via the use of [Radix-UI](https://www.radix-ui.com/) base components and accessible default themes.

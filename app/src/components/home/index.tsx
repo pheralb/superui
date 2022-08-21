@@ -18,7 +18,7 @@ export function Card(props: Props) {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
   return (
-    <div className="grid place-content-center w-full max-w-xs bg-[#FBFCFC] dark:bg-[#2e2e2e] rounded-xl">
+    <div className="grid place-content-center w-full max-w-xs bg-[#f2f2f2] dark:bg-[#2e2e2e] rounded-xl">
       <div className="flex flex-col p-8">{props.children}</div>
     </div>
   );
@@ -26,7 +26,7 @@ export function Card(props: Props) {
 
 export function CTA() {
   return (
-    <div className="grid w-screen h-screen place-content-center">
+    <div className="grid w-full h-screen place-content-center">
       <div className="flex flex-col items-center gap-8">
         <h1 className="font-bold text-center text-7xl">
           Develop super ⚡️ websites <br />
@@ -50,7 +50,7 @@ export function CTA() {
 export function ComponentSection() {
   return (
     <div className="flex justify-center w-full h-80">
-      <div className="grid place-content-center max-w-md w-full h-80 bg-[#FBFCFC] p-10 dark:bg-[#2e2e2e] rounded-xl">
+      <div className="grid place-content-center max-w-md w-full h-80 bg-[#f2f2f2] dark:bg-[#2e2e2e] p-10 rounded-xl">
         <div className="p-8">
           <h2 className="text-4xl font-bold text-left">
             Customizable components built with Tailwind CSS

@@ -5,11 +5,8 @@ import {
   useColorModeValue,
   HStack,
   Container,
-  Heading,
   Text,
-  Kbd,
   Image,
-  Badge,
   Icon,
 } from "@chakra-ui/react";
 
@@ -41,6 +38,7 @@ const Header = () => {
               <Text fontSize="16px" fontWeight="semibold" ml="2">
                 SuperUI
               </Text>
+              <Text color="gray.500">alpha</Text>
             </HStack>
           </CustomLink>
           <HStack display="flex" alignItems="center" spacing={1}>
@@ -59,16 +57,16 @@ const Header = () => {
                   {link.title}
                 </CustomLink>
               ))}
-            </HStack>
-            <HStack spacing={4}>
-              <Auth />
-              <CustomLink
-                href="https://github.com/pheralb/superui"
-                underline={true}
-              >
-                <Icon as={IoLogoGithub} boxSize={25} />
-              </CustomLink>
-              <ChangeTheme />
+              <HStack spacing={4}>
+                <Auth />
+                <CustomLink
+                  href="https://github.com/pheralb/superui"
+                  underline={true}
+                >
+                  <Icon as={IoLogoGithub} boxSize={25} />
+                </CustomLink>
+                <ChangeTheme />
+              </HStack>
             </HStack>
             <HeaderMobile />
           </HStack>
