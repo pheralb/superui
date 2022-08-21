@@ -6,6 +6,7 @@ import React from "react";
 interface SidebarItemProps {
   title: string;
   slug: string;
+  external?: boolean;
 }
 
 const SidebarItem = (props: SidebarItemProps) => {
@@ -15,7 +16,7 @@ const SidebarItem = (props: SidebarItemProps) => {
   const focused = useColorModeValue("focused.light", "focused.dark");
 
   return (
-    <CustomLink key={props.slug} href={props.slug}>
+    <CustomLink key={props.slug} href={props.slug} external={props.external}>
       <Flex
         direction="column"
         p="2"
