@@ -33,12 +33,11 @@ const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
     return (
       <NextLink href={`#${id}`}>
-        <Link my={5}>
+        <Link>
           <Heading
             as={as}
             display="inline"
             id={id}
-            lineHeight={"2em"}
             {...props}
             _hover={{
               underline: "none",
@@ -74,7 +73,14 @@ export const MDXComponents = {
   ),
   h2: (props: HeadingProps) => <CustomHeading as="h2" {...props} />,
   h3: (props: HeadingProps) => (
-    <Heading as="h3" mt={8} mb={3} size="lg" fontWeight="light" {...props} />
+    <Heading
+      as="h3"
+      mt={12}
+      mb={2}
+      fontSize="24px"
+      fontWeight="bold"
+      {...props}
+    />
   ),
   h4: (props: HeadingProps) => (
     <Heading
@@ -94,7 +100,7 @@ export const MDXComponents = {
   ),
   p: (props: TextProps) => <Text fontSize="lg" mb={3} {...props} />,
   table: (props: TableProps) => (
-    <div className="flex flex-col w-full max-w-screen-sm md:max-w-screen-lg overflow-x-auto">
+    <div className="flex flex-col w-full max-w-screen-sm overflow-x-auto md:max-w-screen-lg">
       <Table
         variant="simple"
         width={"100%"}

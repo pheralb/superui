@@ -32,22 +32,15 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
-      <Box mb="16" mt="5">
-        <Heading mb={2} fontSize="6xl">
+      <Box mb="15" mt="5">
+        <Heading mb={2} fontSize="5xl">
           {frontMatter.title}
         </Heading>
         <Text mb={5}>{frontMatter.description}</Text>
       </Box>
-      <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 0.4,
-          delay: 0.2,
-        }}
-      >
+      <Box mb="20">
         <MDXRemote {...source} components={MDXComponents as any} />
-      </motion.div>
+      </Box>
     </Sidebar>
   );
 };
