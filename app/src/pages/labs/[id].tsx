@@ -184,7 +184,7 @@ export default function Labs({
 }
 
 export const getServerSideProps = withPageAuth({
-  redirectTo: "/",
+  redirectTo: "/auth",
   async getServerSideProps(ctx) {
     const { id } = ctx.query;
     const { data } = await supabaseServerClient(ctx)

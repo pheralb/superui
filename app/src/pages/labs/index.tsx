@@ -53,7 +53,7 @@ export default function Labs({
 }
 
 export const getServerSideProps = withPageAuth({
-  redirectTo: "/",
+  redirectTo: "/auth",
   async getServerSideProps(ctx) {
     const { data } = await supabaseServerClient(ctx)
       .from("components")

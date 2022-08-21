@@ -127,5 +127,5 @@ export default function Labs({
 }
 
 export const getServerSideProps = withPageAuth({
-  redirectTo: "/",
+  redirectTo: "/auth",
 });
