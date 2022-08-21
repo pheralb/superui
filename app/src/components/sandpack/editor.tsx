@@ -142,7 +142,7 @@ export default function MySandpack({
             react: "latest",
             "react-dom": "latest",
             "react-scripts": "4.0.0",
-            "@superui/styles": "0.0.4",
+            "@superui/styles": "0.0.5",
           },
           devDependencies: {
             "@types/react": "latest",
