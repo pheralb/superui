@@ -40,13 +40,13 @@ const SEO = {
     site_name: "SuperUI",
     url: "https://superui.vercel.app/",
     type: "website",
-    locale: "en_IE",
+    locale: "en_US",
     images: [
       {
-        url: "/img/banner.png",
-        width: 1920,
-        height: 1080,
-        type: "image/png",
+        url: "/img/banner.jpg",
+        width: 1280,
+        height: 720,
+        type: "image/jpg",
       },
     ],
   },
