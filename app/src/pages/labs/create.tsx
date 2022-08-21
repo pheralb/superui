@@ -17,6 +17,7 @@ import {
 
 import dynamic from "next/dynamic";
 import { IoRocketOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
 
 const Editor = dynamic(() => import("@/components/sandpack/editor"), {
   ssr: false,
@@ -34,6 +35,7 @@ export default function Labs({
   const [title, setTitle] = useState("");
   const [code, setCode] = useState();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const toast = useToast();
 
   const handlePublish = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,6 +64,7 @@ export default function Labs({
         duration: 5000,
         isClosable: true,
       });
+      router.push("/labs");
     } catch (error) {
       toast({
         title: "An error occurred while publishing your component",
@@ -110,6 +113,7 @@ export default function Labs({
             variant="solid"
             ml="2"
             fontWeight="light"
+            borderWidth="1px"
             size="lg"
             type="submit"
           >
