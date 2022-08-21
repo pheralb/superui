@@ -9,11 +9,11 @@ const appTheme = extendTheme({
   colors: {
     bg: {
       light: "#FBFCFC",
-      dark: "#252525",
+      dark: "#171717",
     },
     circle: {
       light: "#F5F5F5",
-      dark: "#3B3A3A",
+      dark: "#272525",
     },
     card: {
       light: "#f2f2f2",
