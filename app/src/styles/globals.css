@@ -26,14 +26,18 @@
   }
 }
 
+.component-preview {
+  @apply flex flex-row gap-4 w-full flex-wrap p-4 bg-slate-500 bg-opacity-25 rounded-lg;
+}
+
 .toc {
-  @apply bg-gray-500 rounded-lg py-2 bg-opacity-25 max-w-sm w-full;
+  @apply bg-gray-500 rounded-lg py-2 bg-opacity-25 w-full;
 }
 
 .toc-item {
-  @apply before:content-['-'] before:pr-2 font-semibold text-lg text-gray-400 hover:text-white;
+  @apply before:content-['-'] before:pr-2 font-semibold text-lg;
 }
 
 .toc-link {
-  @apply no-underline !important;
+  @apply no-underline text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white !important;
 }

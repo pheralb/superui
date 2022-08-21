@@ -27,6 +27,7 @@ import {
 } from "@chakra-ui/react";
 
 import Pre from "./pre";
+import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
@@ -78,7 +79,7 @@ export const MDXComponents = {
   h4: (props: HeadingProps) => (
     <Heading
       as="h4"
-      mt={8}
+      mt={3}
       mb={3}
       fontSize="24px"
       fontWeight="light"
@@ -92,7 +93,17 @@ export const MDXComponents = {
     <Heading as="h6" mt={8} mb={3} size="sm" fontWeight="light" {...props} />
   ),
   p: (props: TextProps) => <Text fontSize="lg" mb={3} {...props} />,
-  table: (props: TableProps) => <Table variant="simple" {...props} />,
+  table: (props: TableProps) => (
+    <div className="flex flex-col w-full max-w-screen-sm md:max-w-screen-lg overflow-x-auto">
+      <Table
+        variant="simple"
+        width={"100%"}
+        overflowX={"auto"}
+        maxW={"100%"}
+        {...props}
+      />
+    </div>
+  ),
   thead: (props: TableBodyProps) => <Thead {...props} />,
   tbody: (props: TableBodyProps) => <Tbody {...props} />,
   th: (props: TableColumnHeaderProps) => <Th {...props} />,
@@ -101,11 +112,14 @@ export const MDXComponents = {
   ul: (props: ListProps) => <UnorderedList styleType="none" {...props} />,
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
+  sub: (props: TextProps) => <Text as="sub" {...props} />,
   Button: () => <ButtonDemo />,
   ButtonWithIcon: () => <ButtonWithIcon />,
   CustomButton: () => <CustomButton />,
   BasicInput: () => <BasicInput />,
   InputWithLabel: () => <InputWithLabel />,
   InForm: () => <InForm />,
+  AvatarDemo: () => <AvatarDemo />,
+  AvatarGroupDemo: () => <AvatarGroupDemo />,
   pre: Pre,
 };
