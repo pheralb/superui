@@ -20,7 +20,7 @@ Before installing SuperUI you need to have the following requirements:
 - Node.js version 12.22.0 or higher.
 - TailwindCSS installed in your project.
 
-1. Install SuperUI:
+#### Install SuperUI:
 
 ```bash
 npm install @superui/styles
@@ -28,8 +28,25 @@ npm install @superui/styles
 yarn add @superui/styles
 ```
 
+#### Add to Tailwind configuration
+
+You should add the package path to the content array.
+
+```js {6}
+module.exports = {
+  darkMode: "class",
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@superui/styles/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {},
+  plugins: [],
+};
+```
+
 After running the command you are ready to use SuperUI in your project!
 
-#### Accessibility
+### Accessibility
 
 The design system follow WCAG standards as best it can (continuely improved!) via the use of [Radix-UI](https://www.radix-ui.com/) base components and accessible default themes.
