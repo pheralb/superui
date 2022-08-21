@@ -156,7 +156,7 @@ export default function Labs({
           mb="3"
           placeholder="Title"
           size="lg"
-          value={title || data.title}
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <DeleteModal />
