@@ -203,13 +203,19 @@ rootElement.render(<Main />);
           },
           "/src/main.tsx": {
             code: `import * as React from "react";
+import { SuperUIProvider, ToastProvider } from "@superui/styles";
+import "@superui/styles/dist/styles/main.css";
 import Component from "./Component";
 
 export const Main: React.FC = () => {
   return (
-    <div className="w-screen h-screen flex flex-col items-center gap-2 justify-center">
-      <Component />
-    </div>
+    <SuperUIProvider>
+      <ToastProvider>
+        <div className="w-screen h-screen flex flex-col items-center gap-2 justify-center">
+          <Component />
+        </div>
+      </ToastProvider>
+    </SuperUIProvider>
   )
 }`,
             hidden: true,
