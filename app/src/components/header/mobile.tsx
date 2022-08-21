@@ -3,14 +3,18 @@ import {
   Box,
   CloseButton,
   HStack,
+  Icon,
   IconButton,
   useColorModeValue,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { IoArrowDownOutline } from "react-icons/io5";
+import { IoArrowDownOutline, IoLogoGithub } from "react-icons/io5";
 import { HeaderLinks } from "../../data/headerLinks";
+
 import CustomLink from "@/components/link";
+import Auth from "@/components/auth";
+import ChangeTheme from "../theme";
 
 const HeaderMobile = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
@@ -34,8 +38,9 @@ const HeaderMobile = () => {
         flexDirection="column"
         p={2}
         pb={4}
-        m={2}
         bg={bg}
+        borderWidth="1px"
+        borderRadius="10px"
         spacing={3}
       >
         <CloseButton aria-label="Close menu" onClick={headerNav.onClose} />
@@ -49,6 +54,16 @@ const HeaderMobile = () => {
             {link.title}
           </CustomLink>
         ))}
+        <HStack spacing={4} pt="2">
+          <Auth />
+          <CustomLink
+            href="https://github.com/pheralb/superui"
+            underline={true}
+          >
+            <Icon as={IoLogoGithub} boxSize={25} />
+          </CustomLink>
+          <ChangeTheme />
+        </HStack>
       </VStack>
     </Box>
   );

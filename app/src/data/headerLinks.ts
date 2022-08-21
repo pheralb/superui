@@ -11,7 +11,7 @@ export const HeaderLinks = [
   },
   {
     title: "Community",
-    slug: "/community",
+    slug: "/labs",
     external: false,
   },
 ];

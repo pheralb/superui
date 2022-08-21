@@ -1,7 +1,9 @@
 import {
   Button,
+  Link,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuItem,
   MenuList,
   useColorModeValue,
@@ -9,11 +11,20 @@ import {
 import Avatar from "boring-avatars";
 import { supabaseClient } from "@supabase/auth-helpers-nextjs";
 import { useUser } from "@supabase/auth-helpers-react";
-import { IoArrowDown, IoExitOutline } from "react-icons/io5";
+import { IoAdd, IoArrowDown, IoExitOutline } from "react-icons/io5";
+import CustomLink from "../link";
+import { useRouter } from "next/router";
 
 const Auth = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   const { isLoading, user, error } = useUser();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await supabaseClient.auth.signOut();
+    router.push("/");
+  };
+
   if (!user)
     return (
       <Button
@@ -43,12 +54,13 @@ const Auth = () => {
         {user.user_metadata.name}
       </MenuButton>
       <MenuList bg={bg}>
-        <MenuItem
-          icon={<IoExitOutline size={16} />}
-          onClick={() => {
-            supabaseClient.auth.signOut();
-          }}
-        >
+        <CustomLink href="/labs/create">
+          <MenuItem icon={<IoAdd size={16} />} fontWeight="light">
+            Create new component
+          </MenuItem>
+        </CustomLink>
+        <MenuDivider />
+        <MenuItem icon={<IoExitOutline size={16} />} onClick={handleLogout}>
           Sign out
         </MenuItem>
       </MenuList>
