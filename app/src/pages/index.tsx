@@ -14,7 +14,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { ImRocket } from "react-icons/im";
 import { IoAccessibility } from "react-icons/io5";
 import Footer from "@/components/footer";
-import LandingCard from "@/components/landing/card";
+import LandingCard from "@/components/home/card";
 
 export default function Docs() {
   return (
