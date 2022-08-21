@@ -39,7 +39,6 @@ export default function Labs({
 
   const handlePublish = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     if (!title) {
       toast({
         title: "Title is required",
@@ -47,32 +46,34 @@ export default function Labs({
         duration: 5000,
         isClosable: true,
       });
-    }
-    try {
-      await supabaseClient
-        .from("components")
-        .insert({
-          title,
-          code,
-          user_id: user.id,
-        })
-        .single();
-      toast({
-        title: "Component successfully created",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-      router.push("/labs");
-    } catch (error) {
-      toast({
-        title: "An error occurred while publishing your component",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    } finally {
-      setLoading(false);
+    } else {
+      setLoading(true);
+      try {
+        await supabaseClient
+          .from("components")
+          .insert({
+            title,
+            code,
+            user_id: user.id,
+          })
+          .single();
+        toast({
+          title: "Component successfully created",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        router.push("/labs");
+      } catch (error) {
+        toast({
+          title: "An error occurred while publishing your component",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
