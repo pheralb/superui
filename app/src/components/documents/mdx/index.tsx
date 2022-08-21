@@ -27,6 +27,7 @@ import {
 } from "@chakra-ui/react";
 
 import Pre from "./pre";
+import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
@@ -107,5 +108,7 @@ export const MDXComponents = {
   BasicInput: () => <BasicInput />,
   InputWithLabel: () => <InputWithLabel />,
   InForm: () => <InForm />,
+  AvatarDemo: () => <AvatarDemo />,
+  AvatarGroupDemo: () => <AvatarGroupDemo />,
   pre: Pre,
 };

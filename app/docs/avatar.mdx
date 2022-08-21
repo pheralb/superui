@@ -10,6 +10,8 @@ import { Avatar } from "@superui/styles";
 
 ## Simple Avatar
 
+<AvatarDemo />
+
 ```jsx
 import { Avatar } from "@superui/styles";
 
@@ -19,6 +21,24 @@ import { Avatar } from "@superui/styles";
   size="md"
   type="square"
   bordered
+/>;
+```
+
+## Avatar Group
+
+<AvatarGroupDemo />
+
+```jsx
+import { AvatarGroup } from "@superui/styles";
+
+<AvatarGroup
+  max={4}
+  data={Array.from(Array(10).keys()).map((i) => ({
+    name: `${i}`,
+    alt: `${i}`,
+    src: `https://source.boringavatars.com/beam/120/${i}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`,
+  }))}
+  size="md"
 />;
 ```
 
