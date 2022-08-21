@@ -35,10 +35,11 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
 
     configureMonacoTailwindcss(monaco);
 
-    await AutoTypings.create(editor, {
+    // Disable the auto-completion until package is uploaded to @types
+    /* await AutoTypings.create(editor, {
       sourceCache: new LocalStorageCache(), // Cache loaded sources in localStorage. May be omitted
       monaco: monaco,
-    });
+    }); */
   };
 
   return (
