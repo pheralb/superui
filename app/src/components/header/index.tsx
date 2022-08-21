@@ -38,6 +38,7 @@ const Header = () => {
               <Text fontSize="16px" fontWeight="semibold" ml="2">
                 SuperUI
               </Text>
+              <Text color="gray.500">alpha</Text>
             </HStack>
           </CustomLink>
           <HStack display="flex" alignItems="center" spacing={1}>
