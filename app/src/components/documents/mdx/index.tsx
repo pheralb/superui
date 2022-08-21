@@ -28,6 +28,8 @@ import {
 
 import Pre from "./pre";
 import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
+import CheckboxDemo from "@/demo/checkbox";
+import { PinCodeDemo } from "@/demo/pinCode";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
@@ -127,5 +129,7 @@ export const MDXComponents = {
   InForm: () => <InForm />,
   AvatarDemo: () => <AvatarDemo />,
   AvatarGroupDemo: () => <AvatarGroupDemo />,
+  CheckboxDemo: () => <CheckboxDemo />,
+  PinCodeDemo: () => <PinCodeDemo />,
   pre: Pre,
 };
