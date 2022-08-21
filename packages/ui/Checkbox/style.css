@@ -14,7 +14,6 @@
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
-  color: #2563eb;
   background-color: #fff;
   border-color: #d1d5db;
   border-width: 1px;
@@ -25,8 +24,6 @@
   outline: none;
   --ring-offset-shadow: 0 0 0 var(--ring-offset-width, 2px)
     var(--ring-offset-color, #fff);
-  --ring-shadow: 0 0 0 calc(2px + var(--ring-offset-width, 2px))
-    var(--ring-color, #2563eb);
   box-shadow: var(--ring-offset-shadow), var(--ring-shadow), 0 0 #0000;
   box-shadow: var(--ring-offset-shadow), var(--ring-shadow),
     var(--box-shadow, 0 0 #0000);
