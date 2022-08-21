@@ -30,6 +30,7 @@ import Pre from "./pre";
 import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
 import CheckboxDemo from "@/demo/checkbox";
 import { PinCodeDemo } from "@/demo/pinCode";
+import ButtonGroup from "@/demo/buttonGroup";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
@@ -39,6 +40,7 @@ const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
           <Heading
             as={as}
             display="inline"
+            mb={4}
             id={id}
             {...props}
             _hover={{
@@ -102,7 +104,7 @@ export const MDXComponents = {
   ),
   p: (props: TextProps) => <Text fontSize="lg" mb={3} {...props} />,
   table: (props: TableProps) => (
-    <div className="flex flex-col w-full max-w-screen-sm overflow-x-auto md:max-w-screen-lg">
+    <div className="flex flex-col w-full max-w-screen-sm overflow-x-auto md:max-w-screen-lg my-5">
       <Table
         variant="simple"
         width={"100%"}
@@ -131,5 +133,6 @@ export const MDXComponents = {
   AvatarGroupDemo: () => <AvatarGroupDemo />,
   CheckboxDemo: () => <CheckboxDemo />,
   PinCodeDemo: () => <PinCodeDemo />,
+  ButtonGroupDemo: () => <ButtonGroup />,
   pre: Pre,
 };
