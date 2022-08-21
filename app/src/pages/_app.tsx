@@ -22,6 +22,10 @@ import Layout from "@/layout";
 // Command Palette ->
 import Commands from "@/commands";
 
+// Seo Meta Tags ->
+import SEO from "../../next-seo.config.js";
+import { DefaultSeo } from "next-seo";
+
 // Supabase Config ->
 import { UserProvider } from "@supabase/auth-helpers-react";
 import { supabaseClient } from "@supabase/auth-helpers-nextjs";
@@ -42,6 +46,27 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Layout>
             <ToastProvider>
               <Commands />
+              <DefaultSeo
+                {...SEO}
+                additionalLinkTags={[
+                  {
+                    rel: "icon",
+                    type: "image/png",
+                    href: "/img/superui.png",
+                  },
+                ]}
+                additionalMetaTags={[
+                  {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1.0",
+                  },
+                  {
+                    name: "keywords",
+                    content:
+                      "tailwindcss, tailwind component library, tailwind components, react tailwind",
+                  },
+                ]}
+              />
               <Component {...pageProps} />
             </ToastProvider>
           </Layout>
