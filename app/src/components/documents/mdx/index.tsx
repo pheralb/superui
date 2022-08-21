@@ -79,7 +79,7 @@ export const MDXComponents = {
   h4: (props: HeadingProps) => (
     <Heading
       as="h4"
-      mt={8}
+      mt={3}
       mb={3}
       fontSize="24px"
       fontWeight="light"
@@ -102,6 +102,7 @@ export const MDXComponents = {
   ul: (props: ListProps) => <UnorderedList styleType="none" {...props} />,
   ol: (props: ListProps) => <OrderedList styleType="none" {...props} />,
   li: (props: ListItemProps) => <ListItem {...props} />,
+  sub: (props: TextProps) => <Text as="sub" {...props} />,
   Button: () => <ButtonDemo />,
   ButtonWithIcon: () => <ButtonWithIcon />,
   CustomButton: () => <CustomButton />,
