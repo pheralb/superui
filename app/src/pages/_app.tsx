@@ -23,7 +23,7 @@ import Layout from "@/layout";
 import Commands from "@/commands";
 
 // Seo Meta Tags ->
-import SEO from "../../next-seo.config.js";
+import SEO from "next-seo.config";
 import { DefaultSeo } from "next-seo";
 
 // Supabase Config ->

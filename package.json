@@ -49,8 +49,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.5.0",
-  "dependencies": {
-    "next-seo": "5.5.0"
-  }
+  "packageManager": "npm@8.5.0"
 }
