@@ -5,7 +5,6 @@ import {
   withPageAuth,
 } from "@supabase/auth-helpers-nextjs";
 import {
-  Box,
   Button,
   Container,
   Heading,

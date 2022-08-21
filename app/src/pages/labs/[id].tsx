@@ -61,7 +61,12 @@ export default function Labs({
       });
       router.push("/labs");
     } catch (e) {
-      console.log(e);
+      toast({
+        title: "An error occurred while deleting the component.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     } finally {
       setLoading(false);
     }
@@ -81,7 +86,12 @@ export default function Labs({
         isClosable: true,
       });
     } catch (e) {
-      console.log(e);
+      toast({
+        title: "An error occurred while updating the component.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     } finally {
       setLoading(false);
     }

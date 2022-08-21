@@ -11,7 +11,6 @@ import { IoCodeOutline } from "react-icons/io5";
 export default function Labs({
   user,
   data,
-  error,
 }: {
   user: User;
   data: any[];
