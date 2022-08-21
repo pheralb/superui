@@ -5,11 +5,8 @@ import {
   useColorModeValue,
   HStack,
   Container,
-  Heading,
   Text,
-  Kbd,
   Image,
-  Badge,
   Icon,
 } from "@chakra-ui/react";
 
@@ -18,11 +15,21 @@ import { HeaderLinks } from "@/data/headerLinks";
 import CustomLink from "@/components/link";
 import ChangeTheme from "@/components/theme";
 import { IoLogoGithub } from "react-icons/io5";
+import Auth from "@/components/auth";
 
 const Header = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
   return (
-    <Box bg={bg} pos="sticky" top="0" w="full" px={{ base: 2, sm: 4 }} py={6}>
+    <Box
+      bg={bg}
+      zIndex={1000}
+      pos="sticky"
+      top="0"
+      w="full"
+      px={{ base: 2, sm: 4 }}
+      py={6}
+      borderBottomWidth="1px"
+    >
       <Container maxW="76%">
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <CustomLink href="/" external={false}>
@@ -49,20 +56,20 @@ const Header = () => {
                   {link.title}
                 </CustomLink>
               ))}
-            </HStack>
-            <HStack spacing={4}>
-              <CustomLink
-                href="https://github.com/pheralb/superui"
-                underline={true}
-              >
-                <Icon as={IoLogoGithub} boxSize={25} />
-              </CustomLink>
-              <ChangeTheme />
+              <HStack spacing={4}>
+                <Auth />
+                <CustomLink
+                  href="https://github.com/pheralb/superui"
+                  underline={true}
+                >
+                  <Icon as={IoLogoGithub} boxSize={25} />
+                </CustomLink>
+                <ChangeTheme />
+              </HStack>
             </HStack>
             <HeaderMobile />
           </HStack>
         </Flex>
-        {/* <ChangeTheme /> */}
       </Container>
     </Box>
   );

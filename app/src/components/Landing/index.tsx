@@ -13,6 +13,7 @@ import { AiFillGithub } from "react-icons/ai";
 type Props = {
   children?: React.ReactNode;
 };
+
 export function Card(props: Props) {
   const cardBg = useColorModeValue("card.light", "card.dark");
 
