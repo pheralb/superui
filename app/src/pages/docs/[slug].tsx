@@ -30,7 +30,7 @@ const Doc = ({ source, frontMatter }: DocsPageProps) => {
   return (
     <Sidebar>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{frontMatter.title} - SuperUI</title>
       </Head>
       <Box mb="15" mt="5">
         <Heading mb={2} fontSize="5xl">
