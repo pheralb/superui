@@ -33,6 +33,11 @@ export const Components = [
     external: false,
   },
   {
+    title: "Avatar",
+    slug: "/docs/avatar",
+    external: false,
+  },
+  {
     title: "Button Group",
     slug: "/docs/buttongroup",
     external: false,
@@ -40,11 +45,6 @@ export const Components = [
   {
     title: "Progress",
     slug: "/docs/progress",
-    external: false,
-  },
-  {
-    title: "Avatar",
-    slug: "/docs/avatar",
     external: false,
   },
   {

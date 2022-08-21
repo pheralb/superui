@@ -1,5 +1,4 @@
 import { Button } from "@superui/styles";
-import { BiArrowFromLeft } from "react-icons/bi";
 
 export default function ButtonDemo() {
   return (

@@ -1,0 +1,59 @@
+---
+title: Command Menu (CMDK)
+date: "2022-08-21"
+description: Reusable Command Menu for React. Based on CMDK.
+---
+
+This component is made with the package called [CMDK](https://cmdk.paco.me/).
+
+## Installation
+
+```jsx
+import { CommandMenu } from "@superui/styles";
+```
+
+## Usage
+
+This module should be placed where you want the menu to appear.
+
+<br />
+For example, in Next.js you can place it at `app.js` to make it appear in the whole
+app.
+
+```jsx
+import { CommandMenu } from "@superui/styles";
+
+const data = [...];
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <CommandMenu data={data} />
+      <Component {...pageProps} />
+    </>
+  );
+}
+```
+
+### Data Structure
+
+In the data array you can place all the items you want to show in the menu.
+
+```jsx
+const data = [
+  {
+    heading: "Example Heading", // This is the name of the group
+    items: [
+      {
+        name: "Example Item", // This is the name of the item
+        onSelect: () => {
+          // Function to call when the item is selected
+          console.log("Example Label clicked");
+        },
+        icon: <ExampleIcon />, // This is the icon to show next to the item
+        type: "Component", // This is the label of the item.
+      },
+    ],
+  },
+];
+```

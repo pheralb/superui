@@ -1,4 +1,3 @@
-import React from "react";
 import { CommandMenu } from "@superui/styles/CommandMenu";
 import { CubeIcon } from "@/components/icons/cubeIcon";
 import { Components } from "@/data/sidebarLinks";
