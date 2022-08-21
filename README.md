@@ -18,7 +18,7 @@
 - ✅ [Supabase Database](https://supabase.com/docs/guides/database) - save the information of each user-created component.
 
 
-## 💖 Contributors
+## 💖 Contributors:
 
 |               | ✌️ Socials                                                                              |
 | ------------- | --------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@
 - 💖 [React-Icons](https://react-icons.github.io/react-icons/) - A flexible icon family for everyone.
 - ⬛ [CodeSandbox Sandpack](https://sandpack.codesandbox.io/) - A component toolkit for creating live-running code editing experiences, using the power of CodeSandbox.
 
-## 🚀 Getting Started
+## 🚀 Getting Started:
 
 1. Clone the repository:
 
@@ -88,6 +88,6 @@ npm run dev
 
 And ready 🥳, go to [localhost:3001](http://localhost:3001/).
 
-## 🔑 License
+## 🔑 License:
 
 - [MIT License](https://github.com/pheralb/superui).
