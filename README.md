@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://superui.vercel.app/" target="_blank">
-  <img src="https://i.ibb.co/CVyrh8b/super-UIBanner8.jpg" width="65%">
+  <img src="https://i.ibb.co/CVyrh8b/super-UIBanner8.jpg" width="85%">
 </a>
 
 ![GitHub releases](https://img.shields.io/github/release/pheralb/superui)
