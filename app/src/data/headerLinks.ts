@@ -5,7 +5,7 @@ export const HeaderLinks = [
     external: false,
   },
   {
-    title: "Community",
+    title: "My components",
     slug: "/labs",
     external: false,
   },
