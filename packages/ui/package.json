@@ -22,8 +22,7 @@
     "lint": "eslint *.ts*",
     "build": "tsup --config tsup.config.mjs --format esm,cjs --external react",
     "dev": "tsup --config tsup.config.mjs --format esm,cjs --external react --watch",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "postinstall": "node ./postinstall.mjs"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@types/react": "18.0.17",
