@@ -7,7 +7,7 @@ export const Overview = [
   {
     title: "Releases",
     slug: "https://github.com/pheralb/superui/releases",
-    external: false,
+    external: true,
   },
 ];
 
