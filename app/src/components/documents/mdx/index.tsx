@@ -31,6 +31,7 @@ import { AvatarDemo, AvatarGroupDemo } from "@/demo/avatar";
 import CheckboxDemo from "@/demo/checkbox";
 import { PinCodeDemo } from "@/demo/pinCode";
 import ButtonGroup from "@/demo/buttonGroup";
+import { LinearProgressDemo, CircularProgressDemo } from "@/demo/progress";
 
 const CustomHeading = ({ as, id, ...props }: HeadingProps) => {
   if (id) {
@@ -134,5 +135,7 @@ export const MDXComponents = {
   CheckboxDemo: () => <CheckboxDemo />,
   PinCodeDemo: () => <PinCodeDemo />,
   ButtonGroupDemo: () => <ButtonGroup />,
+  LinearProgressDemo: () => <LinearProgressDemo />,
+  CircularProgressDemo: () => <CircularProgressDemo />,
   pre: Pre,
 };
