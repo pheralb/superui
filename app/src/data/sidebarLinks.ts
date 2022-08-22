@@ -49,10 +49,10 @@ export const Components = [
     disabled: false,
   },
   {
-    title: "Progress (soon)",
+    title: "Progress",
     slug: "/docs/progress",
     external: false,
-    disabled: true,
+    disabled: false,
   },
   {
     title: "Overlay (soon)",
