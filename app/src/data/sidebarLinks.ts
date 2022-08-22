@@ -7,7 +7,7 @@ export const Overview = [
   {
     title: "Releases",
     slug: "https://github.com/pheralb/superui/releases",
-    external: false,
+    external: true,
   },
 ];
 
@@ -49,10 +49,10 @@ export const Components = [
     disabled: false,
   },
   {
-    title: "Progress (soon)",
+    title: "Progress",
     slug: "/docs/progress",
     external: false,
-    disabled: true,
+    disabled: false,
   },
   {
     title: "Overlay (soon)",
