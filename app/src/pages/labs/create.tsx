@@ -5,7 +5,6 @@ import {
   withPageAuth,
 } from "@supabase/auth-helpers-nextjs";
 import {
-  Box,
   Button,
   Container,
   Heading,
@@ -17,6 +16,7 @@ import {
 
 import dynamic from "next/dynamic";
 import { IoRocketOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
 
 const Editor = dynamic(() => import("@/components/sandpack/editor"), {
   ssr: false,
@@ -34,11 +34,11 @@ export default function Labs({
   const [title, setTitle] = useState("");
   const [code, setCode] = useState();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const toast = useToast();
 
   const handlePublish = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     if (!title) {
       toast({
         title: "Title is required",
@@ -46,31 +46,34 @@ export default function Labs({
         duration: 5000,
         isClosable: true,
       });
-    }
-    try {
-      await supabaseClient
-        .from("components")
-        .insert({
-          title,
-          code,
-          user_id: user.id,
-        })
-        .single();
-      toast({
-        title: "Component successfully created",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    } catch (error) {
-      toast({
-        title: "An error occurred while publishing your component",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    } finally {
-      setLoading(false);
+    } else {
+      setLoading(true);
+      try {
+        await supabaseClient
+          .from("components")
+          .insert({
+            title,
+            code,
+            user_id: user.id,
+          })
+          .single();
+        toast({
+          title: "Component successfully created",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        router.push("/labs");
+      } catch (error) {
+        toast({
+          title: "An error occurred while publishing your component",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -110,6 +113,7 @@ export default function Labs({
             variant="solid"
             ml="2"
             fontWeight="light"
+            borderWidth="1px"
             size="lg"
             type="submit"
           >
@@ -123,5 +127,5 @@ export default function Labs({
 }
 
 export const getServerSideProps = withPageAuth({
-  redirectTo: "/",
+  redirectTo: "/auth",
 });

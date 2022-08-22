@@ -16,46 +16,55 @@ export const Components = [
     title: "Button",
     slug: "/docs/button",
     external: false,
+    disabled: false,
   },
   {
     title: "Input",
     slug: "/docs/input",
     external: false,
+    disabled: false,
   },
   {
     title: "Checkbox",
     slug: "/docs/checkbox",
     external: false,
+    disabled: false,
   },
   {
     title: "PinCode",
     slug: "/docs/pincode",
     external: false,
+    disabled: false,
   },
   {
     title: "Avatar",
     slug: "/docs/avatar",
     external: false,
+    disabled: false,
   },
   {
     title: "Button Group",
     slug: "/docs/buttongroup",
     external: false,
+    disabled: false,
   },
   {
     title: "Progress",
     slug: "/docs/progress",
     external: false,
+    disabled: false,
   },
   {
-    title: "Overlay",
+    title: "Overlay (soon)",
     slug: "/docs/overlay",
     external: false,
+    disabled: true,
   },
   {
-    title: "Modal",
+    title: "Modal (soon)",
     slug: "/docs/modal",
     external: false,
+    disabled: true,
   },
   {
     title: "Command Menu",
@@ -63,8 +72,9 @@ export const Components = [
     external: false,
   },
   {
-    title: "Toast",
+    title: "Toast (soon)",
     slug: "/docs/toast",
     external: false,
+    disabled: true,
   },
 ];

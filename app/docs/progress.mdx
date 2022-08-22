@@ -1,0 +1,49 @@
+---
+title: Progress
+date: "2022-08-21"
+description: Progress component for React.
+---
+
+### Linear Progress
+
+<LinearProgressDemo />
+
+```jsx
+import { LinearProgress } from "@superui/styles";
+
+<LinearProgress variant="primary" type="determinate" value={60} />;
+<LinearProgress variant="secondary" type="determinate" value={25} />;
+<LinearProgress variant="danger" type="determinate" value={75} />;
+```
+
+### Linear Progress Props
+
+| Name      | Type   | Default     | Description                      |
+| --------- | ------ | ----------- | -------------------------------- |
+| variant   | String | primary     | Variant of the component         |
+| type      | String | determinate | Has a limit or is indeterminated |
+| value     | Number | 0           | Current progres value            |
+| min       | Number | 0           | min value, the starter value     |
+| max       | Number | 100         | Limit of the progress bar        |
+| className | String | -           | Custom class names               |
+
+### Circular Progress
+
+<CircularProgressDemo />
+
+```jsx
+import { CircularProgress } from "@superui/styles";
+
+<CircularProgress value={50} size="md" variant="primary" />
+<CircularProgress value={15} size="xl" variant="secondary" />
+<CircularProgress value={40} size="lg" variant="danger" />
+```
+
+### Circular Progress Props
+
+| Name      | Type   | Default | Description              |
+| --------- | ------ | ------- | ------------------------ |
+| variant   | String | primary | Variant of the component |
+| size      | String | md      | Size of the component    |
+| value     | Number | 0       | Current progres value    |
+| className | String | -       | Custom class names       |

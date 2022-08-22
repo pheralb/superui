@@ -18,7 +18,13 @@ import {
   LocalStorageCache,
 } from "monaco-editor-auto-typings/custom-editor";
 
-function Editor({ onChange }: { onChange: (code: string) => void }) {
+function Editor({
+  onChange,
+  isPreview,
+}: {
+  onChange: (code: string) => void;
+  isPreview?: boolean;
+}) {
   const { code, updateCode } = useActiveCode();
   const { sandpack } = useSandpack();
 
@@ -91,7 +97,7 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
             overviewRulerLanes: 2,
             quickSuggestions: true,
             quickSuggestionsDelay: 100,
-            readOnly: false,
+            readOnly: isPreview || false,
             renderControlCharacters: false,
             renderFinalNewline: true,
             renderLineHighlight: "all",
@@ -124,8 +130,12 @@ function Editor({ onChange }: { onChange: (code: string) => void }) {
 
 export default function MySandpack({
   setCode,
+  defaultCode,
+  isPreview,
 }: {
   setCode: (code: string) => void;
+  defaultCode?: string;
+  isPreview?: boolean;
 }) {
   return (
     <Box
@@ -212,7 +222,9 @@ export const Main: React.FC = () => {
             active: false,
           },
           "/src/Component.tsx": {
-            code: `import * as React from "react";
+            code:
+              defaultCode ||
+              `import * as React from "react";
 import { Button } from "@superui/styles";
 
 /**
@@ -266,7 +278,7 @@ export default Main;`,
         theme="dark"
       >
         <SandpackLayout>
-          <Editor onChange={setCode} />
+          <Editor onChange={setCode} isPreview={isPreview} />
           <SandpackPreview />
         </SandpackLayout>
       </SandpackProvider>
