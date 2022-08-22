@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 
-const projectPackage = JSON.parse(readFileSync("../../package.json", "utf8"));
+const projectPackage = JSON.parse(readFileSync("package.json", "utf8"));
 
 const BASIC_TAILWIND_CONFIG = `/** @type {import('tailwindcss').Config} */ 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 
 (async () => {
   try {
-    const tailwindConfig = await import("../../tailwind.config.js");
+    const tailwindConfig = await import("../../../tailwind.config.js");
     const hasTailwindInstalled = projectPackage.devDependencies?.tailwindcss
       ? true
       : false;
@@ -30,7 +30,7 @@ module.exports = {
 
     if (!tailwindConfig) {
       console.log("TailwindCSS config not found. Creating base config file...");
-      writeFileSync("../../tailwind.config.js", BASIC_TAILWIND_CONFIG);
+      writeFileSync("../../../tailwind.config.js", BASIC_TAILWIND_CONFIG);
       return;
     }
 
@@ -47,7 +47,7 @@ module.exports = {
       const rawConfig = `/** @type {import('tailwindcss').Config} */
     module.exports = ${JSON.stringify(tailwindConfig.default, null, 2)}`;
 
-      writeFileSync("../../tailwind.config.js", rawConfig);
+      writeFileSync("../../../tailwind.config.js", rawConfig);
       console.log("TailwindCSS config updated.");
       return;
     }

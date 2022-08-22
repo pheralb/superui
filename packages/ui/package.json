@@ -1,6 +1,6 @@
 {
   "name": "@superui/styles",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
@@ -15,14 +15,16 @@
     "url": "https://github.com/pheralb/superui.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "postinstall.mjs"
   ],
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",
     "build": "tsup --config tsup.config.mjs --format esm,cjs --external react",
     "dev": "tsup --config tsup.config.mjs --format esm,cjs --external react --watch",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "postinstall": "node postinstall.mjs"
   },
   "devDependencies": {
     "@types/react": "18.0.17",
