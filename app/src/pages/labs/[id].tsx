@@ -170,28 +170,16 @@ export default function Labs({
       <Text fontSize="24" mb="2">
         {user_metadata?.user_name}/{data?.title}
       </Text>
-      <HStack w="full">
-        <Editor
-          setCode={setCode as DispatchWithoutAction}
-          defaultCode={data?.code || null}
-        />
+      <VStack w="full">
         {should_display && (
-          <VStack w="80%" px="20">
-            <Input
-              mb="3"
-              placeholder={data?.title}
-              size="lg"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <Textarea
-              mb="3"
-              placeholder={data?.description || "Description"}
-              size="lg"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <HStack>
+          <VStack w="full" py="10">
+            <HStack w="full" alignItems="center" justifyContent="center">
+              <Input
+                placeholder={data?.title}
+                size="lg"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
               <DeleteModal />
               <Button
                 onClick={updateComponent}
@@ -207,9 +195,20 @@ export default function Labs({
                 Update
               </Button>
             </HStack>
+            <Textarea
+              mb="3"
+              placeholder={data?.description || "Description"}
+              size="lg"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </VStack>
         )}
-      </HStack>
+        <Editor
+          setCode={setCode as DispatchWithoutAction}
+          defaultCode={data?.code || null}
+        />
+      </VStack>
     </Container>
   );
 }
