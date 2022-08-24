@@ -20,7 +20,7 @@ const Sidebar = (props: SidebarProps) => {
   const sidebar = useDisclosure();
   const bg = useColorModeValue("bg.light", "bg.dark");
   return (
-    <Box>
+    <Box w="full">
       <Container maxW="77%" as="section">
         <SidebarContent display={{ base: "none", md: "unset" }} />
         <Drawer
