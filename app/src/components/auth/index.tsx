@@ -48,10 +48,10 @@ const Auth = () => {
         borderWidth="1px"
         rightIcon={<IoArrowDown />}
         leftIcon={
-          <Avatar size={20} name={user.user_metadata.name} variant="beam" />
+          <Avatar size={20} name={user?.user_metadata?.name} variant="beam" />
         }
       >
-        {user.user_metadata.name}
+        {user?.user_metadata?.name}
       </MenuButton>
       <MenuList bg={bg}>
         <CustomLink href="/labs/create">

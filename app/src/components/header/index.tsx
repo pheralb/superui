@@ -35,7 +35,7 @@ const Header = () => {
           <CustomLink href="/" external={false}>
             <HStack spacing={3}>
               <Image src="/img/superui.png" height="25px" />
-              <Text fontSize="16px" fontWeight="semibold" ml="2">
+              <Text fontSize="16px" ml="2">
                 SuperUI
               </Text>
               <Text color="gray.500">alpha</Text>
