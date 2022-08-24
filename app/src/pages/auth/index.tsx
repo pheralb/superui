@@ -20,7 +20,7 @@ const SignIn = () => {
   }
 
   return (
-    <Center mt="14">
+    <Center flexGrow="1">
       <Box textAlign="center" borderWidth="1px" borderRadius="10px" p="10">
         <Center>
           <IoCloudOutline size={30} />
@@ -29,6 +29,7 @@ const SignIn = () => {
           Sign In
         </Heading>
         <Text mb="5">Sign in to access SuperUI Labs</Text>
+        <Text mb="5">Start creating your own components!</Text>
         <Button
           borderWidth="1px"
           leftIcon={<IoLogoGithub size={16} />}
