@@ -4,7 +4,9 @@ import { PinCodeProps } from "./pinCode.types";
 export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
   const refs: HTMLInputElement[] = [];
   const [current, setCurrent] = useState(0);
-  const [values, setValues] = useState(new Array(length).fill(""));
+  const [values, setValues] = useState(
+    props.values || new Array(length).fill("")
+  );
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -18,6 +20,10 @@ export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
         newValues[index] = value;
         return newValues;
       });
+      if (current === length - 1) {
+        if (props.onComplete && props.autoSend)
+          setTimeout(props.onComplete, 100, [...values, value]);
+      }
     }
   };
 
@@ -37,6 +43,7 @@ export const PinCode = ({ length = 4, ...props }: PinCodeProps) => {
       refs.forEach((ref, index) => {
         if (index < value.length) {
           ref.value = value[index];
+          refs[length - 1].focus();
         }
       });
     }

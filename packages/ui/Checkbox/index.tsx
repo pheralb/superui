@@ -1,4 +1,3 @@
-import React from "react";
 import { CheckboxProps } from "./checkbox.types";
 import { twMerge } from "tailwind-merge";
 
@@ -12,26 +11,24 @@ export const Checkbox = ({
   const genClassName = twMerge(BASE_STYLES, VARIANTS[variant], className);
 
   return (
-    <>
-      <div className="flex items-center">
-        <input
-          type="checkbox"
-          id={id || "default-checkbox"}
-          className={genClassName}
-          {...props}
-        />
-        <label
-          htmlFor={id || "default-checkbox"}
-          className={"ml-2 font-medium text-gray-900 dark:text-gray-300"}
-        >
-          {children}
-        </label>
-      </div>
-    </>
+    <div className="flex items-center">
+      <input
+        type="checkbox"
+        id={id || "default-checkbox"}
+        className={genClassName}
+        {...props}
+      />
+      <label
+        htmlFor={id || "default-checkbox"}
+        className={"ml-2 font-medium text-gray-900 dark:text-gray-300"}
+      >
+        {children}
+      </label>
+    </div>
   );
 };
 
-const BASE_STYLES = "w-5 h-5 form-checkbox";
+const BASE_STYLES = "w-5 h-5 form-checkbox focus:ring-2";
 
 const VARIANTS = {
   primary: "text-blue-600 focus:ring-blue-500",

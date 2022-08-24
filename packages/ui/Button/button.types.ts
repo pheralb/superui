@@ -7,4 +7,6 @@ export interface ButtonProps {
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   type?: "button" | "submit" | "reset";
+  icon?: JSX.Element;
+  iconPosition?: "left" | "right";
 }

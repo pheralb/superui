@@ -1,13 +1,13 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
-import Script from "next/script";
 import type { AppProps } from "next/app";
 
 // Custom styles & Prism syntax highlighting ->
 import "@/styles/globals.css";
 import "@/styles/prism.css";
+import "@superui/styles/dist/styles/main.css";
 
 // SuperUI Provider ->
-import { SuperUIProvider, CommandMenu } from "@superui/styles";
+import { SuperUIProvider, ToastProvider } from "@superui/styles";
 
 // Chakra UI & Docs Theme ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -19,9 +19,20 @@ import NextNProgress from "nextjs-progressbar";
 // Layout ->
 import Layout from "@/layout";
 
+// Command Palette ->
+import Commands from "@/commands";
+
+// Seo Meta Tags ->
+import SEO from "next-seo.config";
+import { DefaultSeo } from "next-seo";
+
+// Supabase Config ->
+import { UserProvider } from "@supabase/auth-helpers-react";
+import { supabaseClient } from "@supabase/auth-helpers-nextjs";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <UserProvider supabaseClient={supabaseClient}>
       <NextNProgress
         color="#4343E5"
         startPosition={0.3}
@@ -33,12 +44,35 @@ function MyApp({ Component, pageProps }: AppProps) {
       <SuperUIProvider>
         <ChakraProvider theme={appTheme}>
           <Layout>
-            <CommandMenu />
-            <Component {...pageProps} />
+            <ToastProvider>
+              <Commands />
+              <DefaultSeo
+                {...SEO}
+                additionalLinkTags={[
+                  {
+                    rel: "icon",
+                    type: "image/png",
+                    href: "/img/superui.png",
+                  },
+                ]}
+                additionalMetaTags={[
+                  {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1.0",
+                  },
+                  {
+                    name: "keywords",
+                    content:
+                      "tailwindcss, tailwind component library, tailwind components, react tailwind",
+                  },
+                ]}
+              />
+              <Component {...pageProps} />
+            </ToastProvider>
           </Layout>
         </ChakraProvider>
       </SuperUIProvider>
-    </>
+    </UserProvider>
   );
 }
 

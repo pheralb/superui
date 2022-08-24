@@ -12,7 +12,7 @@
 }
 
 .vercel [cmdk-root] {
-  background: hsla(0, 0%, 9%, 0.8);
+  background: hsla(0, 0%, 9%, 0.95);
 }
 
 .vercel [cmdk-input] {
@@ -72,14 +72,14 @@
   display: flex;
   gap: 8px;
   padding: 0 16px;
-  color: white;
+  color: #a0a0a0;
   will-change: background, color;
   transition: all 0.15s ease;
   transition-property: none;
 }
 
 .vercel [cmdk-item][aria-selected="true"] {
-  background: var(--grayA3);
+  background: hsla(0, 0%, 100%, 0.056);
   color: white;
 }
 
@@ -125,8 +125,8 @@
   padding: 4px;
   height: 20px;
   border-radius: 4px;
-  color: var(--gray11);
-  background: var(--gray4);
+  color: white;
+  background: hsl(0, 4%, 29%);
   display: inline-flex;
   align-items: center;
   justify-content: center;

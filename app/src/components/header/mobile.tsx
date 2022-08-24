@@ -3,14 +3,18 @@ import {
   Box,
   CloseButton,
   HStack,
+  Icon,
   IconButton,
   useColorModeValue,
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import { IoArrowDownOutline } from "react-icons/io5";
+import { IoArrowDownOutline, IoLogoGithub } from "react-icons/io5";
 import { HeaderLinks } from "../../data/headerLinks";
+
 import CustomLink from "@/components/link";
+import Auth from "@/components/auth";
+import ChangeTheme from "../theme";
 
 const HeaderMobile = () => {
   const bg = useColorModeValue("bg.light", "bg.dark");
@@ -19,37 +23,48 @@ const HeaderMobile = () => {
     <Box display={{ base: "inline-flex", md: "none" }}>
       <IconButton
         display={{ base: "flex", md: "none" }}
-        aria-label="Open header menu"
+        aria-label="Open menu"
         variant="ghost"
-        borderWidth="1px"
         icon={<IoArrowDownOutline />}
         onClick={headerNav.onOpen}
       />
-      <HStack
+      <VStack
         pos="absolute"
-        justifyContent="center"
-        zIndex={1000}
+        zIndex={1}
         top={0}
         left={0}
         right={0}
         display={headerNav.isOpen ? "flex" : "none"}
+        flexDirection="column"
         p={2}
-        py={5}
+        pb={4}
         bg={bg}
         borderWidth="1px"
-        spacing={5}
+        borderRadius="10px"
+        spacing={3}
       >
+        <CloseButton aria-label="Close menu" onClick={headerNav.onClose} />
         {HeaderLinks.map((link) => (
-          <CustomLink key={link.slug} href={link.slug} external={link.external}>
+          <CustomLink
+            key={link.slug}
+            href={link.slug}
+            external={link.external}
+            underline={true}
+          >
             {link.title}
           </CustomLink>
         ))}
-        <CloseButton
-          aria-label="Close Header Menu"
-          borderWidth="1px"
-          onClick={headerNav.onClose}
-        />
-      </HStack>
+        <HStack spacing={4} pt="2">
+          <Auth />
+          <CustomLink
+            href="https://github.com/pheralb/superui"
+            underline={true}
+          >
+            <Icon as={IoLogoGithub} boxSize={25} />
+          </CustomLink>
+          <ChangeTheme />
+        </HStack>
+      </VStack>
     </Box>
   );
 };

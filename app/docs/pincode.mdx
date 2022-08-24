@@ -1,0 +1,37 @@
+---
+title: Pin Code
+date: "2022-08-17"
+description: Pin Code Input
+---
+
+```jsx
+import { PinCode } from "@superui/styles";
+```
+
+### Basic Usage
+
+<PinCodeDemo />
+
+```jsx
+import { PinCode } from "@superui/styles";
+
+export function PinCodeDemo() {
+  function handleSubmit(values: string[]) {
+    alert(values.join(""));
+  }
+
+  return <PinCode length={4} onComplete={handleSubmit} autoSend />;
+}
+```
+
+### Props
+
+| Name       | Type     | Default | Description                                                          |
+| ---------- | -------- | ------- | -------------------------------------------------------------------- |
+| variant    | String   | primary | Select variant colors of the input.                                  |
+| size       | String   | medium  | Select the size of the input.                                        |
+| disabled   | Boolean  | false   | Disable the input.                                                   |
+| onChange   | Function | -       | Callback function when the input value changes.                      |
+| onComplete | Function | -       | Callback function when the input is completed. (Needs autoSend true) |
+| autoSend   | Boolean  | false   | Send the input value when the user fills the last input.             |
+| values     | Array    | -       | Array of values to be displayed in the input.                        |

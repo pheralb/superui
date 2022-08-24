@@ -1,0 +1,37 @@
+---
+title: Checkbox
+date: "2022-08-21"
+description: Reusable checkbox React component.
+---
+
+```jsx
+import { Checkbox } from "@superui/styles";
+// You should import the CSS file to use the component
+import "@superui/styles/dist/styles/main.css";
+```
+
+### Basic usage
+
+<CheckboxDemo />
+
+```jsx
+import { Checkbox } from "@superui/styles";
+import "@superui/styles/dist/styles/main.css";
+
+<Checkbox variant="primary" id="sample-checkbox">
+  Sample checkbox
+</Checkbox>;
+```
+
+### Props
+
+| Name      | Type     | Default | Description                                                              |
+| --------- | -------- | ------- | ------------------------------------------------------------------------ |
+| variant   | string   | primary | The variant of the checkbox.                                             |
+| checked   | boolean  | false   | Whether the checkbox is checked.                                         |
+| onChange  | function | -       | The function to call when the checkbox is changed.                       |
+| id        | string   | -       | The id of the checkbox. (Mandatory if more checkboxes in the component.) |
+| name      | string   | -       | The name of the checkbox.                                                |
+| label     | string   | -       | The label of the checkbox.                                               |
+| disabled  | boolean  | false   | Whether the checkbox is disabled.                                        |
+| className | string   | -       | The class name of the checkbox.                                          |

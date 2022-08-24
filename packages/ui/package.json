@@ -1,9 +1,9 @@
 {
   "name": "@superui/styles",
-  "version": "0.0.1",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "version": "0.0.7",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/types/index.d.ts",
   "contributors": [
     {
       "name": "naldamav",
@@ -20,28 +20,29 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint *.ts*",
-    "build": "tsup ./index.tsx --format esm,cjs --external react --sourcemap --dts",
-    "dev": "tsup ./index.tsx --format esm,cjs --watch --external react",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "postinstall": "node ./postinstall.mjs"
+    "build": "tsup --config tsup.config.mjs --format esm,cjs --external react",
+    "dev": "tsup --config tsup.config.mjs --format esm,cjs --external react --watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@types/react": "17.0.37",
-    "@types/react-dom": "17.0.11",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
     "@types/react-transition-group": "4.4.5",
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
-    "react": "18.2.0",
     "tsconfig": "*",
     "tsup": "6.2.2",
-    "typescript": "4.5.2"
+    "typescript": "4.7.4"
   },
   "dependencies": {
     "@heroicons/react": "1.0.6",
     "@radix-ui/react-dialog": "^1.0.0",
     "@radix-ui/react-popover": "^1.0.0",
+    "@radix-ui/react-toast": "^1.0.0",
     "@react-aria/overlays": "3.10.0",
+    "react": "18.2.0",
     "cmdk": "^0.1.18",
+    "framer-motion": "^7.2.0",
     "react-aria": "3.18.0",
     "react-transition-group": "4.4.5",
     "tailwind-merge": "1.5.1"
