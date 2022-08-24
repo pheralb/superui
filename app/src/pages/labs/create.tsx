@@ -8,11 +8,13 @@ import {
   Button,
   Container,
   Heading,
+  HStack,
   Input,
   InputGroup,
   Text,
   Textarea,
   useToast,
+  VStack,
 } from "@chakra-ui/react";
 
 import dynamic from "next/dynamic";
@@ -125,16 +127,43 @@ export default function Labs({
         <Text fontWeight="light" mb={5}>
           Create custom SuperUI components and upload them to our database.
         </Text>
-        <Editor setCode={setCode as DispatchWithoutAction} />
 
-        <InputGroup my="5">
-          <Input
-            mb="3"
-            placeholder="Title"
-            size="lg"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        <VStack w="full" my="5">
+          <HStack w="full" alignItems="center">
+            <Input
+              placeholder="Title"
+              size="lg"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <Button
+              leftIcon={<IoSave />}
+              isLoading={loading}
+              loadingText="Saving..."
+              variant="solid"
+              ml="2"
+              fontWeight="light"
+              borderWidth="1px"
+              size="lg"
+              type="button"
+              onClick={handleSave}
+            >
+              Save
+            </Button>
+            <Button
+              leftIcon={<IoRocketOutline />}
+              isLoading={loading}
+              loadingText="Publishing..."
+              variant="solid"
+              ml="2"
+              fontWeight="light"
+              borderWidth="1px"
+              size="lg"
+              type="submit"
+            >
+              Publish
+            </Button>
+          </HStack>
           <Textarea
             mb="3"
             placeholder="Description"
@@ -142,34 +171,8 @@ export default function Labs({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <Button
-            leftIcon={<IoSave />}
-            isLoading={loading}
-            loadingText="Saving..."
-            variant="solid"
-            ml="2"
-            fontWeight="light"
-            borderWidth="1px"
-            size="lg"
-            type="button"
-            onClick={handleSave}
-          >
-            Save
-          </Button>
-          <Button
-            leftIcon={<IoRocketOutline />}
-            isLoading={loading}
-            loadingText="Publishing..."
-            variant="solid"
-            ml="2"
-            fontWeight="light"
-            borderWidth="1px"
-            size="lg"
-            type="submit"
-          >
-            Publish
-          </Button>
-        </InputGroup>
+        </VStack>
+        <Editor setCode={setCode as DispatchWithoutAction} />
       </Container>
     </form>
   );
