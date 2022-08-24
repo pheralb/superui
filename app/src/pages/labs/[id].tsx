@@ -219,24 +219,27 @@ export async function getServerSideProps(
 ) {
   const { id } = ctx.query;
   const { user } = await getUser(ctx);
+  let should_display = false;
   const userData = await supabaseServerClient(ctx)
     .from("components")
     .select("id,user_id")
     .eq("id", id)
     .match({ user_id: user?.id });
-  console.log("--1--: ", userData);
+
   const { data } = await supabaseServerClient(ctx)
     .from("components")
     .select("*")
     .eq("id", id)
     .single();
-  console.log("--2--: ", data.user_id);
+
   const user_metadata = await supabaseServerClient(ctx)
     .from("users")
     .select("raw_user_meta_data")
     .eq("id", data.user_id);
-  console.log("--2--: ", data.user_id);
-  const should_display = userData?.data!.length > 0 ? true : false;
+
+  if (userData.data) {
+    should_display = userData?.data?.length > 0 ? true : false;
+  }
   return {
     props: {
       id,
