@@ -43,19 +43,19 @@ export default function Labs({
           </HStack>
         </Container>
       </Box>
-      {data?.length > 0 ? (
-        data.map((item) => (
-          <Box w="full" h="full" flexGrow="1" p="2">
-            <Container maxW="76%" h="full" flexGrow="1">
-              <SimpleGrid columns={3} spacing={6}>
+      <Box>
+        {data?.length > 0 ? (
+          data.map((item) => (
+            <Box w="full" h="full" flexGrow="1" p="3">
+              <Container maxW="100%" h="full" flexGrow="1">
                 <CustomLink href={`/labs/${item.id}`} key={item.id}>
                   <Box
                     borderWidth="1px"
                     borderRadius="5px"
-                    p="4"
+                    p="8"
                     cursor="pointer"
                     _hover={{
-                      shadow: "sm",
+                      boxShadow: "0px 0px 10px rgba(234, 234, 234, 0.1)",
                     }}
                   >
                     <HStack spacing={2}>
@@ -64,31 +64,31 @@ export default function Labs({
                     </HStack>
                   </Box>
                 </CustomLink>
-              </SimpleGrid>
+              </Container>
+            </Box>
+          ))
+        ) : (
+          <Center w="full" h="full" flexGrow="1" p="2">
+            <Container h="full" flexGrow="1">
+              <Center>
+                <Card>
+                  <VStack gap={3} textAlign="center">
+                    <Text>
+                      Looks like you don't have any component created yet! 🤔
+                    </Text>
+                    <Text>Try to:</Text>
+                    <CustomLink href="/labs/create">
+                      <Button leftIcon={<IoAdd size={16} />} fontWeight="light">
+                        Create a new component
+                      </Button>
+                    </CustomLink>
+                  </VStack>
+                </Card>
+              </Center>
             </Container>
-          </Box>
-        ))
-      ) : (
-        <Center w="full" h="full" flexGrow="1" p="2">
-          <Container maxW="76%" h="full" flexGrow="1">
-            <Center>
-              <Card>
-                <VStack gap={3} textAlign="center">
-                  <Text>
-                    Looks like you don't have any component created yet! 🤔
-                  </Text>
-                  <Text>Try to:</Text>
-                  <CustomLink href="/labs/create">
-                    <Button leftIcon={<IoAdd size={16} />} fontWeight="light">
-                      Create a new component
-                    </Button>
-                  </CustomLink>
-                </VStack>
-              </Card>
-            </Center>
-          </Container>
-        </Center>
-      )}
+          </Center>
+        )}
+      </Box>
     </VStack>
   );
 }
