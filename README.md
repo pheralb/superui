@@ -50,7 +50,7 @@
 1. Clone the repository:
 
 ```bash
-git clone git@github.com:pheralb/superui.git
+git clone https://github.com/pheralb/superui.git
 ```
 
 2. Install dependencies:

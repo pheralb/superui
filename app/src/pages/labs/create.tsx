@@ -1,4 +1,4 @@
-import { DispatchWithoutAction, useState } from "react";
+import { DispatchWithoutAction, MouseEventHandler, useState } from "react";
 import {
   supabaseClient,
   User,
@@ -8,14 +8,17 @@ import {
   Button,
   Container,
   Heading,
+  HStack,
   Input,
   InputGroup,
   Text,
+  Textarea,
   useToast,
+  VStack,
 } from "@chakra-ui/react";
 
 import dynamic from "next/dynamic";
-import { IoRocketOutline } from "react-icons/io5";
+import { IoRocketOutline, IoSave } from "react-icons/io5";
 import { useRouter } from "next/router";
 
 const Editor = dynamic(() => import("@/components/sandpack/editor"), {
@@ -32,13 +35,13 @@ export default function Labs({
   error: string;
 }) {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [code, setCode] = useState();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const toast = useToast();
 
-  const handlePublish = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSave = async () => {
     if (!title) {
       toast({
         title: "Title is required",
@@ -55,10 +58,11 @@ export default function Labs({
             title,
             code,
             user_id: user.id,
+            description,
           })
           .single();
         toast({
-          title: "Component successfully created",
+          title: "Component successfully saved",
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -66,7 +70,7 @@ export default function Labs({
         router.push("/labs");
       } catch (error) {
         toast({
-          title: "An error occurred while publishing your component",
+          title: "An error occurred while saving your component",
           status: "error",
           duration: 5000,
           isClosable: true,
@@ -76,9 +80,37 @@ export default function Labs({
       }
     }
   };
+  const handlePublish = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+
+    try {
+      await handleSave();
+      await supabaseClient
+        .from("components")
+        .update({ published: true })
+        .match({
+          title,
+          code,
+          user_id: user.id,
+        });
+      toast({
+        title: "Component successfully published",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "An error occurred while publishing your component",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
-    <form onSubmit={handlePublish}>
+    <form onSubmit={handlePublish} className="w-full px-6">
       <Container
         maxW={{ base: "100%", md: "95%" }}
         as="main"
@@ -94,32 +126,53 @@ export default function Labs({
           Create new custom component
         </Heading>
         <Text fontWeight="light" mb={5}>
-          Here you can create custom SuperUI components and upload them to our
-          database.
+          Create custom SuperUI components and upload them to our database.
         </Text>
 
-        <InputGroup>
-          <Input
+        <VStack w="full" my="5">
+          <HStack w="full" alignItems="center">
+            <Input
+              placeholder="Title"
+              size="lg"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <Button
+              leftIcon={<IoSave />}
+              isLoading={loading}
+              loadingText="Saving..."
+              variant="solid"
+              ml="2"
+              fontWeight="light"
+              borderWidth="1px"
+              size="lg"
+              type="button"
+              onClick={handleSave}
+            >
+              Save
+            </Button>
+            <Button
+              leftIcon={<IoRocketOutline />}
+              isLoading={loading}
+              loadingText="Publishing..."
+              variant="solid"
+              ml="2"
+              fontWeight="light"
+              borderWidth="1px"
+              size="lg"
+              type="submit"
+            >
+              Publish
+            </Button>
+          </HStack>
+          <Textarea
             mb="3"
-            placeholder="Title"
+            placeholder="Description"
             size="lg"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
-          <Button
-            leftIcon={<IoRocketOutline />}
-            isLoading={loading}
-            loadingText="Publishing..."
-            variant="solid"
-            ml="2"
-            fontWeight="light"
-            borderWidth="1px"
-            size="lg"
-            type="submit"
-          >
-            Publish
-          </Button>
-        </InputGroup>
+        </VStack>
         <Editor setCode={setCode as DispatchWithoutAction} />
       </Container>
     </form>

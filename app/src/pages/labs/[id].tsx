@@ -1,13 +1,15 @@
-import { DispatchWithoutAction, useState } from "react";
+import { DispatchWithoutAction, useEffect, useState } from "react";
 import {
   User,
   withPageAuth,
   supabaseServerClient,
   supabaseClient,
+  getUser,
 } from "@supabase/auth-helpers-nextjs";
 import {
   Button,
   Container,
+  HStack,
   Input,
   InputGroup,
   Modal,
@@ -18,29 +20,39 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  Textarea,
   useColorModeValue,
   useDisclosure,
   useToast,
+  VStack,
 } from "@chakra-ui/react";
 
 import dynamic from "next/dynamic";
 import { IoRocketOutline, IoTrashOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
+import { GetServerSidePropsContext, PreviewData, NextApiRequest } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 const Editor = dynamic(() => import("@/components/sandpack/editor"), {
   ssr: false,
 });
 
 export default function Labs({
+  user,
   data,
   id,
+  should_display,
+  user_meta_data,
 }: {
+  user_meta_data: any;
+  should_display: boolean;
   user: User;
   data: any;
   error: string;
   id: string;
 }) {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [code, setCode] = useState();
   const [loading, setLoading] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -77,7 +89,7 @@ export default function Labs({
     try {
       await supabaseClient
         .from("components")
-        .update({ title: title, code: code })
+        .update({ title, code, description })
         .eq("id", id);
       toast({
         title: "Component successfully updated",
@@ -139,6 +151,34 @@ export default function Labs({
     );
   };
 
+  const handlePublish = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+
+    try {
+      await supabaseClient
+        .from("components")
+        .update({ published: true })
+        .match({
+          title: data?.title,
+          code: data?.code,
+          user_id: data?.user.id,
+        });
+      toast({
+        title: "Component successfully published",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "An error occurred while publishing your component",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <Container
       maxW={{ base: "100%", md: "95%" }}
@@ -151,52 +191,94 @@ export default function Labs({
       flexDirection="column"
       alignItems="start"
     >
-      <InputGroup>
-        <Input
-          mb="3"
-          placeholder="Title"
-          size="lg"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+      <Text fontSize="24" mb="2">
+        {user_meta_data.user_name}/{data?.title}
+      </Text>
+      <VStack w="full">
+        {should_display && (
+          <VStack w="full" py="10">
+            <HStack w="full" alignItems="center" justifyContent="center">
+              <Input
+                placeholder={data?.title}
+                size="lg"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <DeleteModal />
+              <Button
+                leftIcon={<IoRocketOutline />}
+                isLoading={loading}
+                loadingText="Publishing..."
+                variant="solid"
+                ml="2"
+                disabled={data.published}
+                fontWeight="light"
+                borderWidth="1px"
+                size="lg"
+                type="button"
+              >
+                {data?.published ? "Published" : "Publish"}
+              </Button>
+              <Button
+                onClick={updateComponent}
+                leftIcon={<IoRocketOutline />}
+                isLoading={loading}
+                loadingText="Updating..."
+                variant="solid"
+                ml="2"
+                fontWeight="light"
+                borderWidth="1px"
+                size="lg"
+              >
+                Update
+              </Button>
+            </HStack>
+            <Textarea
+              mb="3"
+              placeholder={data?.description || "Description"}
+              size="lg"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </VStack>
+        )}
+        <Editor
+          setCode={setCode as DispatchWithoutAction}
+          defaultCode={data?.code || null}
         />
-        <DeleteModal />
-        <Button
-          onClick={updateComponent}
-          leftIcon={<IoRocketOutline />}
-          isLoading={loading}
-          loadingText="Updating..."
-          variant="solid"
-          ml="2"
-          fontWeight="light"
-          borderWidth="1px"
-          size="lg"
-        >
-          Update
-        </Button>
-      </InputGroup>
-
-      <Editor
-        setCode={setCode as DispatchWithoutAction}
-        defaultCode={data?.code || null}
-      />
+      </VStack>
     </Container>
   );
 }
 
-export const getServerSideProps = withPageAuth({
-  redirectTo: "/auth",
-  async getServerSideProps(ctx) {
-    const { id } = ctx.query;
-    const { data } = await supabaseServerClient(ctx)
-      .from("components")
-      .select("*")
-      .eq("id", id)
-      .single();
-    return {
-      props: {
-        id,
-        data,
-      },
-    };
-  },
-});
+export async function getServerSideProps(
+  ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
+) {
+  const { id } = ctx.query;
+  const { user } = await getUser(ctx);
+  let should_display = false;
+  const userData = await supabaseServerClient(ctx)
+    .from("components")
+    .select("id,user_id")
+    .eq("id", id)
+    .match({ user_id: user?.id });
+
+  const { data } = await supabaseServerClient(ctx)
+    .from("components")
+    .select("*, user:users(raw_user_meta_data)")
+    .eq("id", id)
+    .single();
+
+  if (userData.data) {
+    should_display = userData?.data?.length > 0 ? true : false;
+  }
+  return {
+    props: {
+      id,
+      data,
+      user,
+      should_display,
+      user_meta_data: JSON.parse(data?.user?.raw_user_meta_data),
+    },
+  };
+}

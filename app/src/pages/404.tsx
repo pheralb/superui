@@ -4,7 +4,7 @@ import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 
 const Error404 = () => {
   return (
-    <Center mt="10">
+    <Center flexGrow={1}>
       <Flex direction="column" justifyContent="center" alignItems="center">
         <Heading as="h1" size="xl">
           🤔
