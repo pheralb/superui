@@ -16,7 +16,7 @@ const Docs = () => {
       <Heading mb={7} fontSize="3xl">
         👋 Welcome
       </Heading>
-      <SimpleGrid minChildWidth="240px" columns={4} spacing={6}>
+      <SimpleGrid minChildWidth="240px" spacing={6}>
         {Components.map(({ title, slug, external }: ComponentInterface) => {
           return (
             <CustomLink href={`${slug}`} key={slug}>
