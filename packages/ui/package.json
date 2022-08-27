@@ -1,9 +1,12 @@
 {
   "name": "@superui/styles",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/types/index.d.ts",
+  "sideEffects": [
+    "./dist/**/index.esm.js"
+  ],
   "contributors": [
     {
       "name": "naldamav",
