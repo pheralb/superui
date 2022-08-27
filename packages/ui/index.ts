@@ -11,3 +11,4 @@ export * from "./Checkbox";
 export * from "./AvatarGroup";
 export * from "./CircularProgress";
 export * from "./Toast";
+export * from "./NavigationBar";
