@@ -30,11 +30,11 @@ const Header = () => {
       py={6}
       borderBottomWidth="1px"
     >
-      <Container maxW="76%">
+      <Container maxW={{ base: "100%", xl: "76%" }}>
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <CustomLink href="/" external={false}>
             <HStack spacing={3}>
-              <Image src="/img/superui.png" height="25px" />
+              <Image alt="Superui logo" src="/img/superui.png" height="25px" />
               <Text fontSize="16px" ml="2">
                 SuperUI
               </Text>
