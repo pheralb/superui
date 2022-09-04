@@ -71,9 +71,36 @@ create table components (
   code text,
   inserted_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+create table public.users (
+  id uuid not null primary key, -- UUID from auth.users
+  email text,
+  raw_user_meta_data text
+);
 ```
 
-4. Copy Supabase URL & Anon api key from your database and create a _.env_ file in the /app folder with the following content:
+<details>
+  <summary>🔨 trigger functions:</summary>
+  
+  ### Trigger function to adding users when register for the first time:
+  
+  ```sql
+  create or replace function public.handle_new_user() 
+  returns trigger as $$
+  begin
+    insert into public.users (id, email)
+    values (new.id, new.email,new.raw_user_meta_data);
+    return new;
+  end;
+  $$ language plpgsql security definer;
+
+  create trigger on_auth_user_created
+    after insert on auth.users
+    for each row execute procedure public.handle_new_user();
+  ```  
+</details>
+
+4. Copy Supabase URL & Anon api key from your database and create a _.env_ file in the **/app folder** with the following content:
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=
