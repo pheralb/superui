@@ -16,10 +16,11 @@ jobs:
     runs-on: ubuntu-18.04
     needs: [avoid_reduncy]
     steps:
-      - name: Build setup
+      - name: Check out repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           cache: "npm"
@@ -32,10 +33,11 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-18.04
     steps:
-      - name: E2E setup
+      - name: Check out repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           cache: "npm"
