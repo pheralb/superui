@@ -32,50 +32,55 @@ export default function Community({ data }: { data: any[] }) {
           </HStack>
         </Container>
       </Box>
-      {data?.length > 0 ? (
-        data.map((item: { id: string; title: string }) => (
-          <Box key={item?.id} w="full" h="full" flexGrow="1" p="2">
-            <Container maxW="76%" h="full" flexGrow="1">
-              <SimpleGrid columns={3} spacing={6}>
-                <CustomLink href={`/labs/${item?.id}`} key={item?.id}>
-                  <Box
-                    borderWidth="1px"
-                    borderRadius="5px"
-                    p="4"
-                    cursor="pointer"
-                    _hover={{
-                      shadow: "sm",
-                    }}
-                  >
-                    <HStack spacing={2}>
-                      <IoCodeOutline size={22} />
-                      <Text fontSize="2xl">{item.title}</Text>
-                    </HStack>
-                  </Box>
-                </CustomLink>
-              </SimpleGrid>
-            </Container>
-          </Box>
-        ))
-      ) : (
-        <Center w="full" h="full" flexGrow="1" p="2">
-          <Container maxW="76%" h="full" flexGrow="1">
-            <Center>
-              <Card>
-                <VStack gap={3} textAlign="center">
-                  <Text>There's no components 😱</Text>
-                  <Text>Try to:</Text>
-                  <CustomLink href="/labs/create">
-                    <Button leftIcon={<IoAdd size={16} />} fontWeight="light">
-                      Create a new component
-                    </Button>
+      <Box>
+        {data?.length > 0 ? (
+          data.map((item: { user: any; id: string; title: string }) => {
+            const user_data = JSON.parse(item?.user?.raw_user_meta_data);
+            return (
+              <Box key={item?.id} w="full" h="full" flexGrow="1" p="3">
+                <Container maxW="100%" h="full" flexGrow="1">
+                  <CustomLink href={`/labs/${item?.id}`} key={item?.id}>
+                    <Box
+                      borderWidth="1px"
+                      borderRadius="5px"
+                      p="8"
+                      cursor="pointer"
+                      _hover={{
+                        boxShadow: "0px 0px 10px rgba(234, 234, 234, 0.1)",
+                      }}
+                    >
+                      <HStack spacing={3}>
+                        <IoCodeOutline size={22} />
+                        <Text fontSize="2xl">
+                          {user_data.user_name}/{item.title}
+                        </Text>
+                      </HStack>
+                    </Box>
                   </CustomLink>
-                </VStack>
-              </Card>
-            </Center>
-          </Container>
-        </Center>
-      )}
+                </Container>
+              </Box>
+            );
+          })
+        ) : (
+          <Center w="full" h="full" flexGrow="1" p="2">
+            <Container maxW="76%" h="full" flexGrow="1">
+              <Center>
+                <Card>
+                  <VStack gap={3} textAlign="center">
+                    <Text>There's no components 😱</Text>
+                    <Text>Try to:</Text>
+                    <CustomLink href="/labs/create">
+                      <Button leftIcon={<IoAdd size={16} />} fontWeight="light">
+                        Create a new component
+                      </Button>
+                    </CustomLink>
+                  </VStack>
+                </Card>
+              </Center>
+            </Container>
+          </Center>
+        )}
+      </Box>
     </VStack>
   );
 }
@@ -83,10 +88,10 @@ export default function Community({ data }: { data: any[] }) {
 export async function getServerSideProps(ctx: any) {
   const { data, error } = await supabaseServerClient(ctx)
     .from("components")
-    .select("*")
+    .select("*, user:users(raw_user_meta_data)")
     .eq("published", "true");
-  console.log("data: ", data);
-  console.log("error: ", error);
+  console.log("DATA: ", data);
+  console.log("ERROR: ", error);
   return {
     props: {
       data,
