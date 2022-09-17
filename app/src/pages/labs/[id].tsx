@@ -42,14 +42,14 @@ export default function Labs({
   data,
   id,
   should_display,
-  user_metadata,
+  user_meta_data,
 }: {
+  user_meta_data: any;
   should_display: boolean;
   user: User;
   data: any;
   error: string;
   id: string;
-  user_metadata: any;
 }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -89,7 +89,7 @@ export default function Labs({
     try {
       await supabaseClient
         .from("components")
-        .update({ title: title, code: code })
+        .update({ title, code, description })
         .eq("id", id);
       toast({
         title: "Component successfully updated",
@@ -151,9 +151,33 @@ export default function Labs({
     );
   };
 
-  useEffect(() => {
-    console.log(user_metadata);
-  }, []);
+  const handlePublish = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+
+    try {
+      await supabaseClient
+        .from("components")
+        .update({ published: true })
+        .match({
+          title: data?.title,
+          code: data?.code,
+          user_id: data?.user.id,
+        });
+      toast({
+        title: "Component successfully published",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "An error occurred while publishing your component",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <Container
@@ -168,7 +192,7 @@ export default function Labs({
       alignItems="start"
     >
       <Text fontSize="24" mb="2">
-        {user_metadata?.user_name}/{data?.title}
+        {user_meta_data.user_name}/{data?.title}
       </Text>
       <VStack w="full">
         {should_display && (
@@ -181,6 +205,20 @@ export default function Labs({
                 onChange={(e) => setTitle(e.target.value)}
               />
               <DeleteModal />
+              <Button
+                leftIcon={<IoRocketOutline />}
+                isLoading={loading}
+                loadingText="Publishing..."
+                variant="solid"
+                ml="2"
+                disabled={data.published}
+                fontWeight="light"
+                borderWidth="1px"
+                size="lg"
+                type="button"
+              >
+                {data?.published ? "Published" : "Publish"}
+              </Button>
               <Button
                 onClick={updateComponent}
                 leftIcon={<IoRocketOutline />}
@@ -227,14 +265,9 @@ export async function getServerSideProps(
 
   const { data } = await supabaseServerClient(ctx)
     .from("components")
-    .select("*")
+    .select("*, user:users(raw_user_meta_data)")
     .eq("id", id)
     .single();
-
-  const user_metadata = await supabaseServerClient(ctx)
-    .from("users")
-    .select("raw_user_meta_data")
-    .eq("id", data.user_id);
 
   if (userData.data) {
     should_display = userData?.data?.length > 0 ? true : false;
@@ -245,7 +278,7 @@ export async function getServerSideProps(
       data,
       user,
       should_display,
-      user_metadata: JSON.parse(user_metadata?.data![0]?.raw_user_meta_data),
+      user_meta_data: JSON.parse(data?.user?.raw_user_meta_data),
     },
   };
 }

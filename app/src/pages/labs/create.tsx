@@ -58,6 +58,7 @@ export default function Labs({
             title,
             code,
             user_id: user.id,
+            description,
           })
           .single();
         toast({
