@@ -21,9 +21,9 @@ jobs:
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
-          with:
-            cache: 'npm'
-            node-version: '16'
+        with:
+          cache: "npm"
+          node-version: "16"
       - name: Install dependencies
         run: npm install
       - name: Generate build
@@ -37,9 +37,9 @@ jobs:
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
-          with:
-            cache: 'npm'
-            node-version: '16'
+        with:
+          cache: "npm"
+          node-version: "16"
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
