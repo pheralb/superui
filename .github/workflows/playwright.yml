@@ -16,20 +16,22 @@ jobs:
     runs-on: ubuntu-18.04
     needs: [avoid_reduncy]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Build setup
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Install dependencies
-      - run: npm install
+        run: npm install
       - name: Generate build
-      - run: npm run build
+        run: npm run build
   run_e2e_tests:
     timeout-minutes: 60
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: E2E setup
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Install Playwright Browsers
