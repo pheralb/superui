@@ -2,10 +2,10 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - dev
+      - main
   pull_request:
     branches:
-      - dev
+      - main
 jobs:
   avoid_reduncy:
     runs-on: ubuntu-18.04
