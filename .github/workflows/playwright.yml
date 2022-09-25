@@ -2,7 +2,6 @@ name: Playwright Tests
 
 on:
   deployment_status:
-  workflow_dispatch:
 
 jobs:
   run-e2es:
