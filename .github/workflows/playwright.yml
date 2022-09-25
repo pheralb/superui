@@ -12,5 +12,5 @@ on:
       run: npm ci && npx playwright install --with-deps
     - name: Run tests
       run: npx playwright test
-        env:
-            BASE_URL: ${{ github.event.deployment_status.target_url }}
+      env:
+          BASE_URL: ${{ github.event.deployment_status.target_url }}
