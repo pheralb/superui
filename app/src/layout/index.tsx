@@ -1,7 +1,4 @@
 import Header from "@/components/header";
-import Footer from "@/components/footer";
-import { Box, Container, HStack, VStack } from "@chakra-ui/react";
-import React from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,11 +6,10 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   return (
-    <VStack id="id_layout_vstack" minH="100vh" h="100%">
+    <>
       <Header />
-      {props.children}
-      {/* <Footer /> */}
-    </VStack>
+      <div className="grid w-full px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl lg:gap-8">{props.children}</div>
+    </>
   );
 };
 

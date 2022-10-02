@@ -7,7 +7,7 @@ type DocsItems = {
 };
 
 // Docs Route =>
-export const docsPath = path.join(process.cwd(), "docs");
+export const docsPath = path.join(process.cwd(), "content");
 
 // Get only .mdx files =>
 export const docsFilePaths = fs
