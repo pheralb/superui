@@ -23,9 +23,9 @@ const Document = ({ source, frontMatter }: DocsPageProps) => {
   return (
     <>
       <Head>
-        <title>{frontMatter.title} - Markdown-Guide</title>
+        <title>{frontMatter.title} - SuperUI</title>
       </Head>
-      <article className="prose dark:prose-dark">
+      <article className="prose prose-slate dark:prose-invert">
         <MDXRemote {...source} components={MDXComponents} />
       </article>
     </>
