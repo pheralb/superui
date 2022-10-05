@@ -18,7 +18,7 @@
 - ✅ [Supabase Database](https://supabase.com/docs/guides/database) - save the information of each user-created component.
 
 
-## 💖 Contributors:
+## 💖 Maintainers:
 
 |               | ✌️ Socials                                                                              |
 | ------------- | --------------------------------------------------------------------------------------- |
